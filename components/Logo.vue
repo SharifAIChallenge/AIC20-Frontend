@@ -1,79 +1,23 @@
 <template>
-  <div class="VueToNuxtLogo">
-    <div class="Triangle Triangle--two" />
-    <div class="Triangle Triangle--one" />
-    <div class="Triangle Triangle--three" />
-    <div class="Triangle Triangle--four" />
+  <div class="aic-logo">
+    <div class="d-flex">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 667.22 298.01"><title>Sharif AI Challenge</title>
+        <polygon
+          points="489.32 250.07 577.94 249.56 583.56 228.71 595.39 218.77 595.39 209.5 601.77 201.09 599.26 177.14 617.68 160.26 600.5 116.03 608.11 93.42 597.86 69.06 532.91 46.84 501.28 70.06 501.28 95.44 501.28 109.45 491.79 113 402.71 146.29 459.28 87.7 459.28 48.79 525.74 0 629.27 35.42 652.97 91.75 645.16 115 667.22 171.82 643.24 193.81 645.27 213.25 637.39 223.64 637.39 238.34 620.68 252.37 608.39 298.01 489.32 250.07"/>
+        <g>
+          <path
+            d="M94,104.51q30.29,0,51.7,21.41t21.41,51.7v47l-41.78,41.78v-47H41.78v31.33H0V177.62q0-30.29,21.41-51.7t51.7-21.41Zm31.33,73.11A31.38,31.38,0,0,0,94,146.29H73.11a31.38,31.38,0,0,0-31.33,31.33Z"/>
+          <path d="M219.33,250.73H177.55V130.62l41.78-41.78Z"/>
+          <path
+            d="M302.88,209h94v41.78h-94q-30.29,0-51.7-21.41t-21.41-51.7q0-30.29,21.41-51.7t51.7-21.41H417.76L376,146.29H302.88a31.31,31.31,0,0,0-22.14,53.47A30.18,30.18,0,0,0,302.88,209Z"/>
+        </g>
+      </svg>
+    </div>
   </div>
 </template>
 
 <style>
-.VueToNuxtLogo {
-  display: inline-block;
-  animation: turn 2s linear forwards 1s;
-  transform: rotateX(180deg);
-  position: relative;
-  overflow: hidden;
-  height: 180px;
-  width: 245px;
-}
-
-.Triangle {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0;
-  height: 0;
-}
-
-.Triangle--one {
-  border-left: 105px solid transparent;
-  border-right: 105px solid transparent;
-  border-bottom: 180px solid #41b883;
-}
-
-.Triangle--two {
-  top: 30px;
-  left: 35px;
-  animation: goright 0.5s linear forwards 3.5s;
-  border-left: 87.5px solid transparent;
-  border-right: 87.5px solid transparent;
-  border-bottom: 150px solid #3b8070;
-}
-
-.Triangle--three {
-  top: 60px;
-  left: 35px;
-  animation: goright 0.5s linear forwards 3.5s;
-  border-left: 70px solid transparent;
-  border-right: 70px solid transparent;
-  border-bottom: 120px solid #35495e;
-}
-
-.Triangle--four {
-  top: 120px;
-  left: 70px;
-  animation: godown 0.5s linear forwards 3s;
-  border-left: 35px solid transparent;
-  border-right: 35px solid transparent;
-  border-bottom: 60px solid #fff;
-}
-
-@keyframes turn {
-  100% {
-    transform: rotateX(0deg);
+  .aic-logo {
+    width: 100px;
   }
-}
-
-@keyframes godown {
-  100% {
-    top: 180px;
-  }
-}
-
-@keyframes goright {
-  100% {
-    left: 70px;
-  }
-}
 </style>

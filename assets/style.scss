@@ -1,0 +1,74 @@
+body .v-application .font-family-chopsic {
+  font-family: "Chopsic", serif !important;
+}
+
+svg:not([fill]) {
+  fill: currentColor;
+}
+
+svg {
+  width: 100%;
+}
+
+.p-absolute {
+  position: absolute;
+}
+
+.blur-4 {
+  -webkit-filter: blur(4px);
+  filter: blur(4px);
+}
+
+ body .v-application .text-stroke-width-2 {
+  -webkit-text-stroke-width: 2px;
+  text-stroke-width: 2px;
+  letter-spacing: 0 !important;
+}
+
+body .v-application .text-stroke-width-1 {
+  -webkit-text-stroke-width: 1px;
+  text-stroke-width: 1px;
+  letter-spacing: 0 !important;
+}
+
+.text-stroke-primary {
+  -webkit-text-stroke-color: var(--v-primary-base);
+  text-stroke-color: var(--v-primary-base);
+}
+
+.text-stroke-secondary {
+  -webkit-text-stroke-color: var(--v-secondary-base);
+  text-stroke-color: var(--v-secondary-base);
+}
+
+.text-stroke-accent {
+  -webkit-text-stroke-color: var(--v-accent-base);
+  text-stroke-color: var(--v-accent-base);
+}
+
+.text-stroke-white {
+  -webkit-text-stroke-color: #fff;
+  text-stroke-color: #fff;
+}
+
+.autofill-bg input:-webkit-autofill,
+.autofill-bg select:-webkit-autofill,
+.autofill-bg textarea:-webkit-autofill {
+  -webkit-text-fill-color: var(--v-info-base) !important;
+  -webkit-box-shadow: 0 0 0 100px var(--v-bg-base) inset !important;
+  box-shadow: 0 0 0 100px var(--v-bg-base) inset !important;
+}
+
+::-moz-selection {
+  background-color: var(--v-primary-base) !important; /* Required when declaring ::selection */
+  color: #fff !important;
+}
+
+::selection {
+  background-color: var(--v-primary-base) !important; /* Required when declaring ::selection */
+  color: #fff !important;
+}
+
+html {
+  overflow-y: visible !important;
+}

@@ -1,4 +1,40 @@
 // Ref: https://github.com/nuxt-community/vuetify-module#customvariables
 //
 // The variables you want to modify
-// $font-size-root: 20px;
+$body-font-family: 'Vazir', serif;
+$btn-letter-spacing: 0;
+$material-dark-elevation-colors: (
+  '0': #160031,
+  '1': #230b41,
+  '2': #250d44,
+  '3': #270f46,
+  '4': #281047,
+  '6': #2b124b,
+  '8': #2d134c,
+  '12': #301650,
+  '16': #321853,
+  '24': #321854
+);
+$material-dark: (
+  'background': #160031,
+  'surface': #160031,
+  'bg-color': #160031,
+  'navigation-drawer': map-get($material-dark-elevation-colors, '16'),
+  'toolbar': map-get($material-dark-elevation-colors, '4'),
+  'app-bar': map-get($material-dark-elevation-colors, '4'),
+  'bottom-navigation': map-get($material-dark-elevation-colors, '8'),
+  'cards': map-get($material-dark-elevation-colors, '1'),
+  'calendar': (
+    'background-color': map-get($material-dark-elevation-colors, '4'),
+    'outside-background-color': map-get($material-dark-elevation-colors, '2'),
+    'line-color': map-get($material-dark-elevation-colors, '8'),
+    'interval-color': map-get($material-dark-elevation-colors, '4'),
+    'interval-line-color': map-get($material-dark-elevation-colors, '4'),
+  ),
+
+  //'toolbar': #240154,
+  //'app-bar': #240154
+);
+$btn-outline-border-width: 2px;
+$border-radius-root: 8px;
+//@import '~vuetify/src/styles/styles.sass';

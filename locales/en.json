@@ -1,0 +1,31 @@
+{
+  "form": {
+    "email": "email",
+    "password": "password",
+    "nameInPersian": "name in Persian",
+    "lastNameInPersian": "last name in persian",
+    "nameInEnglish": "name",
+    "lastNameInEnglish": "last name",
+    "birthday": "birthday",
+    "educationPlace": "education place",
+    "signIn": "sign in",
+    "signUp": "sign up",
+    "to": "to",
+    "for": "to",
+    "forgotPassword": "forgot password?",
+    "forgotPasswordH1": "forgot",
+    "forgotPasswordH2": "my password",
+    "sendResetInstructions": "send reset instructions"
+  },
+  "validation": {
+    "email": "email must be valid",
+    "required": "required"
+  },
+  "time": {
+    "month": "month | months",
+    "day": "day | days",
+    "hour": "hour | hours",
+    "minute": "minute | minutes",
+    "second": "second | seconds"
+  }
+}

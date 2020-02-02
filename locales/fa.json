@@ -1,0 +1,31 @@
+{
+  "form": {
+    "email": "ایمیل",
+    "password": "رمز عبور",
+    "nameInPersian": "نام به فارسی",
+    "lastNameInPersian": "نام خانوادگی به فارسی",
+    "nameInEnglish": "نام به انگلیسی",
+    "lastNameInEnglish": "نام خانوادگی به انگلیسی",
+    "birthday": "تاریخ تولد",
+    "educationPlace": "محل تحصیل",
+    "signIn": "ورود",
+    "signUp": "ثبت‌نام",
+    "to": "به",
+    "for": "در",
+    "forgotPassword": "رمز عبور را فراموش کردید؟",
+    "forgotPasswordH1": "رمز عبورم را",
+    "forgotPasswordH2": "فراموش کردم",
+    "sendResetInstructions": "ارسال لینک تغییر رمز عبور"
+  },
+  "validation": {
+    "email": "ایمیل معتبر نیست",
+    "required": "اجباری"
+  },
+  "time": {
+    "month": "ماه",
+    "day": "روز",
+    "hour": "ساعت",
+    "minute": "دقیقه",
+    "second": "ثانیه"
+  }
+}
