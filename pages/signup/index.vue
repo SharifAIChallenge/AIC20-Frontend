@@ -189,6 +189,9 @@
         const config = {
           url: SIGN_UP.url,
           method: SIGN_UP.method,
+          headers: {
+            Authorization: false
+          },
           [SIGN_UP.payload]: {
             email: this.email,
             password_1: this.password,
