@@ -54,8 +54,8 @@ export default {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {
-    browserBaseURL: "/api",
-    baseURL: "http://thebackend_web:8000/api"
+    browserBaseURL: "https://aichallenge.sharif.edu/api",
+    baseURL: "http://172.17.0.1:8000/api"
   },
   /*
    ** vuetify module configuration
