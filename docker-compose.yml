@@ -1,4 +1,4 @@
-version: "3"
+version: '3.3'
 
 services:
   nuxt:
@@ -6,15 +6,15 @@ services:
     container_name: nuxt-app
     restart: always
     ports:
-      - "3333:3333"
+      - "3000:3000"
     command:
       "npm run start"
 
   nginx:
-    image: nginx:1.13
+    image: nginx:latest
     container_name: nuxt-nginx
     ports:
-      - "80:80"
+      - "8585:8585"
     volumes:
       - ./nginx:/etc/nginx/conf.d
     depends_on:
