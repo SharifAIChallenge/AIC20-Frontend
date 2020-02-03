@@ -49,15 +49,17 @@
     <v-content>
       <nuxt/>
     </v-content>
+    <my-footer/>
   </v-app>
 </template>
 
 <script>
   import Logo from "../components/Logo";
   import LogoMark from "../components/LogoMark";
+  import MyFooter from "../components/MyFooter";
 
   export default {
-    components: { Logo, LogoMark },
+    components: { MyFooter, Logo, LogoMark },
     data() {
       return {
         drawer: false,

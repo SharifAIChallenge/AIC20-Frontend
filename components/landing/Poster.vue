@@ -1,5 +1,5 @@
 <template>
-  <v-parallax height="600">
+  <v-parallax height="600" src="/image/bg-dotted.jpg">
     <v-row
       align="center"
       justify="center"
