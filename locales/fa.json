@@ -10,12 +10,18 @@
     "educationPlace": "محل تحصیل",
     "signIn": "ورود",
     "signUp": "ثبت‌نام",
+    "registerNow": "همین حالا ثبت‌نام کن",
     "to": "به",
     "for": "در",
     "forgotPassword": "رمز عبور را فراموش کردید؟",
     "forgotPasswordH1": "رمز عبورم را",
     "forgotPasswordH2": "فراموش کردم",
-    "sendResetInstructions": "ارسال لینک تغییر رمز عبور"
+    "newPassword": "رمز عبور جدید",
+    "confirmNewPassword": "تایید رمز عبور",
+    "changePassword": "تغییر رمز عبور",
+    "change": "تغییر",
+    "sendResetInstructions": "ارسال لینک تغییر رمز عبور",
+    "signOut": "خروج"
   },
   "validation": {
     "email": "ایمیل معتبر نیست",
@@ -27,5 +33,14 @@
     "hour": "ساعت",
     "minute": "دقیقه",
     "second": "ثانیه"
+  },
+  "home": {
+    "tillCompetitionStart": "تا شروع مسابقه",
+    "timeline": "برنامه زمانی",
+    "about": "درباره",
+    "organizer": "برگزارکننده",
+    "sponsors": "حامیان",
+    "trophies": "جوایز",
+    "home": "خانه"
   }
 }

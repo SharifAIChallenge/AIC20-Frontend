@@ -1,10 +1,10 @@
 <template>
   <div>
-    <span class="d-block p-absolute">
+    <div class="d-block p-absolute">
       <slot/>
-    </span>
-    <span class="d-block blur-4">
+    </div>
+    <div class="d-block blur-4">
       <slot/>
-    </span>
+    </div>
   </div>
 </template>

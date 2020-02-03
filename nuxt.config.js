@@ -22,7 +22,10 @@ export default {
   /*
    ** Customize the progress-bar color
    */
-  loading: { color: "#FF5722" },
+  loading: {
+    color: "#FF5722",
+    height: "2px"
+  },
   /*
    ** Global CSS
    */
@@ -50,7 +53,9 @@ export default {
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
-  axios: {},
+  axios: {
+    baseURL: "https://aichallenge.sharif.edu/api"
+  },
   /*
    ** vuetify module configuration
    ** https://github.com/nuxt-community/vuetify-module
@@ -93,5 +98,18 @@ export default {
   },
   router: {
     middleware: ["auth"]
+  },
+  auth: {
+    strategies: {
+      local: {
+        endpoints: {
+          login: { url: '/accounts/login', method: 'post', propertyName: 'token' },
+          logout: { url: '/accounts/logout', method: 'post' },
+          user: { url: '/accounts/profile', method: 'get', propertyName: 'user' }
+        },
+        tokenRequired: true,
+        tokenType: 'token'
+      }
+    }
   }
 };

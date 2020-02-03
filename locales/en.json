@@ -10,12 +10,18 @@
     "educationPlace": "education place",
     "signIn": "sign in",
     "signUp": "sign up",
+    "registerNow": "register now",
     "to": "to",
     "for": "to",
     "forgotPassword": "forgot password?",
     "forgotPasswordH1": "forgot",
     "forgotPasswordH2": "my password",
-    "sendResetInstructions": "send reset instructions"
+    "newPassword": "new password",
+    "confirmNewPassword": "confirm password",
+    "changePassword": "change password",
+    "change": "change",
+    "sendResetInstructions": "send reset instructions",
+    "signOut": "sign out"
   },
   "validation": {
     "email": "email must be valid",
@@ -27,5 +33,14 @@
     "hour": "hour | hours",
     "minute": "minute | minutes",
     "second": "second | seconds"
+  },
+  "home": {
+    "tillCompetitionStart": "till competition start",
+    "timeline": "timeline",
+    "about": "about",
+    "organizer": "organizer",
+    "sponsors": "sponsors",
+    "trophies": "trophies",
+    "home": "home"
   }
 }
