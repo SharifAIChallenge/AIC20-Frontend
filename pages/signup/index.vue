@@ -204,7 +204,6 @@
           }
         };
         let { data } = await this.$axios(config);
-        console.log(data);
         if (data.status_code) {
           if (data.status_code === 200) {
             this.result.message = "ثبت‌نام با موفقیت انجام شد، برای ادامه ایمیل خود را چک کنید.";
