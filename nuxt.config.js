@@ -55,7 +55,7 @@ export default {
    */
   axios: {
     browserBaseURL: "/api",
-    baseURL: "http://localhost:8000/api"
+    baseURL: "http://thebackend_web:8000/api"
   },
   /*
    ** vuetify module configuration
