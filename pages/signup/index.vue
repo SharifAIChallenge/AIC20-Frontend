@@ -39,6 +39,7 @@
                 v-bind="filedProps"
                 autofocus
                 :error="result.errors.firstname_fa"
+                @focus="clearError('firstname_fa')"
               />
             </v-col>
             <v-col class="py-0" cols="12" sm="6">
@@ -50,6 +51,7 @@
                 :rules="requiredRules"
                 v-bind="filedProps"
                 :error="result.errors.lastname_fa"
+                @focus="clearError('lastname_fa')"
               />
             </v-col>
           </v-row>
@@ -65,6 +67,7 @@
                 v-bind="filedProps"
                 dir="ltr"
                 :error="result.errors.firstname_en"
+                @focus="clearError('firstname_en')"
               />
             </v-col>
             <v-col class="py-0" cols="12" sm="6">
@@ -76,7 +79,7 @@
                 v-bind="filedProps"
                 dir="ltr"
                 :error="result.errors.lastname_en"
-
+                @focus="clearError('lastname_en')"
               />
             </v-col>
           </v-row>
@@ -101,6 +104,7 @@
                     @focus="menu=true"
                     dir="ltr"
                     :error="result.errors.birth_date"
+                    @change="clearError('birth_date')"
                   />
                 </template>
                 <v-date-picker
@@ -119,6 +123,7 @@
                 :rules="requiredRules"
                 v-bind="filedProps"
                 :error="result.errors.university"
+                @focus="clearError('university')"
               />
 
               <v-text-field
@@ -130,6 +135,7 @@
                 v-bind="filedProps"
                 dir="ltr"
                 :error="result.errors.email"
+                @focus="clearError('email')"
                 validate-on-blur
               />
 
@@ -238,6 +244,11 @@
             this.result.type = "error";
             this.result.value = true;
           }
+        }
+      },
+      clearError(field) {
+        if (this.result.errors[field]) {
+          this.result.errors[field] = false
         }
       }
     }
