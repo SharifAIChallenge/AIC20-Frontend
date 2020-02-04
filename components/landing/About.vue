@@ -3,7 +3,7 @@
     <v-row align="center">
       <v-col cols="12" md="5">
         <glow class="d-inline-block pe-3">
-            <h2 class="text-stroke-primary text-stroke-width-2 display-4 transparent--text font-weight-black">
+          <h2 class="text-stroke-primary text-stroke-width-2 display-4 transparent--text font-weight-black">
             درباره
           </h2>
         </glow>
@@ -24,15 +24,7 @@
         </glow>
       </v-col>
       <v-col>
-        <div class="pt-8">
-          <p>
-            نبرد هوش مصنوعی شریف یک مسابقه تیمی است که در آن تیم‌ها استراتژی‌های خود را برای پیروزی در یک نبرد استراتژیک
-            طراحی و در قالب کد پیاده‌سازی می‌کنند.
-          </p>
-          <p>
-            هر تیم با استفاده از ایده‌های خلاقانه و استراتژی‌های متفاوت سعی می‌کند یک هوش مصنوعی قدرتمند طراحی کند که تا
-            جای ممکن بر تیم‌های حریف چیره شود و به مرحلهٔ حضوری مسابقات راه پیدا کند.
-          </p>
+        <div class="pt-8" v-html="data.text_fa">
         </div>
       </v-col>
     </v-row>
@@ -43,7 +35,15 @@
   import Glow from "../Glow";
 
   export default {
-    components: { Glow }
+    components: { Glow },
+    props: {
+      data: {
+        default: () => ({
+          text_en: "",
+          text_fa: ""
+        })
+      }
+    }
   };
 </script>
 

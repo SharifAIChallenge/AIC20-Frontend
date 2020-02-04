@@ -3,7 +3,7 @@
     <poster/>
     <countdown/>
     <div class="bg-dotted">
-      <about/>
+      <about :data="intro"/>
     </div>
     <timeline/>
     <div class="bg-dotted">
@@ -24,7 +24,14 @@
   export default {
     auth: false,
     name: "LandingPage",
-    components: { About, Trophies, Organizers, Countdown, Timeline, Poster }
+    components: { About, Trophies, Organizers, Countdown, Timeline, Poster },
+    async asyncData({ $axios }) {
+      let { data } = await $axios.get("/")
+      return {
+        intro: data.intro,
+        why: data.why
+      }
+    }
   };
 </script>
 
