@@ -1,8 +1,8 @@
 {
   "name": "AIChallenge",
   "version": "1.0.0",
-  "description": "AI Challenge App",
-  "author": "HamedAMZ",
+  "description": "دوازدهمین نبرد هوش مصنوعی شریف",
+  "author": "AI Challenge 2020",
   "private": true,
   "scripts": {
     "dev": "nuxt",
