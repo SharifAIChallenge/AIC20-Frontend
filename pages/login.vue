@@ -49,7 +49,7 @@
             {{ result.message }}
           </v-alert>
 
-          <v-btn :disabled="!valid" type="submit" v-bind="primaryButtonProps">
+          <v-btn :disabled="!valid" :loading="loading" type="submit" v-bind="primaryButtonProps">
             <v-icon left>mdi-shield-star-outline</v-icon>
             {{ $t("form.signIn") }}
           </v-btn>
@@ -79,17 +79,21 @@
           value: false,
           type: "success",
           message: ""
-        }
+        },
+        loading: false
       };
     },
     methods: {
       login() {
+        this.loading = true;
         this.$auth.loginWith("local", {
           data: {
             username: this.email,
             password: this.password
           }
-        }).then(() => {
+        }).then(() => this.loading = false)
+          .catch(() => {
+          this.loading = false;
           if (!this.$auth.loggedIn) {
             this.result.message = "ایمیل وجود ندارد یا رمز عبور اشتباه است.";
             this.result.type = "error";

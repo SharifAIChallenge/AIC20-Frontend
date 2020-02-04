@@ -38,6 +38,7 @@
                 :rules="requiredRules"
                 v-bind="filedProps"
                 autofocus
+                :error="result.errors.firstname_fa"
               />
             </v-col>
             <v-col class="py-0" cols="12" sm="6">
@@ -48,6 +49,7 @@
                 required
                 :rules="requiredRules"
                 v-bind="filedProps"
+                :error="result.errors.lastname_fa"
               />
             </v-col>
           </v-row>
@@ -62,6 +64,7 @@
                 :rules="requiredRules"
                 v-bind="filedProps"
                 dir="ltr"
+                :error="result.errors.firstname_en"
               />
             </v-col>
             <v-col class="py-0" cols="12" sm="6">
@@ -72,6 +75,8 @@
                 :rules="requiredRules"
                 v-bind="filedProps"
                 dir="ltr"
+                :error="result.errors.lastname_en"
+
               />
             </v-col>
           </v-row>
@@ -82,7 +87,6 @@
                 ref="dialog"
                 v-model="menu"
                 :return-value.sync="birthday"
-                persistent
                 width="290px"
               >
                 <template v-slot:activator="{ on }">
@@ -94,7 +98,9 @@
                     :label="$t('form.birthday')"
                     readonly
                     v-on="on"
+                    @focus="menu=true"
                     dir="ltr"
+                    :error="result.errors.birth_date"
                   />
                 </template>
                 <v-date-picker
@@ -112,6 +118,7 @@
                 required
                 :rules="requiredRules"
                 v-bind="filedProps"
+                :error="result.errors.university"
               />
 
               <v-text-field
@@ -122,6 +129,7 @@
                 required
                 v-bind="filedProps"
                 dir="ltr"
+                :error="result.errors.email"
                 validate-on-blur
               />
 
@@ -131,7 +139,7 @@
                 {{ result.message }}
               </v-alert>
 
-              <v-btn :disabled="!valid" type="submit" v-bind="primaryButtonProps">
+              <v-btn :disabled="!valid" :loading="loading" type="submit" v-bind="primaryButtonProps">
                 <v-icon left>mdi-shield-plus-outline</v-icon>
                 {{ $t("form.signUp") }}
               </v-btn>
@@ -155,7 +163,7 @@
     layout: "form",
     mixins: [requiredRules, emailRules, primaryButtonProps, fieldProps],
     components: { PasswordInput, Glow },
-    auth: false,
+    auth: "guest",
     data() {
       return {
         valid: false,
@@ -171,8 +179,10 @@
         result: {
           value: false,
           type: "success",
-          message: ""
-        }
+          message: "",
+          errors: {}
+        },
+        loading: false
       };
     },
     watch: {
@@ -206,7 +216,9 @@
             }
           }
         };
+        this.loading = true;
         let { data } = await this.$axios(config);
+        this.loading = false;
         if (data.status_code) {
           if (data.status_code === 200) {
             this.result.message = "ثبت‌نام با موفقیت انجام شد، برای ادامه ایمیل خود را چک کنید.";
@@ -214,6 +226,14 @@
             this.result.value = true;
             this.$refs.form.reset();
           } else {
+            this.errors = {};
+            this.errors = Object.keys(data.detail).forEach(x => {
+              if (x === "profile") {
+                Object.keys(data.detail.profile).forEach(y => this.$set(this.result.errors, y, true));
+              } else {
+                this.$set(this.result.errors, x, true);
+              }
+            });
             this.result.message = "ثبت‌نام با خطا مواجه شد.";
             this.result.type = "error";
             this.result.value = true;
