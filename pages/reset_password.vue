@@ -44,7 +44,7 @@
             </v-row>
           </v-alert>
 
-          <v-btn :disabled="!valid" :loading="loading" type="submit" v-bind="primaryButtonProps">
+          <v-btn :disabled="!valid || new_password1 !== new_password2" :loading="loading" type="submit" v-bind="primaryButtonProps">
             <v-icon left>mdi-shield-refresh-outline</v-icon>
             {{ $t("form.changePassword") }}
           </v-btn>
