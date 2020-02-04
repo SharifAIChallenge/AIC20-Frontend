@@ -11,7 +11,7 @@ svg {
 }
 
 .p-absolute {
-  position: absolute;
+  position: absolute !important;
 }
 
 .blur-4 {
@@ -76,4 +76,8 @@ body .v-application .text-stroke-width-1 {
 
 html {
   overflow-y: visible !important;
+}
+
+iframe {
+  border: none;
 }
