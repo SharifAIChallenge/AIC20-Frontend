@@ -3,7 +3,7 @@
     <poster/>
     <countdown/>
     <div class="bg-dotted">
-      <about :data="intro"/>
+      <about :text="intro"/>
     </div>
     <timeline/>
     <div class="bg-dotted">
@@ -25,10 +25,16 @@
     auth: false,
     name: "LandingPage",
     components: { About, Trophies, Organizers, Countdown, Timeline, Poster },
+    data() {
+      return {
+        intro: "",
+        why: ""
+      }
+    },
     async asyncData({ $axios }) {
       let { data } = await $axios.get("/")
       return {
-        intro: data.intro,
+        intro: data.intro.text_fa,
         why: data.why
       }
     }

@@ -24,7 +24,7 @@
         </glow>
       </v-col>
       <v-col>
-        <div class="pt-8" v-html="data.text_fa">
+        <div class="pt-8" v-html="text">
         </div>
       </v-col>
     </v-row>
@@ -36,14 +36,7 @@
 
   export default {
     components: { Glow },
-    props: {
-      data: {
-        default: () => ({
-          text_en: "",
-          text_fa: ""
-        })
-      }
-    }
+    props: ["text"]
   };
 </script>
 
