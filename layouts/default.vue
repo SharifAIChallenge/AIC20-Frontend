@@ -66,6 +66,10 @@
         drawer: false,
         items: [
           {
+            title: "home.about",
+            scroll: "#about"
+          },
+          {
             title: "home.timeline",
             scroll: "#timeline"
           },
