@@ -20,7 +20,7 @@
       <v-card-text class="white--text align-center justify-space-between d-flex mx-sm-3">
         <logo-mark/>
         <div>
-        {{ new Date().getFullYear() }} — <strong>AI Challenge @ SCC</strong>
+        {{ new Date().getFullYear() }} — <strong>AI Challenge @ SSC</strong>
         </div>
       </v-card-text>
   </v-footer>
