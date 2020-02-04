@@ -20,7 +20,7 @@
           </template>
           <v-card>
             <v-card-title
-              :class="`headline font-weight-bold ${year.color}--text`"
+              class="headline font-weight-bold primary--text"
               v-text="year.year"
             ></v-card-title>
             <v-card-title class="headline">{{ year.title }}</v-card-title>
@@ -43,19 +43,19 @@
       return {
         years: [
           {
-            color: "primary",
+            color: "secondary",
             year: "۱۴ بهمن",
             title: "شروع ثبت‌نام",
             caption: ""
           },
           {
-            color: "primary",
+            color: "secondary",
             year: "۲۶ بهمن",
             title: "شروع مسابقه",
             caption: ""
           },
           {
-            color: "primary",
+            color: "secondary",
             year: "۲۲ و ۲۳ اسفند",
             title: "مرحله حضوری",
             caption: ""

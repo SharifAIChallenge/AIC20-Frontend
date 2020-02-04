@@ -8,17 +8,17 @@
           </h2>
         </glow>
         <glow class="d-inline-block">
-            <span class="white--text display-2 font-weight-black">
+            <span class="white--text display-2 font-weight-bold">
             نبرد
           </span>
         </glow>
         <glow class="py-3">
-            <span class="white--text display-2 font-weight-black">
+            <span class="white--text display-2 font-weight-bold">
             هوش مصنوعی
           </span>
         </glow>
         <glow>
-            <span class="white--text display-2 font-weight-black">
+            <span class="white--text display-2 font-weight-bold">
             شریف
           </span>
         </glow>

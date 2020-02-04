@@ -23,9 +23,9 @@
         </v-col>
       </glow>
     </v-row>
-    <v-row v-if="!$auth.loggedIn" class="justify-center">
+    <v-row class="justify-center">
       <div>
-        <v-btn rounded x-large light color="primary" to="/signup" block>
+        <v-btn v-if="!$auth.loggedIn" rounded x-large light color="primary" to="/signup" block>
           <v-icon left>mdi-rocket</v-icon>
           {{ $t("form.registerNow") }}
         </v-btn>
