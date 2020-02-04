@@ -42,9 +42,10 @@
 
           <password-input v-model="password"/>
 
-          <!--          <div class="mb-5">-->
-          <!--            <nuxt-link to="/forgot_password">{{ $t("form.forgotPassword") }}</nuxt-link>-->
-          <!--          </div>-->
+          <div class="mb-5">
+            <nuxt-link to="/forgot_password">{{ $t("form.forgotPassword") }}</nuxt-link>
+          </div>
+
           <v-alert :type="result.type" :value="result.value" text outlined>
             {{ result.message }}
           </v-alert>

@@ -4,3 +4,24 @@ export const SIGN_UP = {
   payload: "data",
   url: "/accounts/signup"
 };
+
+export const RESET_PASSWORD = {
+  name: "RESET_PASSWORD",
+  method: "post",
+  payload: "data",
+  url: "/accounts/password/reset"
+};
+
+export const RESET_PASSWORD_CONFIRM = {
+  name: "RESET_PASSWORD_CONFIRM",
+  method: "post",
+  payload: "data",
+  url: "/accounts/password/reset/confirm"
+};
+
+export const CHANGE_PASSWORD = {
+  name: "CHANGE_PASSWORD",
+  method: "post",
+  payload: "data",
+  url: "/accounts/password/change"
+};

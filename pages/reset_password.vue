@@ -21,7 +21,7 @@
           </span>
           </glow>
         </v-row>
-        <v-form ref="form" v-model="valid"  @submit="login" onSubmit="return false;">
+        <v-form ref="form" v-model="valid"  @submit="resetPasswordConfirm" onSubmit="return false;">
 
           <password-input v-model="new_password1" label="form.newPassword" @vis-change="val => show = val"/>
 
@@ -35,7 +35,16 @@
             dir="ltr"
           />
 
-          <v-btn :disabled="!valid" @click="" v-bind="primaryButtonProps">
+          <v-alert :type="result.type" :value="result.value" text outlined>
+            <v-row align="center">
+              <v-col class="grow">{{ result.message }}</v-col>
+              <v-col v-if="result.action" class="shrink">
+                <v-btn color="success" small rounded depressed to="/login">{{ $t("form.signIn") }}</v-btn>
+              </v-col>
+            </v-row>
+          </v-alert>
+
+          <v-btn :disabled="!valid" :loading="loading" type="submit" v-bind="primaryButtonProps">
             <v-icon left>mdi-shield-refresh-outline</v-icon>
             {{ $t("form.changePassword") }}
           </v-btn>
@@ -51,21 +60,64 @@
   import { fieldProps } from "../mixins/fieldProps";
   import Glow from "../components/Glow";
   import PasswordInput from "../components/PasswordInput";
+  import { RESET_PASSWORD, RESET_PASSWORD_CONFIRM } from "../api";
 
   export default {
-    auth: false,
+    auth: "guest",
     layout: "form",
     mixins: [requiredRules, primaryButtonProps, fieldProps],
     components: { PasswordInput, Glow },
+    validate({ query }) {
+      return query.uid && query.token
+    },
     data() {
       return {
         valid: false,
         new_password1: "",
         new_password2: "",
-        show: false
+        show: false,
+        result: {
+          value: false,
+          type: "success",
+          message: "",
+          action: false
+        },
+        loading: false
       };
     },
-    methods: {}
+    methods: {
+      async resetPasswordConfirm() {
+        const config = {
+          url: RESET_PASSWORD_CONFIRM.url,
+          method: RESET_PASSWORD_CONFIRM.method,
+          headers: {
+            Authorization: false
+          },
+          [RESET_PASSWORD_CONFIRM.payload]: {
+            new_password1: this.new_password1,
+            new_password2: this.new_password2,
+            uid: this.$route.query.uid,
+            token: this.$route.query.token
+          }
+        };
+        this.loading = true;
+        let { data } = await this.$axios(config);
+        this.loading = false;
+        if (data.status_code) {
+          if (data.status_code === 200) {
+            this.result.message = "رمز عبور با موفقیت تغییر یافت.";
+            this.result.type = "success";
+            this.result.value = true;
+            this.result.action = true;
+            this.$refs.form.reset();
+          } else {
+            this.result.message = "خطا";
+            this.result.type = "error";
+            this.result.value = true;
+          }
+        }
+      }
+    }
   };
 </script>
 

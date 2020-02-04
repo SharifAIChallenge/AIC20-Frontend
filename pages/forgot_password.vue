@@ -20,7 +20,7 @@
           </glow>
         </v-row>
 
-        <v-form ref="form" v-model="valid"  @submit="login" onSubmit="return false;">
+        <v-form ref="form" v-model="valid"  @submit="resetPassword" onSubmit="return false;">
           <v-text-field
             v-model="email"
             :label="$t('form.email')"
@@ -30,10 +30,13 @@
             v-bind="filedProps"
             dir="ltr"
             autofocus
-            validate-on-blur
           />
 
-          <v-btn :disabled="!valid" v-bind="primaryButtonProps">
+          <v-alert :type="result.type" :value="result.value" text outlined>
+            {{ result.message }}
+          </v-alert>
+
+          <v-btn :disabled="!valid" :loading="loading" type="submit" v-bind="primaryButtonProps">
             {{ $t("form.sendResetInstructions") }}
           </v-btn>
         </v-form>
@@ -47,17 +50,53 @@
   import { primaryButtonProps } from "../mixins/buttonProps";
   import { fieldProps } from "../mixins/fieldProps";
   import Glow from "../components/Glow";
+  import { RESET_PASSWORD, SIGN_UP } from "../api";
 
   export default {
-    auth: false,
+    auth: "guest",
     layout: "form",
     mixins: [requiredRules, emailRules, primaryButtonProps, fieldProps],
     components: { Glow },
     data() {
       return {
         valid: false,
-        email: ""
+        email: "",
+        result: {
+          value: false,
+          type: "success",
+          message: ""
+        },
+        loading: false
       };
+    },
+    methods: {
+      async resetPassword() {
+        const config = {
+          url: RESET_PASSWORD.url,
+          method: RESET_PASSWORD.method,
+          headers: {
+            Authorization: false
+          },
+          [RESET_PASSWORD.payload]: {
+            email: this.email
+          }
+        };
+        this.loading = true;
+        let { data } = await this.$axios(config);
+        this.loading = false;
+        if (data.status_code) {
+          if (data.status_code === 200) {
+            this.result.message = "لینک تغییر رمز عبور به ایمیل شما ارسال شد.";
+            this.result.type = "success";
+            this.result.value = true;
+            this.$refs.form.reset();
+          } else {
+            this.result.message = "خطا";
+            this.result.type = "error";
+            this.result.value = true;
+          }
+        }
+      },
     }
   };
 </script>
