@@ -2,6 +2,9 @@
   <div>
     <poster/>
     <countdown/>
+    <div class="bg-dotted">
+      <about/>
+    </div>
     <timeline/>
     <div class="bg-dotted">
       <trophies/>
@@ -16,11 +19,12 @@
   import Countdown from "./Countdown";
   import Organizers from "./Organizers";
   import Trophies from "./Trophies";
+  import About from "./About";
 
   export default {
     auth: false,
     name: "LandingPage",
-    components: { Trophies, Organizers, Countdown, Timeline, Poster }
+    components: { About, Trophies, Organizers, Countdown, Timeline, Poster }
   };
 </script>
 

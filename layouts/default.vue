@@ -19,6 +19,7 @@
       </v-list>
     </v-navigation-drawer>
     <v-app-bar app fixed hide-on-scroll flat height="100" class="px-sm-3">
+      <h1 class="d-none">Sharif AI Challenge نبرد هوش مصنوعی شریف</h1>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" class="me-2 hidden-md-and-up"/>
       <nuxt-link to="/" class="white--text">
         <logo class="hidden-xs-only"/>
