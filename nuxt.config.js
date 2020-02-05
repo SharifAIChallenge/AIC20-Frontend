@@ -24,7 +24,7 @@ export default {
    */
   loading: {
     color: "#FF5722",
-    height: "2px"
+    height: "3px"
   },
   /*
    ** Global CSS
@@ -111,6 +111,7 @@ export default {
         tokenRequired: true,
         tokenType: 'token'
       }
-    }
+    },
+    resetOnError: true
   }
 };

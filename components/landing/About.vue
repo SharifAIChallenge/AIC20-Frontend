@@ -18,7 +18,7 @@
           </span>
         </glow>
         <glow>
-            <span class="white--text display-2 font-weight-bold">
+            <span class="transparent--text text-stroke-white text-stroke-width-2 display-3 font-weight-black">
             شریف
           </span>
         </glow>
