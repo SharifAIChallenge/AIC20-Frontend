@@ -60,12 +60,11 @@ body .v-application .text-stroke-width-1 {
 }
 
 .bg-dotted {
-  background-image: url("/image/bg-dotted.jpg");
-  background-position: bottom center;
+  background: var(--v-bg-base) url("/image/bg-dotted.jpg") bottom center !important;
 }
 
 ::-moz-selection {
-  background-color: var(--v-primary-base) !important; /* Required when declaring ::selection */
+  background-color: var(--v-primary-base) !important;
   color: #fff !important;
 }
 
