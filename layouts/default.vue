@@ -5,6 +5,7 @@
       app
       right
       disable-resize-watcher
+      floating
     >
       <v-list rounded nav>
         <v-list-item

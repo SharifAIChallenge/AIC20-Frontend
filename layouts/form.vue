@@ -5,8 +5,6 @@
         <logo/>
 <!--        <logo-mark />-->
       </nuxt-link>
-      <v-spacer/>
-      <nuxt name="nav"/>
     </v-app-bar>
     <v-content>
       <v-container fluid>
