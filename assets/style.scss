@@ -63,6 +63,10 @@ body .v-application .text-stroke-width-1 {
   background: var(--v-bg-base) url("/image/bg-dotted.jpg") bottom center !important;
 }
 
+.bg-decorated {
+  background: var(--v-bg-base) url("/image/bg-decorated.jpg") bottom center !important;
+}
+
 ::-moz-selection {
   background-color: var(--v-primary-base) !important;
   color: #fff !important;

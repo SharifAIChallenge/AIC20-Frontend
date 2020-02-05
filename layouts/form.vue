@@ -1,5 +1,5 @@
 <template>
-  <v-app class="bg-dotted">
+  <v-app class="bg-decorated">
     <v-app-bar absolute hide-on-scroll flat collapse height="100" min-width="140">
       <nuxt-link to="/" class="white--text">
         <logo/>
