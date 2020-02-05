@@ -9,6 +9,7 @@
     <div class="bg-dotted">
       <trophies/>
     </div>
+    <why-ai :why="why"/>
     <organizers/>
   </div>
 </template>
@@ -20,11 +21,13 @@
   import Organizers from "./Organizers";
   import Trophies from "./Trophies";
   import About from "./About";
+  // import Faq from "./Faq";
+  import WhyAi from "./WhyAi";
 
   export default {
     auth: false,
     name: "LandingPage",
-    components: { About, Trophies, Organizers, Countdown, Timeline, Poster },
+    components: { WhyAi, About, Trophies, Organizers, Countdown, Timeline, Poster },
     data() {
       return {
         intro: "",
