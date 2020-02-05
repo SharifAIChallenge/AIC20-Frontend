@@ -32,7 +32,7 @@
       }
     },
     async asyncData({ $axios }) {
-      let { data } = await $axios.get("/")
+      let data = await $axios.$get("/", {headers: {Authorization: false}});
       return {
         intro: data.intro.text_fa,
         why: data.why
