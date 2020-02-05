@@ -3,7 +3,7 @@
     <v-row align="center">
       <v-col cols="12" md="5">
         <glow class="d-inline-block pe-3">
-          <h2 id="about" class="text-stroke-primary text-stroke-width-2 display-4 transparent--text font-weight-black">
+          <h2 id="whyai" class="text-stroke-primary text-stroke-width-2 display-4 transparent--text font-weight-black">
             چرا
           </h2>
         </glow>

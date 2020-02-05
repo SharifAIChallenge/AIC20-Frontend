@@ -78,6 +78,10 @@
             scroll: "#trophies"
           },
           {
+            title: "home.whyUs",
+            scroll: "#whyai"
+          },
+          {
             title: "home.organizer",
             scroll: "#organizer"
           }
