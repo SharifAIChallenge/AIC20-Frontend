@@ -10,7 +10,10 @@
       <trophies/>
     </div>
     <why-ai :why="why"/>
-    <organizers/>
+    <div class="bg-dotted">
+      <organizers/>
+    </div>
+    <quotes :quotes="quotes"/>
   </div>
 </template>
 
@@ -23,23 +26,26 @@
   import About from "./About";
   // import Faq from "./Faq";
   import WhyAi from "./WhyAi";
+  import Quotes from "./Quotes";
 
   export default {
     auth: false,
     name: "LandingPage",
-    components: { WhyAi, About, Trophies, Organizers, Countdown, Timeline, Poster },
+    components: { WhyAi, About, Trophies, Organizers, Countdown, Timeline, Poster, Quotes },
     data() {
       return {
         intro: "",
-        why: ""
-      }
+        why: "",
+        quotes: ""
+      };
     },
     async asyncData({ $axios }) {
-      let data = await $axios.$get("/", {headers: {Authorization: false}});
+      let data = await $axios.$get("/", { headers: { Authorization: false } });
       return {
         intro: data.intro.text_fa,
-        why: data.why
-      }
+        why: data.why,
+        quotes: data.quotes
+      };
     }
   };
 </script>
