@@ -51,6 +51,10 @@ body .v-application .text-stroke-width-1 {
   text-stroke-color: #fff;
 }
 
+.dashboard .v-card {
+  border-radius: 24px !important;
+}
+
 .autofill-bg input:-webkit-autofill,
 .autofill-bg select:-webkit-autofill,
 .autofill-bg textarea:-webkit-autofill {
