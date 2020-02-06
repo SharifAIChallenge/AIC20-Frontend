@@ -26,15 +26,24 @@ $material-dark: (
   'bottom-navigation': map-get($material-dark-elevation-colors, '8'),
   'cards': map-get($material-dark-elevation-colors, '4'),
   'calendar': (
-    'background-color': map-get($material-dark-elevation-colors, '4'),
-    'outside-background-color': map-get($material-dark-elevation-colors, '2'),
-    'line-color': map-get($material-dark-elevation-colors, '8'),
-    'interval-color': map-get($material-dark-elevation-colors, '4'),
-    'interval-line-color': map-get($material-dark-elevation-colors, '4'),
+    'background-color': map-get($material-dark-elevation-colors, '12'),
+    'outside-background-color': map-get($material-dark-elevation-colors, '1'),
+    'line-color': map-get($material-dark-elevation-colors, '16'),
+    'interval-color': map-get($material-dark-elevation-colors, '24'),
+    'interval-line-color': map-get($material-dark-elevation-colors, '12'),
   ),
-
-  //'toolbar': #240154,
-  //'app-bar': #240154
+  'picker': (
+    'body': map-get($material-dark-elevation-colors, '16'),
+    'clock': map-get($material-dark-elevation-colors, '16'),
+    'indeterminateTime': map-get($material-dark-elevation-colors, '12'),
+    'title': map-get($material-dark-elevation-colors, '16')
+  ),
+  'table': (
+    'active': map-get($material-dark-elevation-colors, '12'),
+    'hover': map-get($material-dark-elevation-colors, '16'),
+    'group': map-get($material-dark-elevation-colors, '16')
+  ),
+  'chips': map-get($material-dark-elevation-colors, '24')
 );
 $btn-outline-border-width: 2px;
 $border-radius-root: 10px;
