@@ -8,6 +8,11 @@
       floating
     >
       <v-list rounded nav>
+        <v-list-item to="/dashboard" nuxt class="d-sm-none">
+          <v-list-item-content>
+            <v-list-item-title v-text="$t('dashboard.dashboard')"/>
+          </v-list-item-content>
+        </v-list-item>
         <v-list-item
           v-for="(item, i) in items"
           :key="i"
@@ -39,14 +44,16 @@
           {{ $t(item.title) }}
         </v-btn>
       </v-row>
-      <v-btn v-if="$auth.loggedIn" rounded outlined depressed light large color="white" @click="$auth.logout()">
-        <v-icon left color="primary">mdi-shield-remove</v-icon>
-        {{ $t("form.signOut") }}
+      <v-btn v-if="$auth.loggedIn" rounded outlined depressed light large color="white" to="/dashboard"
+             class="hidden-xs-only">
+        <v-icon left color="primary">mdi-view-dashboard</v-icon>
+        {{ $t("dashboard.dashboard") }}
       </v-btn>
       <v-btn v-else rounded outlined depressed light large color="white" to="/login">
         <v-icon left color="primary">mdi-shield-star</v-icon>
         {{ $t("form.signIn") }}
       </v-btn>
+      <account-menu v-if="$auth.loggedIn" mobile class="ms-3 me-0"/>
     </v-app-bar>
     <v-content>
       <nuxt/>
@@ -59,9 +66,10 @@
   import Logo from "../components/Logo";
   import LogoMark from "../components/LogoMark";
   import MyFooter from "../components/MyFooter";
+  import AccountMenu from "../components/AccountMenu";
 
   export default {
-    components: { MyFooter, Logo, LogoMark },
+    components: { AccountMenu, MyFooter, Logo, LogoMark },
     data() {
       return {
         drawer: false,
