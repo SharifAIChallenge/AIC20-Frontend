@@ -1,3 +1,4 @@
+//accounts
 export const SIGN_UP = {
   name: "SIGN_UP",
   method: "post",
@@ -24,4 +25,11 @@ export const CHANGE_PASSWORD = {
   method: "post",
   payload: "data",
   url: "/accounts/password/change"
+};
+
+export const EDIT_PROFILE = {
+  name: "EDIT_PROFILE",
+  method: "put",
+  payload: "data",
+  url: "/accounts/profile"
 };
