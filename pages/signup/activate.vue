@@ -35,7 +35,7 @@
   import Glow from "../../components/Glow";
 
   export default {
-    auth: false,
+    auth: "guest",
     layout: "form",
     components: { Glow },
     data() {
