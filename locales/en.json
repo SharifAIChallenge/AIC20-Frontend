@@ -16,12 +16,14 @@
     "forgotPassword": "forgot password?",
     "forgotPasswordH1": "forgot",
     "forgotPasswordH2": "my password",
+    "currentPassword": "current password",
     "newPassword": "new password",
     "confirmNewPassword": "confirm password",
     "changePassword": "change password",
     "change": "change",
     "sendResetInstructions": "send reset instructions",
-    "signOut": "sign out"
+    "signOut": "sign out",
+    "edit": "edit"
   },
   "validation": {
     "email": "email must be valid",
@@ -45,5 +47,18 @@
     "watchTeaser": "watch the teaser,",
     "faq": "FAQ",
     "whyUs": "why us"
+  },
+  "dashboard": {
+    "home": "home",
+    "dashboard": "dashboard",
+    "settings": "settings",
+    "team": "team",
+    "submissions": "submissions",
+    "resources": "resources",
+    "content": "content",
+    "scoreboard": "scoreboard",
+    "updates": "updates",
+    "gettingStarted": "getting started",
+    "editProfile": "edit profile"
   }
 }

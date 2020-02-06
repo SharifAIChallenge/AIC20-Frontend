@@ -16,12 +16,14 @@
     "forgotPassword": "رمز عبور را فراموش کردید؟",
     "forgotPasswordH1": "رمز عبورم را",
     "forgotPasswordH2": "فراموش کردم",
+    "currentPassword": "رمز عبور فعلی",
     "newPassword": "رمز عبور جدید",
-    "confirmNewPassword": "تایید رمز عبور",
+    "confirmNewPassword": "تایید رمز عبور جدید",
     "changePassword": "تغییر رمز عبور",
     "change": "تغییر",
     "sendResetInstructions": "ارسال لینک تغییر رمز عبور",
-    "signOut": "خروج"
+    "signOut": "خروج",
+    "edit": "ویرایش"
   },
   "validation": {
     "email": "ایمیل معتبر نیست",
@@ -45,5 +47,18 @@
     "watchTeaser": "تماشای تیزر",
     "faq": "سوالات متداول",
     "whyUs": "چرا نبرد هوش مصنوعی"
+  },
+  "dashboard": {
+    "home": "خانه",
+    "dashboard": "داشبورد",
+    "settings": "تنظیمات",
+    "team": "تیم",
+    "submissions": "ارسال کد",
+    "resources": "منابع",
+    "content": "محتوای آموزشی",
+    "scoreboard": "جدول امتیازات",
+    "updates": "اعلان‌ها",
+    "gettingStarted": "راهنمای شروع",
+    "editProfile": "ویرایش پروفایل"
   }
 }
