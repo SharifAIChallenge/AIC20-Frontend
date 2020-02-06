@@ -3,6 +3,7 @@
 // The variables you want to modify
 $body-font-family: 'Vazir', serif;
 $btn-letter-spacing: 0;
+$tabs-item-letter-spacing: 0;
 $material-dark-elevation-colors: (
   '0': #160031,
   '1': #230b41,
@@ -23,7 +24,7 @@ $material-dark: (
   'toolbar': map-get($material-dark-elevation-colors, '4'),
   'app-bar': map-get($material-dark-elevation-colors, '4'),
   'bottom-navigation': map-get($material-dark-elevation-colors, '8'),
-  'cards': map-get($material-dark-elevation-colors, '1'),
+  'cards': map-get($material-dark-elevation-colors, '4'),
   'calendar': (
     'background-color': map-get($material-dark-elevation-colors, '4'),
     'outside-background-color': map-get($material-dark-elevation-colors, '2'),
