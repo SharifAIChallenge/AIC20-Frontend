@@ -9,9 +9,11 @@
 <script>
   import Updates from "../../components/dashboard/Updates";
   import DashboardPage from "../../components/dashboard/DashboardPage";
+  import dashboardPageValidate from "../../mixins/dashboardPageValidate";
   export default {
     layout: "dashboard",
-    components: { DashboardPage, Updates }
+    components: { DashboardPage, Updates },
+    mixins: [dashboardPageValidate("updates")]
   };
 </script>
 
