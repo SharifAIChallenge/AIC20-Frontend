@@ -21,8 +21,6 @@
             $t("home.sponsors") }}</h2>
         </glow>
         <v-row align="stretch" class="justify-center justify-md-start">
-<!--              <v-img src="/image/Alibaba.png" max-height="100" contain/>-->
-<!--              <v-img src="/image/Tapsi.png" max-height="100" contain/>-->
           <v-col cols="4" sm="3" md="3">
             <v-card color="white" class="pa-1">
               <img src="/image/Alibaba.png" style="max-width: 100%; border-radius: 0!important;"/>
@@ -31,13 +29,6 @@
           <v-col cols="4" sm="3" md="3">
             <v-card color="white" class="pa-1 fill-height d-flex align-center">
               <img src="/image/Tapsi.png" style="max-width: 100%; border-radius: 0!important;"/>
-            </v-card>
-          </v-col>
-        </v-row>
-        <v-row class="justify-center justify-md-start">
-          <v-col cols="3" sm="2" md="2">
-            <v-card color="white" class="pa-3 fill-height d-flex align-center">
-              <img src="/image/Aparat.png" style="max-width: 100%; border-radius: 0!important;"/>
             </v-card>
           </v-col>
         </v-row>
