@@ -67,6 +67,13 @@
     "gameStats": "game statistics",
     "performance": "",
     "wins": "win | wins",
-    "loss": "loss"
+    "loss": "loss",
+    "createTeam": "create team",
+    "inviteTeammates": "invite teammates",
+    "sendInvitation": "send invitation",
+    "findTeammates": "find teammates",
+    "receivedInvitations": "received invitations",
+    "sentInvitations": "sent invitations",
+    "acceptInvitation": "accept invitation"
   }
 }

@@ -67,6 +67,13 @@
     "gameStats": "آمار بازی‌ها",
     "performance": "عملکرد",
     "wins": "برد",
-    "loss": "باخت‌"
+    "loss": "باخت‌",
+    "createTeam": "تشکیل تیم",
+    "inviteTeammates": "دعوت هم‌تیمی",
+    "sendInvitation": "ارسال دعوت نامه",
+    "findTeammates": "پیدا کردن هم‌تیمی",
+    "receivedInvitations": "دعوت‌نامه‌های دریافتی",
+    "sentInvitations": "دعوت‌نامه‌های ارسالی",
+    "acceptInvitation": "قبول کردن دعوت"
   }
 }
