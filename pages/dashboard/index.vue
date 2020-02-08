@@ -38,8 +38,8 @@
 
 <script>
   import Updates from "../../components/dashboard/Updates";
-  import GamesStat from "../../components/dashboard/GamesStat";
-  import Performance from "../../components/dashboard/Performance";
+  import GamesStat from "../../components/dashboard/home/GamesStat";
+  import Performance from "../../components/dashboard/home/Performance";
 
   export default {
     components: { Performance, GamesStat, Updates },

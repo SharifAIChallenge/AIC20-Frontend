@@ -28,11 +28,11 @@
 </template>
 
 <script>
-  import { requiredRules } from "../../mixins/formValidations";
-  import { primaryButtonProps } from "../../mixins/buttonProps";
-  import { fieldProps } from "../../mixins/fieldProps";
-  import PasswordInput from "../PasswordInput";
-  import { CHANGE_PASSWORD } from "../../api";
+  import { requiredRules } from "../../../mixins/formValidations";
+  import { primaryButtonProps } from "../../../mixins/buttonProps";
+  import { fieldProps } from "../../../mixins/fieldProps";
+  import PasswordInput from "../../PasswordInput";
+  import { CHANGE_PASSWORD } from "../../../api";
 
   export default {
     auth: "guest",

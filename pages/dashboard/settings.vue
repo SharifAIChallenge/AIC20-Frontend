@@ -1,7 +1,7 @@
 <template>
   <dashboard-page title="dashboard.settings" permanent>
     <v-card class="overflow-hidden">
-      <v-tabs icons-and-text :grow="mobile" v-model="tabs">
+      <v-tabs icons-and-text grow v-model="tabs">
         <v-tab>
           {{ $t("dashboard.editProfile") }}
           <v-icon>mdi-account-edit</v-icon>
@@ -12,14 +12,14 @@
         </v-tab>
       </v-tabs>
       <v-divider/>
-      <v-tabs-items v-model="tabs">
+      <v-tabs-items v-model="tabs" class="mt-4">
         <v-tab-item>
-          <v-card-text class="mt-3">
+          <v-card-text>
             <edit-profile/>
           </v-card-text>
         </v-tab-item>
         <v-tab-item>
-          <v-card-text class="mt-3">
+          <v-card-text>
             <change-password/>
           </v-card-text>
         </v-tab-item>
@@ -29,8 +29,8 @@
 </template>
 
 <script>
-  import EditProfile from "../../components/dashboard/EditProfile";
-  import ChangePassword from "../../components/dashboard/ChangePassword";
+  import EditProfile from "../../components/dashboard/settings/EditProfile";
+  import ChangePassword from "../../components/dashboard/settings/ChangePassword";
   import DashboardPage from "../../components/dashboard/DashboardPage";
 
   export default {
@@ -40,11 +40,6 @@
       return {
         tabs: null
       };
-    },
-    computed: {
-      mobile() {
-        return this.$vuetify.breakpoint.xsOnly;
-      }
     }
   };
 </script>

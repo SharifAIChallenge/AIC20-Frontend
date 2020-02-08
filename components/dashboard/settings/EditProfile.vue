@@ -108,10 +108,10 @@
 </template>
 
 <script>
-  import { emailRules, requiredRules } from "../../mixins/formValidations";
-  import { primaryButtonProps } from "../../mixins/buttonProps";
-  import { fieldProps } from "../../mixins/fieldProps";
-  import { EDIT_PROFILE } from "../../api";
+  import { emailRules, requiredRules } from "../../../mixins/formValidations";
+  import { primaryButtonProps } from "../../../mixins/buttonProps";
+  import { fieldProps } from "../../../mixins/fieldProps";
+  import { EDIT_PROFILE } from "../../../api";
 
   export default {
     auth: "guest",
