@@ -31,7 +31,14 @@
       <v-list shaped>
         <template v-for="(item, i) in items">
           <v-divider v-if="item.divider" :key="i"/>
-          <v-list-item v-else :key="i" active-class="font-weight-bold" :to="item.link" exact nuxt>
+          <v-list-item v-else
+                       :key="i"
+                       active-class="font-weight-bold"
+                       :disabled="item.disabled"
+                       :to="item.link"
+                       exact
+                       nuxt
+          >
             <v-list-item-icon>
               <v-icon>{{ item.icon }}</v-icon>
             </v-list-item-icon>
@@ -64,16 +71,16 @@
           { title: "dashboard.home", icon: "mdi-home-variant-outline", link: "/dashboard" },
           { title: "dashboard.updates", icon: "mdi-bell-outline", link: "/dashboard/updates" },
           { divider: true },
-          { title: "dashboard.gettingStarted", icon: "mdi-help-circle-outline", link: "/dashboard/getting_started" },
-          { title: "dashboard.resources", icon: "mdi-file-document-outline", link: "/dashboard/resources" },
+          { title: "dashboard.gettingStarted", icon: "mdi-help-circle-outline", link: "/dashboard/getting_started", disabled: true },
+          { title: "dashboard.resources", icon: "mdi-file-document-outline", link: "/dashboard/resources", disabled: true },
           { title: "dashboard.tutorials", icon: "mdi-school-outline", link: "/dashboard/tutorials" },
           { divider: true },
-          { title: "dashboard.tournaments", icon: "mdi-tournament", link: "/dashboard/tournaments" },
-          { title: "dashboard.scoreboard", icon: "mdi-scoreboard-outline", link: "/dashboard/scoreboard" },
+          { title: "dashboard.tournaments", icon: "mdi-tournament", link: "/dashboard/tournaments", disabled: true },
+          { title: "dashboard.scoreboard", icon: "mdi-scoreboard-outline", link: "/dashboard/scoreboard", disabled: true },
           { divider: true },
           { title: "dashboard.team", icon: "mdi-account-group-outline", link: "/dashboard/team" },
-          { title: "dashboard.submissions", icon: "mdi-upload-outline", link: "/dashboard/submissions" },
-          { title: "dashboard.games", icon: "mdi-gamepad-variant-outline", link: "/dashboard/games" }
+          { title: "dashboard.submissions", icon: "mdi-upload-outline", link: "/dashboard/submissions", disabled: true },
+          { title: "dashboard.games", icon: "mdi-gamepad-variant-outline", link: "/dashboard/games", disabled: true }
         ]
       };
     },
