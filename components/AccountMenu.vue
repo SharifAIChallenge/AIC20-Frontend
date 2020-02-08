@@ -63,6 +63,7 @@
 </template>
 
 <script>
+  const COLORS = ["red", "pink", "blue", "cyan", "teal", "green", "light-green", "lime", "amber", "orange"];
   export default {
     props: {
       mobile: {
@@ -91,8 +92,7 @@
         return user;
       },
       color() {
-        let colors = ["red", "pink", "blue", "cyan", "teal", "green", "light-green", "lime", "amber", "orange"];
-        return colors[Object.values(this.user).join().length % colors.length];
+        return COLORS[Object.values(this.user).join().length % COLORS.length];
       }
     }
   };
