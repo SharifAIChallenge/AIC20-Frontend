@@ -29,15 +29,14 @@
       color="primary"
     >
       <v-list shaped>
-        <template v-for="(item, i) in items">
-          <v-divider v-if="item.divider" :key="i"/>
-          <v-list-item v-else
-                       :key="i"
-                       active-class="font-weight-bold"
-                       :disabled="item.disabled"
-                       :to="item.link"
-                       exact
-                       nuxt
+        <template v-for="(item, i) in sidebar">
+          <v-list-item
+            :key="i"
+            active-class="font-weight-bold"
+            :disabled="item.disabled"
+            :to="item.link"
+            exact
+            nuxt
           >
             <v-list-item-icon>
               <v-icon>{{ item.icon }}</v-icon>
@@ -47,6 +46,7 @@
               <v-list-item-title>{{ $t(item.title) }}</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
+          <v-divider v-if="item.divider" :key="-i"/>
         </template>
       </v-list>
     </v-navigation-drawer>
@@ -61,30 +61,19 @@
 <script>
   import Logo from "../components/Logo";
   import AccountMenu from "../components/AccountMenu";
+  import { mapGetters } from "vuex";
 
   export default {
     components: { AccountMenu, Logo },
     data() {
       return {
-        drawer: null,
-        items: [
-          { title: "dashboard.home", icon: "mdi-home-variant-outline", link: "/dashboard" },
-          { title: "dashboard.updates", icon: "mdi-bell-outline", link: "/dashboard/updates" },
-          { divider: true },
-          { title: "dashboard.gettingStarted", icon: "mdi-help-circle-outline", link: "/dashboard/getting_started", disabled: true },
-          { title: "dashboard.resources", icon: "mdi-file-document-outline", link: "/dashboard/resources", disabled: true },
-          { title: "dashboard.tutorials", icon: "mdi-school-outline", link: "/dashboard/tutorials" },
-          { divider: true },
-          { title: "dashboard.tournaments", icon: "mdi-tournament", link: "/dashboard/tournaments", disabled: true },
-          { title: "dashboard.scoreboard", icon: "mdi-scoreboard-outline", link: "/dashboard/scoreboard", disabled: true },
-          { divider: true },
-          { title: "dashboard.team", icon: "mdi-account-group-outline", link: "/dashboard/team" },
-          { title: "dashboard.submissions", icon: "mdi-upload-outline", link: "/dashboard/submissions", disabled: true },
-          { title: "dashboard.games", icon: "mdi-gamepad-variant-outline", link: "/dashboard/games", disabled: true }
-        ]
+        drawer: null
       };
     },
     computed: {
+      ...mapGetters({
+        sidebar: "dashboard/sidebar"
+      }),
       mobile() {
         return this.$vuetify.breakpoint.smAndDown;
       }
