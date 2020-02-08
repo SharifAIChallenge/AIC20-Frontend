@@ -71,3 +71,12 @@ export const getters = {
     return Object.values(state.routes);
   }
 };
+
+export const mutations = {
+  enableRoute(state, { route }) {
+    state.routes[route].disabled = false;
+  },
+  disableRoute(state, { route }) {
+    state.routes[route].disabled = true;
+  }
+};
