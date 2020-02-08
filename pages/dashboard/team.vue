@@ -20,7 +20,7 @@
         </v-tab-item>
         <v-tab-item>
           <v-card-text>
-            <recieved-invitations/>
+            <received-invitations/>
           </v-card-text>
         </v-tab-item>
       </v-tabs-items>
@@ -31,10 +31,10 @@
 <script>
   import DashboardPage from "../../components/dashboard/DashboardPage";
   import CreateTeam from "../../components/dashboard/team/CreateTeam";
-  import RecievedInvitations from "../../components/dashboard/team/RecievedInvitations";
+  import ReceivedInvitations from "../../components/dashboard/team/ReceivedInvitations";
   import dashboardPageValidate from "../../mixins/dashboardPageValidate";
   export default {
-    components: { RecievedInvitations, CreateTeam, DashboardPage },
+    components: { ReceivedInvitations, CreateTeam, DashboardPage },
     layout: "dashboard",
     mixins: [dashboardPageValidate("team")],
     data() {
