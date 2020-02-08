@@ -1,12 +1,12 @@
 export const primaryButtonProps = {
-  data() {
-    return {
-      primaryButtonProps: {
+  computed: {
+    primaryButtonProps() {
+      return {
         color: "primary",
         large: true,
         rounded: true,
-        block: true
-      }
-    };
+        block: this.$vuetify.breakpoint.xsOnly
+      };
+    }
   }
 };
