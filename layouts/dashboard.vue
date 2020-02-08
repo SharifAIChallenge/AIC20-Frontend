@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-app-bar flat clipped-right absolute height="80" color="bg">
+    <v-app-bar flat clipped-right absolute height="80" color="transparent">
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" class="me-2 hidden-md-and-up"/>
       <v-row class="justify-end">
         <account-menu :mobile="$vuetify.breakpoint.xsOnly" class="me-5"/>
@@ -29,19 +29,22 @@
       color="primary"
     >
       <v-list shaped>
-        <v-list-item active-class="font-weight-bold" v-for="item in items" :key="item.title" :to="item.link" exact nuxt>
-          <v-list-item-icon>
-            <v-icon>{{ item.icon }}</v-icon>
-          </v-list-item-icon>
+        <template v-for="(item, i) in items">
+          <v-divider v-if="item.divider" :key="i"/>
+          <v-list-item v-else :key="i" active-class="font-weight-bold" :to="item.link" exact nuxt>
+            <v-list-item-icon>
+              <v-icon>{{ item.icon }}</v-icon>
+            </v-list-item-icon>
 
-          <v-list-item-content>
-            <v-list-item-title>{{ $t(item.title) }}</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
+            <v-list-item-content>
+              <v-list-item-title>{{ $t(item.title) }}</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </template>
       </v-list>
     </v-navigation-drawer>
     <v-content>
-      <v-container class="dashboard px-md-6" fluid>
+      <v-container class="dashboard px-md-6 pb-12" fluid>
         <nuxt/>
       </v-container>
     </v-content>
@@ -58,7 +61,19 @@
       return {
         drawer: null,
         items: [
-          { title: "dashboard.home", icon: "mdi-home-variant-outline", "link": "/dashboard" }
+          { title: "dashboard.home", icon: "mdi-home-variant-outline", link: "/dashboard" },
+          { title: "dashboard.updates", icon: "mdi-bell-outline", link: "/dashboard/updates" },
+          { divider: true },
+          { title: "dashboard.gettingStarted", icon: "mdi-help-circle-outline", link: "/dashboard/getting_started" },
+          { title: "dashboard.resources", icon: "mdi-file-document-outline", link: "/dashboard/resources" },
+          { title: "dashboard.tutorials", icon: "mdi-school-outline", link: "/dashboard/tutorials" },
+          { divider: true },
+          { title: "dashboard.tournaments", icon: "mdi-tournament", link: "/dashboard/tournaments" },
+          { title: "dashboard.scoreboard", icon: "mdi-scoreboard-outline", link: "/dashboard/scoreboard" },
+          { divider: true },
+          { title: "dashboard.team", icon: "mdi-account-group-outline", link: "/dashboard/team" },
+          { title: "dashboard.submissions", icon: "mdi-upload-outline", link: "/dashboard/submissions" },
+          { title: "dashboard.games", icon: "mdi-gamepad-variant-outline", link: "/dashboard/games" }
         ]
       };
     },
