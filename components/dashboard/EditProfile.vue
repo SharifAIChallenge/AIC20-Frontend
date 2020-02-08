@@ -55,58 +55,55 @@
       </v-col>
     </v-row>
 
-    <v-row no-gutters justify="center">
-      <v-col>
-        <v-dialog
-          ref="dialog"
-          v-model="menu"
-          :return-value.sync="birthday"
-          width="290px"
-        >
-          <template v-slot:activator="{ on }">
-            <v-text-field
-              v-model="birthday"
-              v-bind="filedProps"
-              required
-              :rules="requiredRules"
-              :label="$t('form.birthday')"
-              readonly
-              v-on="on"
-              @focus="menu=true"
-              dir="ltr"
-              :error="result.errors.birth_date"
-              @change="clearError('birth_date')"
-            />
-          </template>
-          <v-date-picker
-            v-model="birthday"
-            :max="new Date().toISOString().substr(0, 10)"
-            min="1950-01-01"
-            ref="picker"
-            scrollable
-            @change="save"/>
-        </v-dialog>
-
+    <v-dialog
+      ref="dialog"
+      v-model="menu"
+      :return-value.sync="birthday"
+      width="290px"
+    >
+      <template v-slot:activator="{ on }">
         <v-text-field
-          v-model="university"
-          :label="$t('form.educationPlace')"
+          v-model="birthday"
+          v-bind="filedProps"
           required
           :rules="requiredRules"
-          v-bind="filedProps"
-          :error="result.errors.university"
-          @focus="clearError('university')"
+          :label="$t('form.birthday')"
+          readonly
+          v-on="on"
+          @focus="menu=true"
+          dir="ltr"
+          :error="result.errors.birth_date"
+          @change="clearError('birth_date')"
         />
+      </template>
+      <v-date-picker
+        v-model="birthday"
+        :max="new Date().toISOString().substr(0, 10)"
+        min="1950-01-01"
+        ref="picker"
+        scrollable
+        @change="save"/>
+    </v-dialog>
 
-        <v-alert :type="result.type" v-model="result.value" text outlined dismissible>
-          {{ result.message }}
-        </v-alert>
+    <v-text-field
+      v-model="university"
+      :label="$t('form.educationPlace')"
+      required
+      :rules="requiredRules"
+      v-bind="filedProps"
+      :error="result.errors.university"
+      @focus="clearError('university')"
+    />
 
-        <v-btn :disabled="!valid || !edited" :loading="loading" type="submit" v-bind="primaryButtonProps">
-          <v-icon left>mdi-account-edit-outline</v-icon>
-          {{ $t("dashboard.editProfile") }}
-        </v-btn>
-      </v-col>
-    </v-row>
+    <v-alert :type="result.type" v-model="result.value" text outlined dismissible>
+      {{ result.message }}
+    </v-alert>
+
+    <v-btn :disabled="!valid || !edited" :loading="loading" type="submit" v-bind="primaryButtonProps">
+      <v-icon left>mdi-account-edit-outline</v-icon>
+      {{ $t("dashboard.editProfile") }}
+    </v-btn>
+
   </v-form>
 </template>
 
