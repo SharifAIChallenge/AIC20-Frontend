@@ -55,10 +55,18 @@
     "team": "team",
     "submissions": "submissions",
     "resources": "resources",
-    "content": "content",
+    "tutorials": "tutorials",
+    "tournaments": "tournaments",
+    "games": "games",
     "scoreboard": "scoreboard",
     "updates": "updates",
+    "recentUpdates": "recent updates",
     "gettingStarted": "getting started",
-    "editProfile": "edit profile"
+    "editProfile": "edit profile",
+    "seeAll": "see all",
+    "gameStats": "game statistics",
+    "performance": "",
+    "wins": "win | wins",
+    "loss": "loss"
   }
 }

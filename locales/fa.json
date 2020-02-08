@@ -55,10 +55,18 @@
     "team": "تیم",
     "submissions": "ارسال کد",
     "resources": "منابع",
-    "content": "محتوای آموزشی",
+    "tutorials": "محتوای آموزشی",
+    "tournaments": "تورنومنت‌ها",
+    "games": "بازی‌ها",
     "scoreboard": "جدول امتیازات",
     "updates": "اعلان‌ها",
+    "recentUpdates": "آخرین اعلان‌ها",
     "gettingStarted": "راهنمای شروع",
-    "editProfile": "ویرایش پروفایل"
+    "editProfile": "ویرایش پروفایل",
+    "seeAll": "دیدن همه",
+    "gameStats": "آمار بازی‌ها",
+    "performance": "عملکرد",
+    "wins": "برد",
+    "loss": "باخت‌"
   }
 }
