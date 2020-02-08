@@ -4,21 +4,23 @@
       <v-tabs icons-and-text grow v-model="tabs">
         <v-tab>
           {{ $t("dashboard.createTeam") }}
-          <v-icon>mdi-account-edit</v-icon>
+          <v-icon>mdi-account-group</v-icon>
         </v-tab>
         <v-tab>
           {{ $t("dashboard.receivedInvitations") }}
-          <v-icon>mdi-shield-edit</v-icon>
+          <v-icon>mdi-email</v-icon>
         </v-tab>
       </v-tabs>
       <v-divider/>
       <v-tabs-items v-model="tabs" class="mt-4">
         <v-tab-item>
           <v-card-text>
+            <create-team/>
           </v-card-text>
         </v-tab-item>
         <v-tab-item>
           <v-card-text>
+            <recieved-invitations/>
           </v-card-text>
         </v-tab-item>
       </v-tabs-items>
@@ -28,9 +30,13 @@
 
 <script>
   import DashboardPage from "../../components/dashboard/DashboardPage";
+  import CreateTeam from "../../components/dashboard/team/CreateTeam";
+  import RecievedInvitations from "../../components/dashboard/team/RecievedInvitations";
+  import dashboardPageValidate from "../../mixins/dashboardPageValidate";
   export default {
-    components: { DashboardPage },
+    components: { RecievedInvitations, CreateTeam, DashboardPage },
     layout: "dashboard",
+    mixins: [dashboardPageValidate("team")],
     data() {
       return {
         tabs: null
