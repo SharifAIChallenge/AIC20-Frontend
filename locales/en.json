@@ -68,6 +68,7 @@
     "performance": "",
     "wins": "win | wins",
     "loss": "loss",
+    "getContent": "get content",
     "createTeam": "create team",
     "inviteTeammates": "invite teammates",
     "sendInvitation": "send invitation",
