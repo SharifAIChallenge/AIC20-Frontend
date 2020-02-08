@@ -1,8 +1,8 @@
 <template>
   <client-only>
-    <div id="464529485" class="player">
+    <div id="1467728334" class="player">
       <script type="text/JavaScript"
-              src="https://www.aparat.com/embed/eLV7H?data[rnddiv]=464529485&data[responsive]=yes"></script>
+              src="https://www.aparat.com/embed/xFHuW?data[rnddiv]=1467728334&data[responsive]=yes"></script>
     </div>
   </client-only>
 </template>
