@@ -13,8 +13,16 @@
     components: { ResourcePage, DashboardPage },
     layout: "dashboard",
     mixins: [dashboardPageValidate("tutorials")],
+    data() {
+      return {
+        data: {
+          description_fa: "",
+          sections: []
+        }
+      };
+    },
     async asyncData({ $axios }) {
-      return $axios.get("/resources/1");
+      return { data: await $axios.$get("/resources/1") };
     }
   };
 </script>

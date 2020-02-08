@@ -34,6 +34,9 @@
 <script>
   export default {
     props: {
+      data: {
+        type: Object
+      },
       buttonLabel: {
         default: "dashboard.getContent"
       },
