@@ -13,16 +13,12 @@
           small
         >
           <template v-slot:opposite>
-            <!--        <span-->
-            <!--          :class="`headline font-weight-bold ${year.color}&#45;&#45;text`"-->
-            <!--          v-text="year.year"-->
-            <!--        ></span>-->
           </template>
           <v-card>
             <v-card-title
               class="headline font-weight-bold primary--text"
               v-text="year.year"
-            ></v-card-title>
+            />
             <v-card-title class="headline">{{ year.title }}</v-card-title>
             <v-card-text>
               {{ year.caption }}

@@ -51,6 +51,14 @@ body .v-application .text-stroke-width-1 {
   text-stroke-color: #fff;
 }
 
+.dashboard .v-card {
+  border-radius: 24px !important;
+}
+
+hr {
+    border-top-width: 1.5px !important;
+}
+
 .autofill-bg input:-webkit-autofill,
 .autofill-bg select:-webkit-autofill,
 .autofill-bg textarea:-webkit-autofill {
@@ -77,9 +85,9 @@ body .v-application .text-stroke-width-1 {
   color: #fff !important;
 }
 
-html {
-  overflow-y: visible !important;
-}
+//html {
+//  overflow-y: visible !important;
+//}
 
 iframe {
   border: none;
