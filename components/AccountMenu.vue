@@ -14,7 +14,7 @@
         <span v-if="!mobile" class="px-5 pt-1">
           {{ user.firstname_fa }}
         </span>
-              <v-avatar :color="color" class="pt-1">
+              <v-avatar :color="color" class="pt-1 text-uppercase">
                 {{ user.firstname_en[0] + user.lastname_en[0] }}
               </v-avatar>
             </div>
@@ -63,7 +63,8 @@
 </template>
 
 <script>
-  const COLORS = ["red", "pink", "blue", "cyan", "teal", "green", "light-green", "lime", "amber", "orange"];
+  import { mapState } from "vuex";
+
   export default {
     props: {
       mobile: {
@@ -77,6 +78,9 @@
       };
     },
     computed: {
+      ...mapState({
+        colors: state => state.dashboard.colors
+      }),
       user() {
         let user = {
           firstname_fa: " ",
@@ -92,7 +96,7 @@
         return user;
       },
       color() {
-        return COLORS[Object.values(this.user).join().length % COLORS.length];
+        return this.colors[Object.values(this.user).join().length % this.colors.length];
       }
     }
   };
