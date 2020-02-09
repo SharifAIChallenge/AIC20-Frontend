@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <v-col>
     <v-alert color="info" text>
       {{ data.description_fa }}
     </v-alert>
@@ -28,7 +28,7 @@
         </v-card>
       </template>
     </template>
-  </div>
+  </v-col>
 </template>
 
 <script>
