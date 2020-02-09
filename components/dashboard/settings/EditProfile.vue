@@ -114,7 +114,6 @@
   import { EDIT_PROFILE } from "../../../api";
 
   export default {
-    auth: "guest",
     mixins: [requiredRules, emailRules, primaryButtonProps, fieldProps],
     data() {
       return {

@@ -1,5 +1,5 @@
 <template>
-  <v-form ref="form" v-model="valid" @submit="resetPasswordConfirm" onSubmit="return false;">
+  <v-form ref="changePassword" v-model="valid" @submit="resetPasswordConfirm" onSubmit="return false;">
 
     <password-input v-model="password" label="form.currentPassword"/>
 
@@ -35,7 +35,6 @@
   import { CHANGE_PASSWORD } from "../../../api";
 
   export default {
-    auth: "guest",
     mixins: [requiredRules, primaryButtonProps, fieldProps],
     components: { PasswordInput },
     data() {
@@ -72,7 +71,7 @@
             this.result.message = "رمز عبور با موفقیت تغییر یافت.";
             this.result.type = "success";
             this.result.value = true;
-            this.$refs.form.reset();
+            this.$refs.changePassword.reset();
           } else {
             this.result.message = "رمز عبور اشتباه است.";
             this.result.type = "error";
