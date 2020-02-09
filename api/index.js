@@ -33,3 +33,43 @@ export const EDIT_PROFILE = {
   payload: "data",
   url: "/accounts/profile"
 };
+
+//team
+export const CREATE_TEAM = {
+  name: "CREATE_TEAM",
+  method: "post",
+  payload: "data",
+  url: "/participation/team/create"
+};
+
+export const LEAVE_TEAM = {
+  name: "LEAVE_TEAM",
+  method: "post",
+  url: "/participation/team/leave"
+};
+
+export const TEAM_DETAIL = {
+  name: "TEAM_DETAIL",
+  method: "get",
+  url: "/participation/team/detail"
+};
+
+export const INVITE = {
+  name: "INVITE",
+  method: "post",
+  url: "/participation/invitation/invite"
+};
+
+export const RECEIVED_INVITATIONS = {
+  name: "RECEIVED_INVITATIONS",
+  method: "get",
+  url: "/participation/invitation/invitations-to-me"
+};
+
+export const SENT_INVITATIONS = {
+  name: "SENT_INVITATIONS",
+  method: "get",
+  url: "/participation/invitation/invitations-to-others"
+};
+
+
