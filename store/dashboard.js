@@ -1,4 +1,5 @@
 export const state = () => ({
+  colors: ["red", "pink", "blue", "cyan", "teal", "green", "light-green", "lime", "amber", "orange"],
   routes: {
     home: {
       title: "dashboard.home",
