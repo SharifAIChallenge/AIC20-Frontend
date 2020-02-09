@@ -23,7 +23,13 @@
     "change": "change",
     "sendResetInstructions": "send reset instructions",
     "signOut": "sign out",
-    "edit": "edit"
+    "edit": "edit",
+    "teamName": "team name",
+    "create": "create",
+    "avatar": "avatar",
+    "cancel": "cancel",
+    "yes": "yes",
+    "no": "no"
   },
   "validation": {
     "email": "email must be valid",
@@ -70,11 +76,14 @@
     "loss": "loss",
     "getContent": "get content",
     "createTeam": "create team",
+    "myTeam": "my team",
+    "leaveTeam": "leave team",
     "inviteTeammates": "invite teammates",
     "sendInvitation": "send invitation",
     "findTeammates": "find teammates",
     "receivedInvitations": "received invitations",
     "sentInvitations": "sent invitations",
-    "acceptInvitation": "accept invitation"
+    "acceptInvitation": "accept invitation",
+    "noNotificationsYet": "no notifications yet!"
   }
 }

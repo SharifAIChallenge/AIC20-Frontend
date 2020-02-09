@@ -23,7 +23,13 @@
     "change": "تغییر",
     "sendResetInstructions": "ارسال لینک تغییر رمز عبور",
     "signOut": "خروج",
-    "edit": "ویرایش"
+    "edit": "ویرایش",
+    "teamName": "نام تیم",
+    "create": "بساز",
+    "avatar": "آواتار",
+    "cancel": "لغو",
+    "yes": "بله",
+    "no": "خیر"
   },
   "validation": {
     "email": "ایمیل معتبر نیست",
@@ -70,11 +76,14 @@
     "loss": "باخت‌",
     "getContent": "دریافت محتوا",
     "createTeam": "تشکیل تیم",
+    "myTeam": "تیم من",
+    "leaveTeam": "ترک تیم",
     "inviteTeammates": "دعوت هم‌تیمی",
     "sendInvitation": "ارسال دعوت نامه",
     "findTeammates": "پیدا کردن هم‌تیمی",
     "receivedInvitations": "دعوت‌نامه‌های دریافتی",
     "sentInvitations": "دعوت‌نامه‌های ارسالی",
-    "acceptInvitation": "قبول کردن دعوت"
+    "acceptInvitation": "قبول کردن دعوت",
+    "noNotificationsYet": "هنوز پیامی ندارید!"
   }
 }
