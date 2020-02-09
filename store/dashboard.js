@@ -50,7 +50,7 @@ export const state = () => ({
       title: "dashboard.team",
       icon: "mdi-account-group-outline",
       link: "/dashboard/team",
-      disabled: false
+      disabled: true
     },
     submissions: {
       title: "dashboard.submissions",

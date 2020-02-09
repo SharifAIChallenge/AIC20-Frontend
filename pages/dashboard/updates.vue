@@ -2,7 +2,9 @@
   <dashboard-page title="dashboard.updates">
     <v-col>
       <v-card>
-        <updates/>
+        <v-card-text class="ps-0 py-0">
+        <updates :items="updates"/>
+        </v-card-text>
       </v-card>
     </v-col>
   </dashboard-page>
@@ -16,7 +18,18 @@
   export default {
     layout: "dashboard",
     components: { DashboardPage, Updates },
-    mixins: [dashboardPageValidate("updates")]
+    mixins: [dashboardPageValidate("updates")],
+    data() {
+      return {
+        updates: [
+          {
+            id: 1,
+            text: "محتوای آموزشی دوازدهمین نبرد هوش مصنوعی شریف منتشر شد. برای مشاهده و دریافت آن به بخش محتوای آموزشی مراجعه کنید.",
+            title: "info"
+          }
+        ]
+      };
+    }
   };
 </script>
 
