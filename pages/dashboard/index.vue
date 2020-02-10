@@ -9,7 +9,7 @@
         </v-card-title>
         <v-divider/>
         <v-card-text class="ps-0">
-          <updates :items="notifications"/>
+          <updates :items="notifications.slice(0, 3)"/>
         </v-card-text>
         <v-card-actions>
         </v-card-actions>
