@@ -11,8 +11,6 @@
         <v-card-text class="ps-0">
           <updates :items="notifications.slice(0, 3)"/>
         </v-card-text>
-        <v-card-actions>
-        </v-card-actions>
       </v-card>
     </v-col>
     <!--    <v-col cols="12" md="6">-->
