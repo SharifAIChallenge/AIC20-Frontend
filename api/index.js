@@ -72,4 +72,9 @@ export const SENT_INVITATIONS = {
   url: "/participation/invitation/invitations-to-others"
 };
 
-
+//notifications
+export const NOTIFICATIONS = {
+  name: "NOTIFICATIONS",
+  method: "get",
+  url: "/subscribe/public-notifications"
+};

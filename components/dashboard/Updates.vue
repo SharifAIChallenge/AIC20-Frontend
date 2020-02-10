@@ -13,6 +13,9 @@
           class="my-0 white--text"
         >
           {{ item.text }}
+          <div class="me-n2 mb-n3 text-left deep-purple--text text--lighten-3 caption">{{ new
+            Intl.DateTimeFormat($i18n.locale).format(new Date(item.create_date)) }}
+          </div>
         </v-alert>
       </v-timeline-item>
     </v-slide-x-reverse-transition>
