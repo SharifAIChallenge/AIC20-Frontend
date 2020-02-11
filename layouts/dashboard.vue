@@ -1,7 +1,6 @@
 <template>
   <v-app>
     <v-app-bar flat clipped-right absolute height="80" color="transparent">
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer" class="me-2 hidden-md-and-up"/>
       <v-row class="justify-end">
         <account-menu :mobile="$vuetify.breakpoint.xsOnly" class="me-5"/>
       </v-row>
