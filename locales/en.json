@@ -29,7 +29,9 @@
     "avatar": "avatar",
     "cancel": "cancel",
     "yes": "yes",
-    "no": "no"
+    "no": "no",
+    "accept": "accept",
+    "reject": "reject"
   },
   "validation": {
     "email": "email must be valid",
@@ -84,6 +86,9 @@
     "receivedInvitations": "received invitations",
     "sentInvitations": "sent invitations",
     "acceptInvitation": "accept invitation",
-    "noNotificationsYet": "no notifications yet!"
+    "noNotificationsYet": "no notifications yet!",
+    "noInvitationsYet": "no invitations yet!",
+    "createTeamMessage": "first create your team then invite your teammates.",
+    "leaveTeamMessage": "Do you want to leave your team?"
   }
 }

@@ -29,7 +29,9 @@
     "avatar": "آواتار",
     "cancel": "لغو",
     "yes": "بله",
-    "no": "خیر"
+    "no": "خیر",
+    "accept": "قبول",
+    "reject": "رد"
   },
   "validation": {
     "email": "ایمیل معتبر نیست",
@@ -79,11 +81,14 @@
     "myTeam": "تیم من",
     "leaveTeam": "ترک تیم",
     "inviteTeammates": "دعوت هم‌تیمی",
-    "sendInvitation": "ارسال دعوت نامه",
+    "sendInvitation": "دعوت",
     "findTeammates": "پیدا کردن هم‌تیمی",
     "receivedInvitations": "دعوت‌نامه‌های دریافتی",
     "sentInvitations": "دعوت‌نامه‌های ارسالی",
     "acceptInvitation": "قبول کردن دعوت",
-    "noNotificationsYet": "هنوز پیامی ندارید!"
+    "noNotificationsYet": "هنوز پیامی ندارید!",
+    "noInvitationsYet": "هنوز دعوت نامه‌ای دریافت نکرده‌اید!",
+    "createTeamMessage": "ابتدا یک تیم بسازید سپس هم‌تیمی‌هایتان را دعوت کنید.",
+    "leaveTeamMessage": "می‌خواهید تیمتان را ترک کنید؟"
   }
 }
