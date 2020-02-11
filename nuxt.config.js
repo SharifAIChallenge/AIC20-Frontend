@@ -47,7 +47,8 @@ export default {
     "@nuxtjs/auth",
     "@nuxtjs/pwa",
     // Doc: https://github.com/nuxt-community/dotenv-module
-    "@nuxtjs/dotenv"
+    "@nuxtjs/dotenv",
+    "@nuxtjs/toast"
   ],
   /*
    ** Axios module configuration
@@ -71,7 +72,7 @@ export default {
     rtl: true,
     theme: {
       options: {
-        customProperties: true,
+        customProperties: true
       },
       dark: true,
       themes: {
@@ -82,7 +83,7 @@ export default {
           info: colors.blue.base,
           warning: colors.amber.base,
           error: colors.red.accent3,
-          success: colors.green.accent3,
+          success: colors.green.accent4,
           bg: "#160031"
         }
       }
@@ -103,19 +104,26 @@ export default {
   },
   auth: {
     redirect: {
-      home: '/dashboard'
+      home: "/dashboard"
     },
     strategies: {
       local: {
         endpoints: {
-          login: { url: '/accounts/login', method: 'post', propertyName: 'token' },
-          logout: { url: '/accounts/logout', method: 'post' },
-          user: { url: '/accounts/profile', method: 'get', propertyName: 'user' }
+          login: { url: "/accounts/login", method: "post", propertyName: "token" },
+          logout: { url: "/accounts/logout", method: "post" },
+          user: { url: "/accounts/profile", method: "get", propertyName: "user" }
         },
         tokenRequired: true,
-        tokenType: 'token'
+        tokenType: "token"
       }
     },
     resetOnError: true
+  },
+  toast: {
+    position: "bottom-center",
+    theme: "bubble",
+    duration: 4000,
+    keepOnHover: true,
+    className: ["v-application", "v-application--is-rtl"]
   }
 };
