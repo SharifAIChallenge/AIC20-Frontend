@@ -1,78 +1,64 @@
 <template>
-  <v-form ref="inviteMember" v-model="valid" @submit="inviteMember" onSubmit="return false;">
+    <v-form ref="inviteMember" v-model="valid" @submit="inviteMember" onSubmit="return false;">
 
-    <v-text-field
-      v-model="email"
-      type="email"
-      :label="$t('form.email')"
-      :rules="emailRules"
-      required
-      v-bind="filedProps"
-    />
+        <v-text-field
+                v-model="email"
+                type="email"
+                :label="$t('form.email')"
+                :rules="emailRules"
+                required
+                v-bind="filedProps"
+                dir="ltr"
+        />
 
-    <v-alert :type="result.type" v-model="result.value" text outlined dismissible>
-      {{ result.message }}
-    </v-alert>
-
-    <v-btn :disabled="!valid" :loading="loading" type="submit" v-bind="primaryButtonProps">
-      <v-icon left>mdi-plus-circle-outline</v-icon>
-      {{ $t("dashboard.sendInvitation") }}
-    </v-btn>
-  </v-form>
+        <v-btn :disabled="!valid" :loading="loading" type="submit" v-bind="primaryButtonProps">
+            <v-icon left>mdi-email-send-outline</v-icon>
+            {{ $t("dashboard.sendInvitation") }}
+        </v-btn>
+    </v-form>
 </template>
 
 <script>
-  import { emailRules, requiredRules } from "../../../mixins/formValidations";
+  import { emailRules } from "../../../mixins/formValidations";
   import { primaryButtonProps } from "../../../mixins/buttonProps";
   import { fieldProps } from "../../../mixins/fieldProps";
-  import { CREATE_TEAM } from "../../../api";
+  import { INVITE } from "../../../api";
 
   export default {
     mixins: [emailRules, primaryButtonProps, fieldProps],
     data() {
       return {
         valid: false,
-        name: "",
-        image: null,
-        imageFile: null,
-        imageRules: [
-          value => !value || !value.size || value.size < 200000 || "سایز عکس باید کمتر از ۲۰۰ کیلوبایت باشد."
-        ],
-        imageHint: "عکس مربع با حجم حداکثر ۲۰۰ کیلوبایت",
-        result: {
-          value: false,
-          type: "success",
-          message: ""
-        },
+        email: "",
         loading: false
       };
     },
     methods: {
-      async createTeam() {
-        const formData = new FormData();
-        formData.append("image", this.image);
-        formData.append("name", this.name);
+      async inviteMember() {
         const config = {
-          url: CREATE_TEAM.url,
-          method: CREATE_TEAM.method,
-          [CREATE_TEAM.payload]: formData
+          url: INVITE.url,
+          method: INVITE.method,
+          [INVITE.payload]: {
+            user_email: this.email
+          }
         };
         this.loading = true;
         let { data } = await this.$axios(config);
         this.loading = false;
         if (data.status_code) {
           if (data.status_code === 200) {
-            this.result.message = "تیم با موفقیت ساخته شد.";
-            this.result.type = "success";
-            this.result.value = true;
-            this.$refs.createTeam.reset();
+            this.$toast.success("دعوت نامه ارسال شد.");
+            this.$refs.inviteMember.reset();
+            this.$store.dispatch("team/getSentInvitations");
+          } else if (data.status_code === 406) {
+            if (data.errors[0] === "Invited before")
+              this.$toast.error("قبلا دعوت شده است.");
+            else
+              this.$toast.error("ظرفیت تیم تکمیل است.");
           } else {
-            this.result.message = "خطایی در ساخت تیم رخ داد.";
-            this.result.type = "error";
-            this.result.value = true;
+            this.$toast.error("کاربر مورد نظر یافت نشد یا عضو تیم دیگری‌ست.");
           }
         }
-
       }
     }
   };
