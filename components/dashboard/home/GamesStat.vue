@@ -5,14 +5,14 @@
       <span class="white--text">{{ `${new Intl.NumberFormat($i18n.locale).format(percent)}%` }}</span>
     </v-progress-circular>
     <div class="mt-8">
-      <v-chip pill class="mx-2">
+      <v-chip class="mx-2">
         <v-avatar left color="info">
           <v-icon>mdi-emoticon-happy</v-icon>
         </v-avatar>
         {{ new Intl.NumberFormat($i18n.locale).format(wins) }}
         {{ $tc("dashboard.wins", wins) }}
       </v-chip>
-      <v-chip pill class="mx-2">
+      <v-chip class="mx-2">
         <v-avatar left color="error">
           <v-icon>mdi-emoticon-sad</v-icon>
         </v-avatar>
