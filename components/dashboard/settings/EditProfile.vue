@@ -9,8 +9,6 @@
           required
           :rules="requiredRules"
           v-bind="filedProps"
-          :error="result.errors.firstname_fa"
-          @focus="clearError('firstname_fa')"
         />
       </v-col>
       <v-col class="py-0" cols="12" sm="6">
@@ -21,8 +19,6 @@
           required
           :rules="requiredRules"
           v-bind="filedProps"
-          :error="result.errors.lastname_fa"
-          @focus="clearError('lastname_fa')"
         />
       </v-col>
     </v-row>
@@ -37,8 +33,6 @@
           :rules="requiredRules"
           v-bind="filedProps"
           dir="ltr"
-          :error="result.errors.firstname_en"
-          @focus="clearError('firstname_en')"
         />
       </v-col>
       <v-col class="py-0" cols="12" sm="6">
@@ -49,8 +43,6 @@
           :rules="requiredRules"
           v-bind="filedProps"
           dir="ltr"
-          :error="result.errors.lastname_en"
-          @focus="clearError('lastname_en')"
         />
       </v-col>
     </v-row>
@@ -72,8 +64,6 @@
           v-on="on"
           @focus="menu=true"
           dir="ltr"
-          :error="result.errors.birth_date"
-          @change="clearError('birth_date')"
         />
       </template>
       <v-date-picker
@@ -91,13 +81,7 @@
       required
       :rules="requiredRules"
       v-bind="filedProps"
-      :error="result.errors.university"
-      @focus="clearError('university')"
     />
-
-    <v-alert :type="result.type" v-model="result.value" text outlined dismissible>
-      {{ result.message }}
-    </v-alert>
 
     <v-btn :disabled="!valid || !edited" :loading="loading" type="submit" v-bind="primaryButtonProps">
       <v-icon left>mdi-account-edit-outline</v-icon>
@@ -125,12 +109,6 @@
         birthday: "",
         university: "",
         menu: false,
-        result: {
-          value: false,
-          type: "success",
-          message: "",
-          errors: {}
-        },
         loading: false
       };
     },
@@ -169,27 +147,10 @@
         if (data.profile) {
           this.$auth.fetchUser().then(() => {
             this.resetForm();
-            this.result.message = "پروفایل با موفقیت ویرایش شد.";
-            this.result.type = "success";
-            this.result.value = true;
+            this.$toast.success("پروفایل با موفقیت ویرایش شد.");
           });
         } else {
-          this.errors = {};
-          this.errors = Object.keys(data.detail).forEach(x => {
-            if (x === "profile") {
-              Object.keys(data.detail.profile).forEach(y => this.$set(this.result.errors, y, true));
-            } else {
-              this.$set(this.result.errors, x, true);
-            }
-          });
-          this.result.message = "ویرایش با خطا مواجه شد.";
-          this.result.type = "error";
-          this.result.value = true;
-        }
-      },
-      clearError(field) {
-        if (this.result.errors[field]) {
-          this.result.errors[field] = false;
+          this.$toast.error("ویرایش با خطا مواجه شد.");
         }
       },
       resetForm() {
@@ -212,5 +173,3 @@
     }
   };
 </script>
-
-<style scoped></style>

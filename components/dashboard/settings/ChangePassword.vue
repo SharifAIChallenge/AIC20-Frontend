@@ -15,10 +15,6 @@
       dir="ltr"
     />
 
-    <v-alert :type="result.type" v-model="result.value" text outlined dismissible>
-      {{ result.message }}
-    </v-alert>
-
     <v-btn :disabled="!valid || new_password1 !== new_password2" :loading="loading" type="submit"
            v-bind="primaryButtonProps">
       <v-icon left>mdi-shield-edit-outline</v-icon>
@@ -44,11 +40,6 @@
         new_password1: "",
         new_password2: "",
         show: false,
-        result: {
-          value: false,
-          type: "success",
-          message: ""
-        },
         loading: false
       };
     },
@@ -68,14 +59,10 @@
         this.loading = false;
         if (data.status_code) {
           if (data.status_code === 200) {
-            this.result.message = "رمز عبور با موفقیت تغییر یافت.";
-            this.result.type = "success";
-            this.result.value = true;
+            this.$toast.success("رمز عبور با موفقیت تغییر یافت.");
             this.$refs.changePassword.reset();
           } else {
-            this.result.message = "رمز عبور اشتباه است.";
-            this.result.type = "error";
-            this.result.value = true;
+            this.$toast.error("رمز عبور اشتباه است.");
           }
         }
       }

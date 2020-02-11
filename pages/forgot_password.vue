@@ -32,10 +32,6 @@
             autofocus
           />
 
-          <v-alert :type="result.type" :value="result.value" text outlined>
-            {{ result.message }}
-          </v-alert>
-
           <v-btn :disabled="!valid" :loading="loading" type="submit" v-bind="primaryButtonProps">
             {{ $t("form.sendResetInstructions") }}
           </v-btn>
@@ -61,11 +57,6 @@
       return {
         valid: false,
         email: "",
-        result: {
-          value: false,
-          type: "success",
-          message: ""
-        },
         loading: false
       };
     },
@@ -86,21 +77,13 @@
         this.loading = false;
         if (data.status_code) {
           if (data.status_code === 200) {
-            this.result.message = "لینک تغییر رمز عبور به ایمیل شما ارسال شد.";
-            this.result.type = "success";
-            this.result.value = true;
+            this.$toast.success("لینک تغییر رمز عبور به ایمیل شما ارسال شد.");
             this.$refs.form.reset();
           } else {
-            this.result.message = "خطا";
-            this.result.type = "error";
-            this.result.value = true;
+            this.$toast.error("ایمیل پیدا نشد.");
           }
         }
       },
     }
   };
 </script>
-
-<style scoped>
-
-</style>

@@ -46,10 +46,6 @@
             <nuxt-link to="/forgot_password">{{ $t("form.forgotPassword") }}</nuxt-link>
           </div>
 
-          <v-alert :type="result.type" :value="result.value" text outlined>
-            {{ result.message }}
-          </v-alert>
-
           <v-btn :disabled="!valid" :loading="loading" type="submit" v-bind="primaryButtonProps">
             <v-icon left>mdi-shield-star-outline</v-icon>
             {{ $t("form.signIn") }}
@@ -76,11 +72,6 @@
         valid: false,
         email: "",
         password: "",
-        result: {
-          value: false,
-          type: "success",
-          message: ""
-        },
         loading: false
       };
     },
@@ -96,14 +87,12 @@
           .catch(() => {
           this.loading = false;
           if (!this.$auth.loggedIn) {
-            this.result.message = "ایمیل وجود ندارد یا رمز عبور اشتباه است.";
-            this.result.type = "error";
-            this.result.value = true;
+            this.$toast.error("ایمیل وجود ندارد یا رمز عبور اشتباه است.");
+          } else {
+            this.$toast.success("با موفقیت وارد شدید!");
           }
         });
       }
     }
   };
 </script>
-
-<style scoped></style>

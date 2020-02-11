@@ -21,7 +21,7 @@
           </span>
           </glow>
         </v-row>
-        <v-form ref="form" v-model="valid"  @submit="resetPasswordConfirm" onSubmit="return false;">
+        <v-form ref="form" v-model="valid" @submit="resetPasswordConfirm" onSubmit="return false;">
 
           <password-input v-model="new_password1" label="form.newPassword" @vis-change="val => show = val"/>
 
@@ -35,16 +35,8 @@
             dir="ltr"
           />
 
-          <v-alert :type="result.type" :value="result.value" text outlined>
-            <v-row align="center">
-              <v-col class="grow">{{ result.message }}</v-col>
-              <v-col v-if="result.action" class="shrink">
-                <v-btn color="success" small rounded depressed to="/login">{{ $t("form.signIn") }}</v-btn>
-              </v-col>
-            </v-row>
-          </v-alert>
-
-          <v-btn :disabled="!valid || new_password1 !== new_password2" :loading="loading" type="submit" v-bind="primaryButtonProps">
+          <v-btn :disabled="!valid || new_password1 !== new_password2" :loading="loading" type="submit"
+                 v-bind="primaryButtonProps">
             <v-icon left>mdi-shield-refresh-outline</v-icon>
             {{ $t("form.changePassword") }}
           </v-btn>
@@ -68,7 +60,7 @@
     mixins: [requiredRules, primaryButtonProps, fieldProps],
     components: { PasswordInput, Glow },
     validate({ query }) {
-      return query.uid && query.token
+      return query.uid && query.token;
     },
     data() {
       return {
@@ -76,12 +68,6 @@
         new_password1: "",
         new_password2: "",
         show: false,
-        result: {
-          value: false,
-          type: "success",
-          message: "",
-          action: false
-        },
         loading: false
       };
     },
@@ -105,15 +91,10 @@
         this.loading = false;
         if (data.status_code) {
           if (data.status_code === 200) {
-            this.result.message = "رمز عبور با موفقیت تغییر یافت.";
-            this.result.type = "success";
-            this.result.value = true;
-            this.result.action = true;
-            this.$refs.form.reset();
+            this.$toast.success("رمز عبور با موفقیت تغییر یافت.");
+            this.$router.push("/login");
           } else {
-            this.result.message = "خطا";
-            this.result.type = "error";
-            this.result.value = true;
+            this.$toast.error("خطا در تثییر رمز عبور.");
           }
         }
       }
