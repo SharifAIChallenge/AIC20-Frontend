@@ -57,6 +57,7 @@ export const TEAM_DETAIL = {
 export const INVITE = {
   name: "INVITE",
   method: "post",
+  payload: "data",
   url: "/participation/invitation/invite"
 };
 
@@ -70,6 +71,14 @@ export const SENT_INVITATIONS = {
   name: "SENT_INVITATIONS",
   method: "get",
   url: "/participation/invitation/invitations-to-others"
+};
+
+export const ANSWER_INVITATION = {
+  name: "ANSWER_INVITATION",
+  method: "post",
+  url: "/participation/invitation",
+  payload: "data",
+  slug: "_id"
 };
 
 //notifications
