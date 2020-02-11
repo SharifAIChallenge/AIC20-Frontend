@@ -48,7 +48,7 @@ export const state = () => ({
     },
     team: {
       title: "dashboard.team",
-      icon: "mdi-account-group-outline",
+      icon: "mdi-account-group",
       link: "/dashboard/team",
       disabled: false
     },
