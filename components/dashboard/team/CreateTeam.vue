@@ -21,6 +21,7 @@
       show-size
       persistent-hint
       class="mb-3"
+      dir="ltr"
     />
 
     <v-btn :disabled="!valid" :loading="loading" type="submit" v-bind="primaryButtonProps">
@@ -69,9 +70,10 @@
           if (data.status_code === 200) {
             this.$toast.success("تیم با موفقیت ساخته شد.");
             this.$refs.createTeam.reset();
-          } else {
+          } else if (data.detail.name)
+            this.$toast.error("یک تیم با این اسم موجود است.");
+          else
             this.$toast.error("خطایی در ساخت تیم رخ داد.");
-          }
         }
       }
     }
