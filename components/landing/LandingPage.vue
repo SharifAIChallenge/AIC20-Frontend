@@ -2,6 +2,7 @@
   <div>
     <poster/>
     <countdown/>
+    <stats :teams="teams" :registers="registers"/>
     <div class="bg-dotted">
       <about :text="intro"/>
     </div>
@@ -27,16 +28,19 @@
   // import Faq from "./Faq";
   import WhyAi from "./WhyAi";
   import Quotes from "./Quotes";
+  import Stats from "./Stats";
 
   export default {
     auth: false,
     name: "LandingPage",
-    components: { WhyAi, About, Trophies, Organizers, Countdown, Timeline, Poster, Quotes },
+    components: { Stats, WhyAi, About, Trophies, Organizers, Countdown, Timeline, Poster, Quotes },
     data() {
       return {
         intro: "",
         why: "",
-        quotes: ""
+        quotes: "",
+        teams: 0,
+        registers: 0
       };
     },
     async asyncData({ $axios }) {
@@ -44,7 +48,9 @@
       return {
         intro: data.intro.text_fa,
         why: data.why,
-        quotes: data.quotes
+        quotes: data.quotes,
+        teams: data.teams,
+        registers: data.registers
       };
     }
   };

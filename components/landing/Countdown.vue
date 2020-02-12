@@ -2,7 +2,7 @@
   <v-container>
     <v-row class="flex-column justify-center py-12">
       <v-col>
-        <countdown-timer :deadline="new Date(2020,1,15, 21).getTime()"/>
+        <countdown-timer :deadline="new Date(2020,1,15, 23).getTime()"/>
       </v-col>
       <v-col class="mt-5">
         <v-row class="justify-center">
