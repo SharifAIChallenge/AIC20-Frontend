@@ -2,21 +2,21 @@
   <div>
     <v-progress-circular class="game-stat display-1" size="200" width="40" color="info" :rotate="rotate"
                          :value="percent">
-      <span class="white--text">{{ `${new Intl.NumberFormat($i18n.locale).format(percent)}%` }}</span>
+      <span class="white--text">{{ `${percent}%` }}</span>
     </v-progress-circular>
     <div class="mt-8">
       <v-chip class="mx-2">
         <v-avatar left color="info">
           <v-icon>mdi-emoticon-happy</v-icon>
         </v-avatar>
-        {{ new Intl.NumberFormat($i18n.locale).format(wins) }}
+        {{ wins }}
         {{ $tc("dashboard.wins", wins) }}
       </v-chip>
       <v-chip class="mx-2">
         <v-avatar left color="error">
           <v-icon>mdi-emoticon-sad</v-icon>
         </v-avatar>
-        {{ new Intl.NumberFormat($i18n.locale).format(loss) }}
+        {{ loss }}
         {{ $tc("dashboard.loss", loss) }}
       </v-chip>
     </div>

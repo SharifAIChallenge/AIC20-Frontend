@@ -12,7 +12,7 @@
       :gradient="positive ? gradientGreen : gradientRed"
     >
       <template v-slot:label="item">
-        {{new Intl.NumberFormat($i18n.locale).format(item.value)}}
+        {{item.value}}
       </template>
     </v-sparkline>
   </client-only>
