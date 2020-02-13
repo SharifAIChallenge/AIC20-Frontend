@@ -31,7 +31,11 @@
     "yes": "yes",
     "no": "no",
     "accept": "accept",
-    "reject": "reject"
+    "reject": "reject",
+    "language": "language",
+    "file": "file",
+    "upload": "upload",
+    "download": "download"
   },
   "validation": {
     "email": "email must be valid",
@@ -89,6 +93,20 @@
     "noNotificationsYet": "no notifications yet!",
     "noInvitationsYet": "no invitations yet!",
     "createTeamMessage": "first create your team then invite your teammates.",
-    "leaveTeamMessage": "Do you want to leave your team?"
+    "leaveTeamMessage": "Do you want to leave your team?",
+    "codeSubmissionMessage": "",
+    "submissionsHistory": "submissions history",
+    "status": "status",
+    "changeFinalSubmission": "change final submission",
+    "uploading": "uploading",
+    "uploaded": "uploaded",
+    "compiling": "compiling",
+    "compiled": "compiled",
+    "failed": "failed",
+    "search": "search",
+    "score": "score",
+    "rank": "rank",
+    "user": "user",
+    "submitTime": "submission time"
   }
 }

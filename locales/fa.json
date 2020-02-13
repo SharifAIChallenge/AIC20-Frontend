@@ -31,7 +31,11 @@
     "yes": "بله",
     "no": "خیر",
     "accept": "قبول",
-    "reject": "رد"
+    "reject": "رد",
+    "language": "زبان",
+    "file": "فایل",
+    "upload": "آپلود",
+    "download": "دانلود"
   },
   "validation": {
     "email": "ایمیل معتبر نیست",
@@ -89,6 +93,20 @@
     "noNotificationsYet": "هنوز پیامی ندارید!",
     "noInvitationsYet": "هنوز دعوت نامه‌ای دریافت نکرده‌اید!",
     "createTeamMessage": "ابتدا یک تیم بسازید سپس هم‌تیمی‌هایتان را دعوت کنید.",
-    "leaveTeamMessage": "می‌خواهید تیمتان را ترک کنید؟"
+    "leaveTeamMessage": "می‌خواهید تیمتان را ترک کنید؟",
+    "codeSubmissionMessage": "",
+    "submissionsHistory": "تاریخچه ارسال‌ها",
+    "status": "وضعیت",
+    "changeFinalSubmission": "تغییر ارسال نهایی",
+    "uploading": "در حال آپلود",
+    "uploaded": "آپلود شد",
+    "compiling": "در حال کامپایل",
+    "compiled": "کامپایل شد",
+    "failed": "خطا",
+    "search": "جست و جو",
+    "score": "امتیاز",
+    "rank": "رتبه",
+    "user": "کاربر",
+    "submitTime": "زمان ارسال"
   }
 }
