@@ -78,7 +78,7 @@ export const ANSWER_INVITATION = {
   method: "post",
   url: "/participation/invitation",
   payload: "data",
-  slug: "_id"
+  slug: "id"
 };
 
 //notifications
@@ -86,4 +86,25 @@ export const NOTIFICATIONS = {
   name: "NOTIFICATIONS",
   method: "get",
   url: "/subscribe/public-notifications"
+};
+
+//challenge
+export const SUBMIT_CODE = {
+  name: "SUBMIT_CODE",
+  method: "post",
+  payload: "data",
+  url: "/challenge/submission/submit"
+};
+
+export const VIEW_SUBMISSIONS = {
+  name: "VIEW_SUBMISSIONS",
+  method: "get",
+  url: "/challenge/submission/submissions"
+};
+
+export const CHANGE_FINAL_SUBMISSION = {
+  name: "CHANGE_FINAL_SUBMISSION",
+  method: "put",
+  slug: "id",
+  url: "/challenge/submission/change_final"
 };
