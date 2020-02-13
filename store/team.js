@@ -1,9 +1,10 @@
-import { RECEIVED_INVITATIONS, SENT_INVITATIONS, TEAM_DETAIL } from "~/api";
+import { RECEIVED_INVITATIONS, SENT_INVITATIONS, TEAM_DETAIL, VIEW_SUBMISSIONS } from "~/api";
 
 export const state = () => ({
   team: null,
   receivedInvitations: [],
-  sentInvitations: []
+  sentInvitations: [],
+  finalSubmission: []
 });
 
 export const actions = {
@@ -18,6 +19,10 @@ export const actions = {
   async getSentInvitations({ commit }) {
     let data = await this.$axios.$get(SENT_INVITATIONS.url);
     commit("setInvitations", { ...data, type: "sent" });
+  },
+  async getSubmissions({ commit }) {
+    let data = await this.$axios.$get(VIEW_SUBMISSIONS.url);
+    commit("setSubmissions", data);
   }
 };
 
@@ -34,6 +39,14 @@ export const mutations = {
       state[`${type}Invitations`] = invitations.reverse();
     } else {
       state[`${type}Invitations`] = invitations.reverse();
+    }
+  },
+  setSubmissions(state, { submissions, status_code }) {
+    if (status_code === 200) {
+      state.submissions = submissions;
+      state.submissions.forEach(x => {
+        if (x.is_final) state.finalSubmission = [x];
+      });
     }
   }
 };
