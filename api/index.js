@@ -39,13 +39,20 @@ export const CREATE_TEAM = {
   name: "CREATE_TEAM",
   method: "post",
   payload: "data",
-  url: "/participation/team/create"
+  url: "/participation/team"
 };
 
 export const LEAVE_TEAM = {
   name: "LEAVE_TEAM",
-  method: "post",
-  url: "/participation/team/leave"
+  method: "delete",
+  url: "/participation/team"
+};
+
+export const EDIT_TEAM = {
+  name: "EDIT_TEAM",
+  method: "put",
+  payload: "data",
+  url: "/participation/team"
 };
 
 export const TEAM_DETAIL = {

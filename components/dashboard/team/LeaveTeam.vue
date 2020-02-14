@@ -37,7 +37,7 @@
     methods: {
       async leaveTeam() {
         this.loading = true;
-        let data = await this.$axios.$post(LEAVE_TEAM.url);
+        let data = await this.$axios.$delete(LEAVE_TEAM.url);
         this.loading = false;
         this.dialog = false;
         this.$store.dispatch("team/getTeam");

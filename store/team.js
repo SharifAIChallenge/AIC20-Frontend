@@ -1,4 +1,5 @@
 import { RECEIVED_INVITATIONS, SENT_INVITATIONS, TEAM_DETAIL, VIEW_SUBMISSIONS } from "~/api";
+import Vue from "vue";
 
 export const state = () => ({
   team: null,
@@ -29,21 +30,21 @@ export const actions = {
 export const mutations = {
   set(state, { team, status_code }) {
     if (status_code === 200) {
-      state.team = team;
+      Vue.set(state, "team", team);
     } else {
-      state.team = null;
+      Vue.set(state, "team", null);
     }
   },
   setInvitations(state, { type, invitations, status_code }) {
     if (status_code === 200) {
-      state[`${type}Invitations`] = invitations.reverse();
+      Vue.set(state, `${type}Invitations`, invitations.reverse());
     } else {
-      state[`${type}Invitations`] = invitations.reverse();
+      Vue.set(state, `${type}Invitations`, null);
     }
   },
   setSubmissions(state, { submissions, status_code }) {
     if (status_code === 200) {
-      state.submissions = submissions;
+      Vue.set(state, "submissions", submissions);
       state.submissions.forEach(x => {
         if (x.is_final) state.finalSubmission = [x];
       });

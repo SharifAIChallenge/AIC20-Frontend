@@ -9,10 +9,7 @@
         offset-x="30"
         offset-y="30"
       >
-        <v-avatar size="150" :color="colors[team.name.length % colors.length]">
-          <v-img v-if="team.image" :src="team.image"/>
-          <span v-else class="text-uppercase display-3 pt-4 font-weight-bold">{{ team.name[0] }}</span>
-        </v-avatar>
+        <team-avatar :team="team" :size="150" custom-class="display-3 pt-4"/>
       </v-badge>
       <div class="mt-4 title">{{ team.name }}</div>
     </div>
@@ -34,9 +31,10 @@
 
 <script>
   import { mapState } from "vuex";
-  import { LEAVE_TEAM } from "../../../api";
+  import TeamAvatar from "./TeamAvatar";
 
   export default {
+    components: { TeamAvatar },
     props: {
       team: {
         type: Object
