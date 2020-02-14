@@ -71,6 +71,7 @@
         :max="new Date().toISOString().substr(0, 10)"
         min="1950-01-01"
         ref="picker"
+        locale="en-US"
         scrollable
         @change="save"/>
     </v-dialog>
@@ -115,6 +116,7 @@
     computed: {
       edited() {
         const profile = this.$auth.user.profile;
+        if (!profile) return false;
         return this.nameInPersian !== profile.firstname_fa ||
           this.nameInEnglish !== profile.firstname_en ||
           this.lastNameInPersian !== profile.lastname_fa ||
@@ -155,6 +157,7 @@
       },
       resetForm() {
         const profile = this.$auth.user.profile;
+        if (!profile) return;
         this.nameInPersian = profile.firstname_fa;
         this.nameInEnglish = profile.firstname_en;
         this.lastNameInPersian = profile.lastname_fa;

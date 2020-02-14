@@ -1,4 +1,5 @@
 import colors from "vuetify/es5/util/colors";
+import fa from "vuetify/es5/locale/fa";
 
 export default {
   mode: "universal",
@@ -67,6 +68,10 @@ export default {
     customVariables: ["~/assets/variables.scss"],
     defaultAssets: {
       font: false
+    },
+    lang: {
+      locales: { fa },
+      current: "fa"
     },
     treeShake: true,
     rtl: true,

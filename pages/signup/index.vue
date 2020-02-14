@@ -112,6 +112,7 @@
                   :max="new Date().toISOString().substr(0, 10)"
                   min="1950-01-01"
                   ref="picker"
+                  locale="en-US"
                   scrollable
                   @change="save"/>
               </v-dialog>
