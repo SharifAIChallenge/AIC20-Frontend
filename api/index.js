@@ -58,7 +58,7 @@ export const EDIT_TEAM = {
 export const TEAM_DETAIL = {
   name: "TEAM_DETAIL",
   method: "get",
-  url: "/participation/team/detail"
+  url: "/participation/team"
 };
 
 export const INVITE = {
