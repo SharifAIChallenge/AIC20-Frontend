@@ -16,8 +16,8 @@ export const actions = {
         commit("set", { team: null });
       } else {
         commit("set", data);
-        commit("dashboard/updateRoute", { route: "submissions", val: !data.team.is_valid }, { root: true });
-        commit("dashboard/updateRoute", { route: "games", val: !data.team.is_valid }, { root: true });
+        // commit("dashboard/updateRoute", { route: "submissions", val: !data.team.is_valid }, { root: true });
+        // commit("dashboard/updateRoute", { route: "games", val: !data.team.is_valid }, { root: true });
       }
     }
   },
