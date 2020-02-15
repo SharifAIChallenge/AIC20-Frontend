@@ -115,6 +115,9 @@
     "graphicLog": "لاگ گرافیک",
     "editAvatar": "تفییر آواتار",
     "deleteAvatar": "حذف آواتار",
-    "friendlyGame": "بازی دوستانه"
+    "friendlyGame": "بازی دوستانه",
+    "gameVisualizer": "نمایشگر بازی",
+    "gameDocument": "مستند بازی",
+    "serverAndClients": "سرور و کلاینت"
   }
 }

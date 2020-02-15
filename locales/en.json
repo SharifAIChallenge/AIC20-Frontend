@@ -115,6 +115,9 @@
     "graphicLog": "graphic log",
     "editAvatar": "edit avatar",
     "deleteAvatar": "delete avatar",
-    "friendlyGame": "friendly game"
+    "friendlyGame": "friendly game",
+    "gameVisualizer": "game visualizer",
+    "gameDocument": "game document",
+    "serverAndClients": "server and clients"
   }
 }

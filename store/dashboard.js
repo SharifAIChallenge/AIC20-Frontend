@@ -24,7 +24,7 @@ export const state = () => ({
       title: "dashboard.resources",
       icon: "mdi-file-document-outline",
       link: "/dashboard/resources",
-      disabled: true
+      disabled: false
     },
     tutorials: {
       title: "dashboard.tutorials",
