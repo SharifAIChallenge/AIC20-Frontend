@@ -65,10 +65,12 @@
     "dashboard": "داشبورد",
     "settings": "تنظیمات",
     "team": "تیم",
+    "teams": "تیم‌ها",
     "submissions": "ارسال کد",
     "resources": "منابع",
     "tutorials": "محتوای آموزشی",
     "tournaments": "تورنومنت‌ها",
+    "tournament": "تورنومنت",
     "games": "بازی‌ها",
     "scoreboard": "جدول امتیازات",
     "updates": "اعلان‌ها",
@@ -107,6 +109,12 @@
     "score": "امتیاز",
     "rank": "رتبه",
     "user": "کاربر",
-    "submitTime": "زمان ارسال"
+    "submitTime": "زمان ارسال",
+    "time": "زمان",
+    "codeScoreboardMessage": "جدول امتیازات بر اساس تورنومنت‌های روزانه ساخته می‌شود.",
+    "graphicLog": "لاگ گرافیک",
+    "editAvatar": "تفییر آواتار",
+    "deleteAvatar": "حذف آواتار",
+    "friendlyGame": "بازی دوستانه"
   }
 }

@@ -65,10 +65,12 @@
     "dashboard": "dashboard",
     "settings": "settings",
     "team": "team",
+    "teams": "teams",
     "submissions": "submissions",
     "resources": "resources",
     "tutorials": "tutorials",
     "tournaments": "tournaments",
+    "tournament": "tournament",
     "games": "games",
     "scoreboard": "scoreboard",
     "updates": "updates",
@@ -107,6 +109,12 @@
     "score": "score",
     "rank": "rank",
     "user": "user",
-    "submitTime": "submission time"
+    "submitTime": "submission time",
+    "time": "time",
+    "codeScoreboardMessage": "The scoreboard is created based on daily tournaments results.",
+    "graphicLog": "graphic log",
+    "editAvatar": "edit avatar",
+    "deleteAvatar": "delete avatar",
+    "friendlyGame": "friendly game"
   }
 }
