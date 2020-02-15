@@ -14,12 +14,12 @@ export const state = () => ({
       disabled: false,
       divider: true
     },
-    getting_started: {
-      title: "dashboard.gettingStarted",
-      icon: "mdi-help-circle-outline",
-      link: "/dashboard/getting_started",
-      disabled: true
-    },
+    // getting_started: {
+    //   title: "dashboard.gettingStarted",
+    //   icon: "mdi-help-circle-outline",
+    //   link: "/dashboard/getting_started",
+    //   disabled: true
+    // },
     resources: {
       title: "dashboard.resources",
       icon: "mdi-file-document-outline",
