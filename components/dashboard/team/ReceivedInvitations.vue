@@ -38,7 +38,7 @@
     <v-dialog v-model="dialog" width="300">
       <v-card>
         <v-card-text class="pa-3">
-          <team-loader v-if="dialog" :name="teamName"/>
+          <team-loader v-if="dialog" :name="teamName" avatar/>
         </v-card-text>
       </v-card>
     </v-dialog>
