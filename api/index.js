@@ -115,3 +115,10 @@ export const CHANGE_FINAL_SUBMISSION = {
   slug: "id",
   url: "/challenge/submission/change_final"
 };
+
+// scoreboard
+export const GET_SCOREBOARD = {
+  name: "GET_SCOREBOARD",
+  method: "get",
+  url: "/scoreboard/challenge"
+};
