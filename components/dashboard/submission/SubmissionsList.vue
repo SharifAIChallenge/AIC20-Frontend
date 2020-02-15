@@ -28,11 +28,7 @@
         {{ item.user.profile.firstname_fa + " " + item.user.profile.lastname_fa }}
       </template>
       <template v-slot:item.submit_time="{ item }">
-        {{
-        new Date(item.submit_time).getHours()
-        + ":" + new Date(item.submit_time).getMinutes()
-        + " - " + new Intl.DateTimeFormat($i18n.locale).format(new Date(item.submit_time))
-        }}
+        <date-time-formatter :date="item.submit_time"/>
       </template>
       <template v-slot:item.file="{ item }">
         <v-btn icon :href="item.file">
@@ -49,9 +45,10 @@
   import LanguageIcon from "./LanguageIcon";
   import { CHANGE_FINAL_SUBMISSION } from "../../../api";
   import { mapState } from "vuex";
+  import DateTimeFormatter from "../../DateTimeFormatter";
 
   export default {
-    components: { LanguageIcon, SubmissionStatus },
+    components: { DateTimeFormatter, LanguageIcon, SubmissionStatus },
     props: {
       submissions: {
         type: Array
@@ -86,6 +83,8 @@
         if (data.status_code === 200) {
           this.$store.dispatch("team/getSubmissions");
           this.$toast.success("ارسال نهایی با موفقیت تغییر کرد.");
+        } else if (data.status_code === 406) {
+          this.$toast.error("کد هنوز کامپال نشده است.");
         }
       }
     }
