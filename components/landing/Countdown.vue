@@ -2,13 +2,13 @@
   <v-container>
     <v-row class="flex-column justify-center py-12">
       <v-col>
-        <countdown-timer :deadline="new Date(2020,1,15, 23).getTime()"/>
+        <countdown-timer :deadline="new Date(2020,2,2, 23).getTime()"/>
       </v-col>
       <v-col class="mt-5">
         <v-row class="justify-center">
           <glow>
             <v-col class="text-center display-1">
-              {{$t("home.tillCompetitionStart") }}
+              تا رقابت انتخابی
             </v-col>
           </glow>
         </v-row>
