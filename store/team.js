@@ -11,7 +11,15 @@ export const state = () => ({
 export const actions = {
   async getTeam({ commit }) {
     let data = await this.$axios.$get(TEAM_DETAIL.url);
-    commit("set", data);
+    if (data.status_code === 200) {
+      if (data.errors) {
+        commit("set", { team: null });
+      } else {
+        commit("set", data);
+        commit("dashboard/updateRoute", { route: "submissions", val: !data.team.is_valid }, { root: true });
+        commit("dashboard/updateRoute", { route: "games", val: !data.team.is_valid }, { root: true });
+      }
+    }
   },
   async getReceivedInvitations({ commit }) {
     let data = await this.$axios.$get(RECEIVED_INVITATIONS.url);
@@ -28,18 +36,14 @@ export const actions = {
 };
 
 export const mutations = {
-  set(state, { team, status_code }) {
-    if (status_code === 200) {
-      Vue.set(state, "team", team);
-    } else {
-      Vue.set(state, "team", null);
-    }
+  set(state, { team }) {
+    Vue.set(state, "team", team);
   },
   setInvitations(state, { type, invitations, status_code }) {
     if (status_code === 200) {
       Vue.set(state, `${type}Invitations`, invitations.reverse());
     } else {
-      Vue.set(state, `${type}Invitations`, null);
+      Vue.set(state, `${type}Invitations`, []);
     }
   },
   setSubmissions(state, { submissions, status_code }) {
