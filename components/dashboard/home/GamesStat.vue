@@ -5,14 +5,14 @@
       <span class="white--text">{{ `${percent}%` }}</span>
     </v-progress-circular>
     <div class="mt-8">
-      <v-chip class="mx-2">
+      <v-chip pill class="mx-2">
         <v-avatar left color="info">
           <v-icon>mdi-emoticon-happy</v-icon>
         </v-avatar>
         {{ wins }}
         {{ $tc("dashboard.wins", wins) }}
       </v-chip>
-      <v-chip class="mx-2">
+      <v-chip pill class="mx-2">
         <v-avatar left color="error">
           <v-icon>mdi-emoticon-sad</v-icon>
         </v-avatar>
