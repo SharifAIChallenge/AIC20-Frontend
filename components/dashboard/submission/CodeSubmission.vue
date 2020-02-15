@@ -41,7 +41,7 @@
   import { requiredRules } from "../../../mixins/formValidations";
   import { primaryButtonProps } from "../../../mixins/buttonProps";
   import { fieldProps } from "../../../mixins/fieldProps";
-  import { CREATE_TEAM, SUBMIT_CODE } from "../../../api";
+  import { SUBMIT_CODE } from "../../../api";
 
   export default {
     mixins: [requiredRules, primaryButtonProps, fieldProps],
@@ -56,7 +56,7 @@
           { text: "Cpp", value: "cpp" },
           { text: "Go", value: "go" }
         ],
-        fileHint: "",
+        fileHint: "zip",
         fileRules: [v => !!v || ""],
         loading: false
       };
