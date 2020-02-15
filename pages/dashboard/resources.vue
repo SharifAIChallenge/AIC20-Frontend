@@ -25,15 +25,15 @@
       </v-card-text>
       <v-card-actions>
         <div>
-          <v-btn rounded light color="white" href="https://aichallenge.sharif.edu/static/Graphics/Graphic-Linux.zip" target="_blank" class="pe-4 ma-1">
+          <v-btn rounded light color="white" href="https://aichallenge.sharif.edu/go/GraphicLinux" target="_blank" class="pe-4 ma-1">
             <v-icon left>mdi-linux</v-icon>
             نسخه لینوکس
           </v-btn>
-          <v-btn rounded light color="white" href="https://aichallenge.sharif.edu/static/Graphics/Graphic-Win.zip" target="_blank" class="pe-4 ma-1">
+          <v-btn rounded light color="white" href="https://aichallenge.sharif.edu/go/GraphicWin" target="_blank" class="pe-4 ma-1">
             <v-icon left>mdi-windows</v-icon>
             نسخه ویندوز
           </v-btn>
-          <v-btn rounded light color="white" href="https://aichallenge.sharif.edu/static/Graphics/Graphic-Mac.zip" target="_blank" class="pe-4 ma-1">
+          <v-btn rounded light color="white" href="https://aichallenge.sharif.edu/go/GraphicMac" target="_blank" class="pe-4 ma-1">
             <v-icon left>mdi-apple</v-icon>
             نسخه مک
           </v-btn>
