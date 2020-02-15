@@ -44,7 +44,6 @@
         valid: false,
         name: "",
         image: null,
-        imageFile: null,
         imageRules: [
           value => !value || !value.size || value.size < 200000 || "سایز عکس باید کمتر از ۲۰۰ کیلوبایت باشد."
         ],
