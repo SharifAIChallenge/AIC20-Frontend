@@ -8,7 +8,7 @@
           </v-card-title>
           <v-divider/>
           <v-card-text>
-            <team :team="team"/>
+            <team :team="team" :editable="true" />
             <leave-team class="mt-4"/>
           </v-card-text>
         </v-card>
