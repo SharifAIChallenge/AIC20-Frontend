@@ -2,11 +2,11 @@
   <v-col>
     <v-card class="mb-6">
       <v-card-title>
-        {{ $t("dashboard.gameDocument") }}
+        مخزن بازی
       </v-card-title>
       <v-divider/>
       <v-card-text>
-        مستند بازی به همراه فایل‌های نقشه و سرور بازی در مخزن زیر قابل دسترسی هستند.
+        مستند بازی به همراه فایل‌های نقشه و سرور بازی در مخزن زیر قابل دسترسی هستند. برای شروع این مخزن را دریافت کنید و مستند را مطالعه کنید. برای نوشتن عامل هوشمند برای بازی علاوه بر محتویات این مخزن باید کلاینت زبان مورد نظر خود را نیز دریافت کنید.
       </v-card-text>
       <v-card-actions>
         <v-btn rounded light color="white" href="https://aichallenge.sharif.edu/go/GameRepo" target="_blank" class="pe-4">
