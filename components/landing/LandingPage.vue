@@ -6,7 +6,7 @@
     <div class="bg-dotted">
       <about :text="intro"/>
     </div>
-    <timeline/>
+    <timeline :timeline="timeline"/>
     <div class="bg-dotted">
       <trophies/>
     </div>
@@ -50,7 +50,8 @@
         why: data.why,
         quotes: data.quotes,
         teams: data.teams,
-        registers: data.registers
+        registers: data.registers,
+        timeline: data.timeline
       };
     }
   };

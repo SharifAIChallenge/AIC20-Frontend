@@ -7,9 +7,9 @@
     <client-only>
       <v-timeline :dense="xsOnly">
         <v-timeline-item
-          v-for="(year, i) in years"
+          v-for="(item, i) in timeline"
           :key="i"
-          :color="year.color"
+          color="secondary"
           small
         >
           <template v-slot:opposite>
@@ -17,12 +17,12 @@
           <v-card>
             <v-card-title
               class="headline font-weight-bold primary--text"
-              v-text="year.year"
+              v-text="item.title_fa"
             />
-            <v-card-title class="headline">{{ year.title }}</v-card-title>
-            <v-card-text>
-              {{ year.caption }}
-            </v-card-text>
+            <v-card-text class="title" v-html="item.text_fa"/>
+<!--            <v-card-text>-->
+<!--              {{ item.caption }}-->
+<!--            </v-card-text>-->
           </v-card>
         </v-timeline-item>
       </v-timeline>
@@ -35,6 +35,12 @@
 
   export default {
     components: { Glow },
+    props: {
+      timeline: {
+        type: Array,
+        default: []
+      }
+    },
     data() {
       return {
         years: [
