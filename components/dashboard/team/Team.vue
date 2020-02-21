@@ -1,28 +1,22 @@
 <template>
   <div>
     <div class="text-center my-3">
-      <v-badge
-        bordered
-        :color="team.is_valid ? 'success' : 'error'"
-        :icon="team.is_valid ? 'mdi-check-decagram' : 'mdi-lock'"
-        overlap
-        offset-x="30"
-        offset-y="30"
-      >
-        <v-hover v-slot:default="{ hover }" :disabled="!editable">
-          <div>
-            <v-fade-transition>
-              <div v-if="hover" class="p-absolute text-center" style="z-index: 1; width: 100%; bottom: 0">
-                <v-btn icon large @click="dialog=true" class="mb-1">
-                  <v-icon>mdi-image-edit</v-icon>
-                </v-btn>
-              </div>
-            </v-fade-transition>
-            <team-avatar :team="team" :size="150" custom-class="display-3 pt-4"/>
-          </div>
-        </v-hover>
-      </v-badge>
-      <div class="mt-4 title">{{ team.name }}</div>
+      <div style="position: relative">
+        <span v-if="editable" class="p-absolute" style="z-index: 1; bottom: 0">
+          <v-btn small fab @click="dialog=true" color="#281047">
+            <v-icon>mdi-image-edit</v-icon>
+          </v-btn>
+        </span>
+        <team-avatar :team="team" :size="150" custom-class="display-3 pt-4"/>
+      </div>
+      <div class="mt-6 title">
+        <span>
+          <v-icon small class="mb-1" :color="team.is_valid ? 'light-blue' : 'error'">
+            {{ team.is_valid ? "mdi-check-decagram" : "mdi-lock" }}
+          </v-icon>
+        </span>
+        {{ team.name }}
+      </div>
     </div>
     <v-list>
       <v-list-item v-for="item in team.participants" :key="item.user.email">
@@ -34,6 +28,7 @@
 
         <v-list-item-content>
           <v-list-item-title v-text="item.user.profile.firstname_fa + ' ' + item.user.profile.lastname_fa"/>
+          <v-list-item-subtitle v-text="item.user.email"/>
         </v-list-item-content>
       </v-list-item>
     </v-list>
@@ -42,7 +37,9 @@
         <v-card-title style="word-break: unset">
           {{ $t("dashboard.editAvatar") }}
           <v-spacer/>
-          <v-btn icon @click="dialog=false"><v-icon>mdi-close</v-icon></v-btn>
+          <v-btn icon @click="dialog=false">
+            <v-icon>mdi-close</v-icon>
+          </v-btn>
         </v-card-title>
         <v-divider/>
         <v-card-text class="pa-3">
@@ -71,8 +68,8 @@
     },
     data() {
       return {
-        dialog: false,
-      }
+        dialog: false
+      };
     },
     computed: {
       ...mapState({
