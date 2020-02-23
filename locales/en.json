@@ -126,6 +126,7 @@
     "scientificTeam": "scientific team",
     "executiveTeam": "executive team",
     "heads": "heads",
+    "brandingTeam": "branding team",
     "branding": "branding",
     "gameDesign": "game design",
     "graphics": "graphics",
@@ -137,6 +138,9 @@
     "executive": "executive",
     "sponsorship": "sponsorship",
     "mediaAndDesign": "media and design",
-    "content": "content"
+    "content": "content",
+    "humanResources": "human resources",
+    "administrativeAndFinancial": "administrative and financial",
+    "advertising": "advertising"
   }
 }

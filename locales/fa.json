@@ -126,6 +126,7 @@
     "scientificTeam": "تیم علمی",
     "executiveTeam": "تیم اجرایی",
     "heads": "دبیران برگزاری",
+    "brandingTeam": "تیم برندینگ",
     "branding": "برندینگ",
     "gameDesign": "طراحی بازی",
     "graphics": "گرافیک",
@@ -137,6 +138,9 @@
     "executive": "اجرایی",
     "sponsorship": "اسپانسرشیپ",
     "mediaAndDesign": "مدیا و طراحی",
-    "content": "محتوا"
+    "content": "محتوا",
+    "humanResources": "منابع انسانی",
+    "administrativeAndFinancial": "اداری و مالی",
+    "advertising": "تبلیغات"
   }
 }
