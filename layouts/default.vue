@@ -13,13 +13,25 @@
             <v-list-item-title v-text="$t('dashboard.dashboard')"/>
           </v-list-item-content>
         </v-list-item>
-        <v-list-item
-          v-for="(item, i) in items"
-          :key="i"
-          link
-        >
+        <template v-if="$route.path === '/'">
+          <v-list-item
+            v-for="(item, i) in items"
+            :key="i"
+            link
+          >
+            <v-list-item-content>
+              <v-list-item-title v-text="$t(item.title)" @click="scrollAndClose(item.scroll)"/>
+            </v-list-item-content>
+          </v-list-item>
+          <v-list-item to="/staffs" nuxt>
+            <v-list-item-content>
+              <v-list-item-title v-text="$t('home.ourTeam')"/>
+            </v-list-item-content>
+          </v-list-item>
+        </template>
+        <v-list-item v-else to="/" nuxt>
           <v-list-item-content>
-            <v-list-item-title v-text="$t(item.title)" @click="scrollAndClose(item.scroll)"/>
+            <v-list-item-title v-text="$t('home.home')"/>
           </v-list-item-content>
         </v-list-item>
       </v-list>
@@ -32,7 +44,7 @@
         <logo-mark class="hidden-sm-and-up"/>
       </nuxt-link>
       <v-spacer/>
-      <v-row class="justify-end align-center mx-2 hidden-sm-and-down">
+      <v-row v-if="$route.path === '/'" class="justify-end align-center mx-2 hidden-sm-and-down">
         <v-btn
           v-for="(item, i) in items"
           :key="i"
@@ -42,6 +54,16 @@
           class="mx-2"
           @click="$vuetify.goTo(item.scroll)">
           {{ $t(item.title) }}
+        </v-btn>
+        <v-btn
+          rounded
+          large
+          text
+          class="mx-2"
+          to="/staffs"
+          nuxt
+        >
+          {{ $t("home.ourTeam") }}
         </v-btn>
       </v-row>
       <v-btn v-if="$auth.loggedIn" rounded outlined depressed light large color="white" to="/dashboard"
@@ -103,8 +125,13 @@
     },
     methods: {
       scrollAndClose(target) {
+        if (this.$route.path !== "/") {
+          this.$router.push("/");
+          return;
+        }
         this.$vuetify.goTo(target);
-        this.drawer = false;
+        if (this.drawer)
+          this.drawer = false;
       }
     }
   };
