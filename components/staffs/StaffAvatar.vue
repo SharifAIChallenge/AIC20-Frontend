@@ -1,12 +1,15 @@
 <template>
-    <div class="text-center">
+  <div class="text-center">
+    <a :href="staff.url !== '#' ? staff.url : undefined">
       <v-avatar :size="size">
         <v-img :src="`https://aichallenge.sharif.edu${staff.image}`"/>
       </v-avatar>
-      <div class="subtitle-2 mt-3">
-        {{ staff.first_name_fa + " " + staff.last_name_fa }}
-      </div>
+    </a>
+    <div class="subtitle-2 mt-3">
+      {{ staff.first_name_fa + " " + staff.last_name_fa }}
     </div>
+    <div class="caption secondary--text" v-if="staff.role">{{ staff.role }}</div>
+  </div>
 </template>
 
 <script>
@@ -18,7 +21,7 @@
       size: {
         type: Number,
         default: 120
-      },
+      }
     }
   };
 </script>
