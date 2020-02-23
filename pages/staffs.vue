@@ -3,7 +3,7 @@
     <div class="primary--bg primary pb-12">
       <div class="d-flex justify-center">
         <div class="p-absolute text-stroke-width-2 text-stroke-white transparent--text text-center font-family-chopsic"
-             style="font-size: 160pt; width: 2000px; top: -50px; opacity: 0.1; letter-spacing: 10px !important;">
+             style="font-size: 150pt; width: 100%; top: -50px; opacity: 0.1; letter-spacing: 10px !important;">
           our team
         </div>
       </div>
