@@ -22,19 +22,21 @@
     </div>
     <v-container class="mt-n12 pb-12">
       <v-card class="mt-n3">
-        <v-tabs grow centered center-active show-arrows v-model="tabs">
-          <v-tab v-for="group in groups" :key="group + 'Tab'">
-            {{ $t(`staff.${group}`) }}
-          </v-tab>
-        </v-tabs>
-        <v-divider/>
-        <v-tabs-items v-model="tabs" class="mt-4">
-          <v-tab-item v-for="group in groups" :key="group">
-            <v-card-text>
-              <staff-group :group="staffs[group]" :name="group" hide-title cass="mb-8"/>
-            </v-card-text>
-          </v-tab-item>
-        </v-tabs-items>
+        <client-only>
+          <v-tabs grow centered center-active show-arrows v-model="tabs">
+            <v-tab v-for="group in groups" :key="group + 'Tab'">
+              {{ $t(`staff.${group}`) }}
+            </v-tab>
+          </v-tabs>
+          <v-divider/>
+          <v-tabs-items v-model="tabs" class="mt-4">
+            <v-tab-item v-for="group in groups" :key="group">
+              <v-card-text>
+                <staff-group :group="staffs[group]" :name="group" hide-title cass="mb-8"/>
+              </v-card-text>
+            </v-tab-item>
+          </v-tabs-items>
+        </client-only>
       </v-card>
     </v-container>
   </div>
