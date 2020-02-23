@@ -58,7 +58,8 @@
     "home": "home",
     "watchTeaser": "watch the teaser,",
     "faq": "FAQ",
-    "whyUs": "why us"
+    "whyUs": "why us",
+    "ourTeam": "our team"
   },
   "dashboard": {
     "home": "home",
@@ -119,5 +120,23 @@
     "gameVisualizer": "game visualizer",
     "gameDocument": "game document",
     "serverAndClients": "server and clients"
+  },
+  "staff": {
+    "technicalTeam": "technical team",
+    "scientificTeam": "scientific team",
+    "executiveTeam": "executive team",
+    "heads": "heads",
+    "branding": "branding",
+    "gameDesign": "game design",
+    "graphics": "graphics",
+    "serverAndClient": "server & client",
+    "website": "website",
+    "infrastructure": "infrastructure",
+    "gameEvaluation": "game evaluation",
+    "decoration": "decoration",
+    "executive": "executive",
+    "sponsorship": "sponsorship",
+    "mediaAndDesign": "media and design",
+    "content": "content"
   }
 }

@@ -58,7 +58,8 @@
     "home": "خانه",
     "watchTeaser": "تماشای تیزر",
     "faq": "سوالات متداول",
-    "whyUs": "چرا نبرد هوش مصنوعی"
+    "whyUs": "چرا نبرد هوش مصنوعی",
+    "ourTeam": "تیم ما"
   },
   "dashboard": {
     "home": "خانه",
@@ -119,5 +120,23 @@
     "gameVisualizer": "نمایشگر بازی",
     "gameDocument": "مستند بازی",
     "serverAndClients": "سرور و کلاینت"
+  },
+  "staff": {
+    "technicalTeam": "تیم فنی",
+    "scientificTeam": "تیم علمی",
+    "executiveTeam": "تیم اجرایی",
+    "heads": "دبیران برگزاری",
+    "branding": "برندینگ",
+    "gameDesign": "طراحی بازی",
+    "graphics": "گرافیک",
+    "serverAndClient": "سرور و کلاینت",
+    "website": "وبسایت",
+    "infrastructure": "زیرساخت",
+    "gameEvaluation": "ارزیابی بازی",
+    "decoration": "تزیینات",
+    "executive": "اجرایی",
+    "sponsorship": "اسپانسرشیپ",
+    "mediaAndDesign": "مدیا و طراحی",
+    "content": "محتوا"
   }
 }
