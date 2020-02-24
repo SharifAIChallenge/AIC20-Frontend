@@ -6,7 +6,7 @@
       </v-row>
     </v-app-bar>
     <v-app-bar
-      app flat clipped-right collapse absolute
+      app flat clipped-right collapse
       :min-width="mobile ? 220 : 256"
       :hide-on-scroll="mobile"
       style="left: unset;"
