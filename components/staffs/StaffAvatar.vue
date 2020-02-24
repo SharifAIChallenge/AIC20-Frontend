@@ -8,7 +8,7 @@
     <div class="subtitle-2 mt-3">
       {{ staff.first_name_fa + " " + staff.last_name_fa }}
     </div>
-    <div class="caption secondary--text" v-if="staff.role">{{ staff.role }}</div>
+    <div class="caption secondary--text" v-if="staff.role && !hideRole">{{ staff.role }}</div>
   </div>
 </template>
 
@@ -21,6 +21,9 @@
       size: {
         type: Number,
         default: 120
+      },
+      hideRole: {
+        type: Boolean
       }
     }
   };

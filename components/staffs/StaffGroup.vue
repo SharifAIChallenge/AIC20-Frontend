@@ -26,7 +26,7 @@
     components: { StaffTeam, Glow },
     computed: {
       teams() {
-        return Object.keys(this.group);
+        return Object.keys(this.group)
       }
     }
   };

@@ -23,11 +23,6 @@
               <v-list-item-title v-text="$t(item.title)" @click="scrollAndClose(item.scroll)"/>
             </v-list-item-content>
           </v-list-item>
-          <v-list-item to="/staffs" nuxt>
-            <v-list-item-content>
-              <v-list-item-title v-text="$t('home.ourTeam')"/>
-            </v-list-item-content>
-          </v-list-item>
         </template>
         <v-list-item v-else to="/" nuxt>
           <v-list-item-content>
@@ -54,16 +49,6 @@
           class="mx-2"
           @click="$vuetify.goTo(item.scroll)">
           {{ $t(item.title) }}
-        </v-btn>
-        <v-btn
-          rounded
-          large
-          text
-          class="mx-2"
-          to="/staffs"
-          nuxt
-        >
-          {{ $t("home.ourTeam") }}
         </v-btn>
       </v-row>
       <v-btn v-if="$auth.loggedIn" rounded outlined depressed light large color="white" to="/dashboard"
@@ -111,6 +96,10 @@
           {
             title: "home.whyUs",
             scroll: "#whyai"
+          },
+          {
+            title: "home.ourTeam",
+            scroll: "#our_team"
           },
           {
             title: "home.organizer",

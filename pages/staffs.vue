@@ -56,12 +56,12 @@
       };
     },
     async asyncData({ $axios }) {
-      let staffs = await $axios.$get("/staff/staffs", { headers: { Authorization: false } });
+      let staffs = await $axios.$get("/staff/staffs");
       return { staffs };
     },
     computed: {
       groups() {
-        return Object.keys(this.staffs);
+        return Object.keys(this.staffs).sort((x, y) => x.length - y.length);
       }
     }
   };

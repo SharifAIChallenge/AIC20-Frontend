@@ -12,7 +12,7 @@
     </div>
     <why-ai :why="why"/>
     <div class="bg-dotted">
-      <organizers/>
+      <organizers :staffs="staffs"/>
     </div>
     <quotes :quotes="quotes"/>
   </div>
@@ -25,7 +25,6 @@
   import Organizers from "./Organizers";
   import Trophies from "./Trophies";
   import About from "./About";
-  // import Faq from "./Faq";
   import WhyAi from "./WhyAi";
   import Quotes from "./Quotes";
   import Stats from "./Stats";
@@ -40,7 +39,8 @@
         why: "",
         quotes: "",
         teams: 0,
-        registers: 0
+        registers: 0,
+        staffs: []
       };
     },
     async asyncData({ $axios }) {
@@ -51,7 +51,8 @@
         quotes: data.quotes,
         teams: data.teams,
         registers: data.registers,
-        timeline: data.timeline
+        timeline: data.timeline,
+        staffs: data.staffs
       };
     }
   };
