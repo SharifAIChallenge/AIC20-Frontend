@@ -32,7 +32,7 @@
           <v-tabs-items v-model="tabs" class="mt-4">
             <v-tab-item v-for="group in groups" :key="group">
               <v-card-text>
-                <staff-group :group="staffs[group]" :name="group" hide-title cass="mb-8"/>
+                <staff-group :group="staff[group]" :name="group" hide-title cass="mb-8"/>
               </v-card-text>
             </v-tab-item>
           </v-tabs-items>
@@ -52,16 +52,16 @@
     data() {
       return {
         tabs: null,
-        staffs: {}
+        staff: {}
       };
     },
     async asyncData({ $axios }) {
-      let staffs = await $axios.$get("/staff/staffs");
-      return { staffs };
+      let staff = await $axios.$get("/staff/staffs");
+      return { staff };
     },
     computed: {
       groups() {
-        return Object.keys(this.staffs).sort((x, y) => x.length - y.length);
+        return Object.keys(this.staff).sort((x, y) => x.length - y.length);
       }
     }
   };

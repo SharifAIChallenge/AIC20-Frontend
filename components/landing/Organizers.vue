@@ -12,7 +12,7 @@
       </v-col>
     </v-row>
     <div class="text-center">
-      <v-btn rounded x-large light color="primary" to="/staffs">
+      <v-btn rounded x-large light color="primary" to="/staff">
         <v-icon left>mdi-more</v-icon>
         {{ $t("dashboard.seeAll") }}
       </v-btn>
