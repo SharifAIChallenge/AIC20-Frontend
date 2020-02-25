@@ -88,6 +88,12 @@ export const ANSWER_INVITATION = {
   slug: "id"
 };
 
+export const TOGGLE_MULTI_FRIENDLY = {
+  name: "TOGGLE_MULTI_FRIENDLY",
+  method: "post",
+  url: "/participation/team/multi-friendly",
+};
+
 //notifications
 export const NOTIFICATIONS = {
   name: "NOTIFICATIONS",
@@ -114,6 +120,26 @@ export const CHANGE_FINAL_SUBMISSION = {
   method: "put",
   slug: "id",
   url: "/challenge/submission/change_final"
+};
+
+//games
+export const REQUEST_FRIENDLY_MATCH = {
+  name: "REQUEST_FRIENDLY_MATCH",
+  method: "post",
+  url: "/challenge/game/friendly",
+  payload: "data"
+};
+
+export const VIEW_FRIENDLY_MATCHES = {
+  name: "VIEW_FRIENDLY_MATCHES",
+  method: "get",
+  url: "/challenge/game/friendly"
+};
+
+export const VIEW_LOBBY = {
+  name: "VIEW_LOBBY",
+  method: "get",
+  url: "/challenge/game/lobby"
 };
 
 // scoreboard
