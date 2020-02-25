@@ -80,7 +80,7 @@
       filterTeam(value, search, item) {
         return value != null &&
           search != null &&
-          !!value.name && value.name.indexOf(search) !== -1;
+          !!value.name && value.name.toLowerCase().indexOf(search.toLowerCase()) !== -1;
       }
     }
   };
