@@ -7,13 +7,13 @@
         </v-card-title>
         <v-divider/>
         <v-card-text>
-
+          <friendly-match/>
         </v-card-text>
       </v-card>
     </v-col>
     <v-col>
       <v-card style="overflow: hidden">
-        <games-list/>
+        <games-list :games="friendlyGames"/>
       </v-card>
     </v-col>
   </dashboard-page>
@@ -23,11 +23,21 @@
   import dashboardPageValidate from "../../mixins/dashboardPageValidate";
   import GamesList from "../../components/dashboard/games/GamesList";
   import DashboardPage from "../../components/dashboard/DashboardPage";
+  import FriendlyMatch from "../../components/dashboard/games/FriendlyMatch";
+  import { mapState } from "vuex";
 
   export default {
-    components: { DashboardPage, GamesList },
+    components: { FriendlyMatch, DashboardPage, GamesList },
     layout: "dashboard",
-    mixins: [dashboardPageValidate("games")]
+    mixins: [dashboardPageValidate("games")],
+    async fetch({ store }) {
+      store.dispatch("games/getFriendlyMatches");
+    },
+    computed: {
+      ...mapState({
+        friendlyGames: state => state.games.friendlyGames
+      })
+    }
   };
 </script>
 
