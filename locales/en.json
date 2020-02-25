@@ -35,7 +35,8 @@
     "language": "language",
     "file": "file",
     "upload": "upload",
-    "download": "download"
+    "download": "download",
+    "inviteAs": "invite as"
   },
   "validation": {
     "email": "email must be valid",
@@ -119,7 +120,10 @@
     "friendlyGame": "friendly game",
     "gameVisualizer": "game visualizer",
     "gameDocument": "game document",
-    "serverAndClients": "server and clients"
+    "serverAndClients": "server and clients",
+    "requestFriendlyMatch": "request friendly match",
+    "friendlyMatchMessage": "",
+    "acceptFriendlyMatches": "accept group friendly matches"
   },
   "staff": {
     "technicalTeam": "technical team",

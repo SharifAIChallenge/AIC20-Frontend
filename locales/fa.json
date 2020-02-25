@@ -35,7 +35,8 @@
     "language": "زبان",
     "file": "فایل",
     "upload": "آپلود",
-    "download": "دانلود"
+    "download": "دانلود",
+    "inviteAs": "دعوت به عنوان"
   },
   "validation": {
     "email": "ایمیل معتبر نیست",
@@ -119,7 +120,10 @@
     "friendlyGame": "بازی دوستانه",
     "gameVisualizer": "نمایشگر بازی",
     "gameDocument": "مستند بازی",
-    "serverAndClients": "سرور و کلاینت"
+    "serverAndClients": "سرور و کلاینت",
+    "requestFriendlyMatch": "درخواست بازی دوستانه",
+    "friendlyMatchMessage": "",
+    "acceptFriendlyMatches": "پذیرفتن بازی دوستانه گروهی"
   },
   "staff": {
     "technicalTeam": "تیم فنی",
