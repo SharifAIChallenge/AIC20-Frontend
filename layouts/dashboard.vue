@@ -76,6 +76,9 @@
       mobile() {
         return this.$vuetify.breakpoint.smAndDown;
       }
+    },
+    mounted() {
+      this.$store.dispatch("team/getTeam")
     }
   };
 </script>
