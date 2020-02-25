@@ -6,26 +6,28 @@
     <v-switch color="info" v-model="allowMultiFriendly" inset :loading="loading.toggle"
               :label="$t('dashboard.acceptFriendlyMatches')"/>
     <v-form ref="editProfile" v-model="valid" @submit="requestFriendlyMatch" onSubmit="return false;">
-      <v-row v-if="allowMultiFriendly">
-        <v-col cols="12" sm="6">
-          <v-text-field
-            v-model="teamName"
-            :label="$t('form.teamName')"
-            v-bind="filedProps"
-            clearable
-          />
-        </v-col>
-        <v-col>
-          <v-select
-            v-model="multiType"
-            v-bind="filedProps"
-            :items="multiTypeOptions"
-            :label="$t('form.inviteAs')"
-            :disabled="!teamName"
-            dir="ltr"
-          />
-        </v-col>
-      </v-row>
+      <v-expand-transition>
+        <v-row v-if="allowMultiFriendly">
+          <v-col cols="12" sm="6">
+            <v-text-field
+              v-model="teamName"
+              :label="$t('form.teamName')"
+              v-bind="filedProps"
+              clearable
+            />
+          </v-col>
+          <v-col>
+            <v-select
+              v-model="multiType"
+              v-bind="filedProps"
+              :items="multiTypeOptions"
+              :label="$t('form.inviteAs')"
+              :disabled="!teamName"
+              dir="ltr"
+            />
+          </v-col>
+        </v-row>
+      </v-expand-transition>
       <v-btn type="submit" :disabled="!valid" :loading="loading.request" v-bind="primaryButtonProps">
         <v-icon left>mdi-gamepad-variant</v-icon>
         {{ $t("dashboard.requestFriendlyMatch") }}

@@ -44,16 +44,16 @@
   export default {
     components: { MatchResult, DateTimeFormatter, TeamAvatar },
     props: {
-      // games: {
-      //   type: Array
-      // }
+      games: {
+        type: Array
+      }
     },
     computed: {
       headers() {
         return [
-          { text: this.$t("dashboard.tournament"), sortable: false, value: "tournament" },
-          { text: this.$t("dashboard.teams"), sortable: false, value: "teams", align: "center" },
+          // { text: this.$t("dashboard.tournament"), sortable: false, value: "tournament" },
           { text: this.$t("dashboard.time"), sortable: true, value: "time", align: "center" },
+          { text: this.$t("dashboard.teams"), sortable: false, value: "teams", align: "center" },
           // { text: this.$t("dashboard.status"), sortable: false, value: "status" }
         ];
       }
@@ -63,23 +63,23 @@
         page: 1,
         pageCount: 0,
         itemsPerPage: 40,
-        games: [
-          {
-            id: 1,
-            tournament: "daily - 1",
-            teams: [
-              { name: "team1" },
-              { name: "team2" },
-              { name: "team3" },
-              { name: "team4" }
-            ],
-            time: 1581659918980,
-            status: "",
-            matches: [
-              {}
-            ]
-          }
-        ]
+        // games: [
+        //   {
+        //     id: 1,
+        //     tournament: "daily - 1",
+        //     teams: [
+        //       { name: "team1" },
+        //       { name: "team2" },
+        //       { name: "team3" },
+        //       { name: "team4" }
+        //     ],
+        //     time: 1581659918980,
+        //     status: "",
+        //     matches: [
+        //       {}
+        //     ]
+        //   }
+        // ]
       };
     }
   };
