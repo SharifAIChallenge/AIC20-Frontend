@@ -1,23 +1,23 @@
 <template>
   <v-container class="py-12">
-    <glow class="mb-8" id="our_team">
-      <span class="title pe-3">برخی از اعضای</span>
-      <h2 class="display-2 transparent--text text-stroke-primary text-stroke-width-2 font-weight-black d-inline-block">
-        {{ $t("home.ourTeam") }}
-      </h2>
-    </glow>
-    <v-row class="justify-center my-6">
-      <v-col v-for="(item, i) in staffs" :key="i" cols="6" sm="4" md="3" lg="2">
-        <staff-avatar :staff="item" hide-role/>
-      </v-col>
-    </v-row>
-    <div class="text-center">
-      <v-btn rounded x-large light color="primary" to="/staff">
-        <v-icon left>mdi-more</v-icon>
-        {{ $t("dashboard.seeAll") }}
-      </v-btn>
-    </div>
-    <v-divider class="my-12"/>
+<!--    <glow class="mb-8" id="our_team">-->
+<!--      <span class="title pe-3">برخی از اعضای</span>-->
+<!--      <h2 class="display-2 transparent&#45;&#45;text text-stroke-primary text-stroke-width-2 font-weight-black d-inline-block">-->
+<!--        {{ $t("home.ourTeam") }}-->
+<!--      </h2>-->
+<!--    </glow>-->
+<!--    <v-row class="justify-center my-6">-->
+<!--      <v-col v-for="(item, i) in staffs" :key="i" cols="6" sm="4" md="3" lg="2">-->
+<!--        <staff-avatar :staff="item" hide-role/>-->
+<!--      </v-col>-->
+<!--    </v-row>-->
+<!--    <div class="text-center">-->
+<!--      <v-btn rounded x-large light color="primary" to="/staff">-->
+<!--        <v-icon left>mdi-more</v-icon>-->
+<!--        {{ $t("dashboard.seeAll") }}-->
+<!--      </v-btn>-->
+<!--    </div>-->
+<!--    <v-divider class="my-12"/>-->
     <v-row>
       <v-col>
         <glow class="mb-8">
