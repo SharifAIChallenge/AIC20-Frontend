@@ -14,6 +14,8 @@ export const actions = {
     if (data.status_code === 200) {
       if (data.errors) {
         commit("set", { team: null });
+        commit("dashboard/updateRoute", { route: "submissions", val: true }, { root: true });
+        commit("dashboard/updateRoute", { route: "games", val: true }, { root: true });
       } else {
         commit("set", data);
         commit("dashboard/updateRoute", { route: "submissions", val: !data.team.is_valid }, { root: true });
