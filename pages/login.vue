@@ -28,6 +28,9 @@
           </glow>
         </v-row>
         <v-form ref="form" v-model="valid" @submit="login" onSubmit="return false;">
+          <v-alert icon="mdi-shield-alert" text outlined class="mb-6">
+            اگر تا کنون رمز عبور خود را تغییر نداده‌اید لازم است قبل از ورود از طریق فرم فراموشی رمز این کار را انجام دهید.
+          </v-alert>
           <v-text-field
             v-model="email"
             :label="$t('form.email')"
