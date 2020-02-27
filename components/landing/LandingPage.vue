@@ -2,7 +2,7 @@
   <div>
     <poster/>
     <countdown/>
-    <stats :teams="teams" :registers="registers"/>
+<!--    <stats :teams="teams" :registers="registers"/>-->
     <div class="bg-dotted">
       <about :text="intro"/>
     </div>
