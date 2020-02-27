@@ -42,7 +42,7 @@
         this.dialog = false;
         this.$store.dispatch("team/getTeam");
         if (data.errors) {
-          this.$toast().error("خطایی در ترک تیم رخ داد.");
+          this.$toast.error("خطایی در ترک تیم رخ داد.");
         } else {
           this.$toast.success("با موفقیت تیم‌تان را ترک کردید.");
         }
