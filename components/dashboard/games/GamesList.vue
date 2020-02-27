@@ -7,28 +7,34 @@
       :items-per-page="itemsPerPage"
       hide-default-footer
       @page-count="pageCount = $event"
-      item-key="id"
+      item-key="time"
       sort-by="time"
       sort-desc
-      show-expand
       locale="fa"
     >
-      <template v-slot:expanded-item="{ headers, item }">
-        <td :colspan="headers.length" class="px-0">
-          <v-list>
-            <match-result/>
-            <match-result/>
-            <match-result/>
-          </v-list>
-        </td>
-      </template>
+<!--      <template v-slot:expanded-item="{ headers, item }">-->
+<!--        <td :colspan="headers.length" class="px-0">-->
+<!--          <v-list>-->
+<!--            <match-result/>-->
+<!--            <match-result/>-->
+<!--          </v-list>-->
+<!--        </td>-->
+<!--      </template>-->
       <template v-slot:item.teams="{ item }">
         <div>
-          <v-chip v-for="team in item.teams" :key="team.name" class="ma-1"><team-avatar left :team="team" :size="32"/>{{ team.name }}</v-chip>
+          <match-result :game-sides="item.game_sides" />
         </div>
       </template>
       <template v-slot:item.time="{ item }">
         <date-time-formatter :date="item.time"/>
+      </template>
+      <template v-slot:item.status="{ item }">
+        {{ $t(`dashboard.${item.status}`) }}
+      </template>
+      <template v-slot:item.log="{ item }">
+        <v-btn icon :href="item.log" target="_blank">
+          <v-icon>mdi-download</v-icon>
+        </v-btn>
       </template>
     </v-data-table>
     <v-pagination v-model="page" :length="pageCount" :total-visible="5" circle class="my-3"/>
@@ -52,9 +58,10 @@
       headers() {
         return [
           // { text: this.$t("dashboard.tournament"), sortable: false, value: "tournament" },
-          { text: this.$t("dashboard.time"), sortable: true, value: "time", align: "center" },
+          { text: this.$t("dashboard.time"), sortable: true, value: "time", align: "right", width: 200 },
           { text: this.$t("dashboard.teams"), sortable: false, value: "teams", align: "center" },
-          // { text: this.$t("dashboard.status"), sortable: false, value: "status" }
+          { text: this.$t("dashboard.status"), sortable: false, value: "status", align: "center" },
+          { text: this.$t("dashboard.log"), sortable: false, value: "log", align: "center", width: 70 },
         ];
       }
     },
@@ -62,7 +69,7 @@
       return {
         page: 1,
         pageCount: 0,
-        itemsPerPage: 40,
+        itemsPerPage: 5
         // games: [
         //   {
         //     id: 1,
