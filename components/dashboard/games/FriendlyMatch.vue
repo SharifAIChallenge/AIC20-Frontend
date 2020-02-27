@@ -1,17 +1,17 @@
 <template>
   <div>
-    <v-alert text icon="mdi-information" class="mb-6">
-      {{ $t("dashboard.friendlyMatchMessage") }}
+    <v-alert text icon="mdi-information" class="mb-6" transition="scale-transition" :value="!!friendlyGameDelay">
+      {{ $tc("dashboard.friendlyMatchMessage", friendlyGameDelay) }}
     </v-alert>
     <v-switch color="info" v-model="allowMultiFriendly" inset :loading="loading.toggle"
               :label="$t('dashboard.acceptFriendlyMatches')"/>
-    <v-form ref="editProfile" v-model="valid" @submit="requestFriendlyMatch" onSubmit="return false;">
+    <v-form ref="friendlyMatch" v-model="valid" @submit="requestFriendlyMatch" onSubmit="return false;">
       <v-expand-transition>
         <v-row v-if="allowMultiFriendly">
           <v-col cols="12" sm="6">
             <v-text-field
               v-model="teamName"
-              :label="$t('form.teamName')"
+              :label="$t('form.teamName')+' ('+$t('form.optional')+')'"
               v-bind="filedProps"
               clearable
             />
@@ -33,13 +33,12 @@
         {{ $t("dashboard.requestFriendlyMatch") }}
       </v-btn>
     </v-form>
-    <match-lobby v-for="(lobby, i) in lobbies" :lobby="lobby" :key="i"/>
   </div>
 </template>
 
 <script>
   import { REQUEST_FRIENDLY_MATCH, TOGGLE_MULTI_FRIENDLY, VIEW_LOBBY } from "../../../api";
-  import MatchLobby from "./MatchLobby";
+  import MatchLobby from "./MatchLobbyItem";
   import { primaryButtonProps } from "../../../mixins/buttonProps";
   import { mapState } from "vuex";
   import { fieldProps } from "../../../mixins/fieldProps";
@@ -66,11 +65,13 @@
     },
     computed: {
       ...mapState({
-        allowMultiFriendly: state => state.team.team ? state.team.team.allow_multi_friendly : false
+        allowMultiFriendly: state => state.team.team ? state.team.team.allow_multi_friendly : false,
+        friendlyGameDelay: state => state.games.challenge.friendly_game_delay
       }),
       allowMultiFriendly: {
         set() {
           this.toggleFriendly();
+          this.teamName = "";
         },
         get() {
           return this.$store.state.team.team ? this.$store.state.team.team.allow_multi_friendly : false;
@@ -95,12 +96,10 @@
         let { data } = await this.$axios(config);
         this.loading.request = false;
         if (data.status_code === 200) this.$toast.success("درخواست شما ثبت شد.");
-        else this.$toast.error("درخواست رد شد.");
-        this.getLobby();
-      },
-      async getLobby() {
-        let { lobbies, status_code } = await this.$axios.$get(VIEW_LOBBY.url);
-        if (status_code === 200) this.lobbies = lobbies;
+        else if (data.errors && data.errors.length) this.$toast.error(this.$t(`dashboard.${data.errors[0]}`));
+        else if (data.status_code === 404) this.$toast.error(this.$t(`dashboard.teamNotFound`));
+        this.$store.dispatch("games/getFriendlyLobbies");
+        this.$store.dispatch("games/getGames");
       },
       async toggleFriendly() {
         this.loading.toggle = true;
@@ -108,9 +107,6 @@
         this.$store.dispatch("team/getTeam");
         this.loading.toggle = false;
       }
-    },
-    mounted() {
-      this.getLobby();
     }
   };
 </script>
