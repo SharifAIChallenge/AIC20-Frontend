@@ -32,7 +32,7 @@
         {{ $t(`dashboard.${item.status}`) }}
       </template>
       <template v-slot:item.log="{ item }">
-        <v-btn icon :href="item.log" target="_blank">
+        <v-btn v-if="item.log !== null" icon :href="item.log" target="_blank">
           <v-icon>mdi-download</v-icon>
         </v-btn>
       </template>
