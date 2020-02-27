@@ -130,10 +130,10 @@ export const REQUEST_FRIENDLY_MATCH = {
   payload: "data"
 };
 
-export const VIEW_FRIENDLY_MATCHES = {
-  name: "VIEW_FRIENDLY_MATCHES",
+export const VIEW_MATCHES = {
+  name: "VIEW_MATCHES",
   method: "get",
-  url: "/challenge/game/friendly"
+  url: "/challenge/games"
 };
 
 export const VIEW_LOBBY = {
@@ -147,4 +147,10 @@ export const GET_SCOREBOARD = {
   name: "GET_SCOREBOARD",
   method: "get",
   url: "/scoreboard/challenge"
+};
+
+export const PRIMARY_CHALLENGE = {
+  name: "PRIMARY_CHALLENGE",
+  method: "get",
+  url: "/challenge/challenges/1"
 };
