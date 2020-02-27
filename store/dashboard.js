@@ -58,13 +58,13 @@ export const state = () => ({
       title: "dashboard.submissions",
       icon: "mdi-upload-outline",
       link: "/dashboard/submissions",
-      disabled: true
+      disabled: false
     },
     games: {
       title: "dashboard.games",
       icon: "mdi-gamepad-variant-outline",
       link: "/dashboard/games",
-      disabled: true
+      disabled: false
     }
   }
 });
