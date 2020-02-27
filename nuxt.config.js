@@ -105,7 +105,7 @@ export default {
     }
   },
   router: {
-    middleware: ["redirect-to-home", "auth"]
+    middleware: ["auth"]
   },
   auth: {
     redirect: {

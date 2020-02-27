@@ -1,3 +1,5 @@
+import Vue from "vue";
+
 export const state = () => ({
   colors: ["red", "pink", "blue", "cyan", "teal", "green", "light-green", "lime", "amber", "orange"],
   routes: {
@@ -74,10 +76,7 @@ export const getters = {
 };
 
 export const mutations = {
-  enableRoute(state, { route }) {
-    state.routes[route].disabled = false;
-  },
-  disableRoute(state, { route }) {
-    state.routes[route].disabled = true;
+  updateRoute(state, { route, val }) {
+    Vue.set(state.routes[route], "disabled", val);
   }
 };
