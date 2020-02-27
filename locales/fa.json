@@ -36,7 +36,8 @@
     "file": "فایل",
     "upload": "آپلود",
     "download": "دانلود",
-    "inviteAs": "دعوت به عنوان"
+    "inviteAs": "دعوت به عنوان",
+    "optional": "اختیاری"
   },
   "validation": {
     "email": "ایمیل معتبر نیست",
@@ -98,7 +99,7 @@
     "noInvitationsYet": "هنوز دعوت نامه‌ای دریافت نکرده‌اید!",
     "createTeamMessage": "ابتدا یک تیم بسازید سپس هم‌تیمی‌هایتان را دعوت کنید.",
     "leaveTeamMessage": "می‌خواهید تیمتان را ترک کنید؟",
-    "codeSubmissionMessage": "",
+    "codeSubmissionMessage": "لطفا بین هر ارسال {n} دقیقه صبر کنید.",
     "submissionsHistory": "تاریخچه ارسال‌ها",
     "status": "وضعیت",
     "changeFinalSubmission": "تغییر ارسال نهایی",
@@ -122,8 +123,27 @@
     "gameDocument": "مستند بازی",
     "serverAndClients": "سرور و کلاینت",
     "requestFriendlyMatch": "درخواست بازی دوستانه",
-    "friendlyMatchMessage": "",
-    "acceptFriendlyMatches": "پذیرفتن بازی دوستانه گروهی"
+    "friendlyMatchMessage": "لطفا بین هر درخواست {n} دقیقه صبر کنید.",
+    "acceptFriendlyMatches": "پذیرفتن دعوت بازی دوستانه",
+    "alreadyJoined": "تیم در لابی موجود است.",
+    "invitedTeamHasNoFinalSubmission": "تیم دعوت شده کد ارسال شده نهایی ندارد.",
+    "invitedTeamInvalid": "تیم دعوت شده معتبر نیست.",
+    "teamHasNoFinalSubmission": "تیم شما کد ارسال شده نهایی ندارد.",
+    "teamInvalid": "تیم شما معتبر نیست.",
+    "pleaseEnableInvitation": "لطفا پذیرش بازی دوستانه رو فعال کنید.",
+    "doesntAcceptInvitation": "تیم دعوت شده بازی دوستانه نمی‌پذیرد.",
+    "cantInviteYourself": "نمی‌توانید خودتان را دعوت کنید :)",
+    "provideTeamName": "نام یک تیم را وارد کنید.",
+    "gameRun": "بازی شروع شد.",
+    "pleaseWait": "لطفا صبر کنید.",
+    "friendlyLobby": "لابی بازی دوستانه",
+    "log": "لاگ",
+    "running": "در حال اجرا",
+    "done": "تمام شد",
+    "waiting": "در انتظار",
+    "rejected": "رد شده",
+    "noLobbies": "در هیچ لابی نیستید.",
+    "teamNotFound": "تیم یافت نشد."
   },
   "staff": {
     "technicalTeam": "تیم فنی",

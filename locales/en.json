@@ -36,7 +36,8 @@
     "file": "file",
     "upload": "upload",
     "download": "download",
-    "inviteAs": "invite as"
+    "inviteAs": "invite as",
+    "optional": "optional"
   },
   "validation": {
     "email": "email must be valid",
@@ -123,7 +124,26 @@
     "serverAndClients": "server and clients",
     "requestFriendlyMatch": "request friendly match",
     "friendlyMatchMessage": "",
-    "acceptFriendlyMatches": "accept group friendly matches"
+    "acceptFriendlyMatches": "accept group friendly matches",
+    "alreadyJoined": "already joined the lobby.",
+    "invitedTeamHasNoFinalSubmission": "invited team doesn't have a final submission.",
+    "invitedTeamInvalid": "invited team is invalid.",
+    "teamHasNoFinalSubmission": "you don't have a final submission.",
+    "teamInvalid": "your team is invalid.",
+    "pleaseEnableInvitation": "please enable friendly match invitations.",
+    "doesntAcceptInvitation": "invited team doesn't accept invitations.",
+    "cantInviteYourself": "can't invite yourself :)",
+    "provideTeamName": "provide a team name.",
+    "gameRun": "game run.",
+    "pleaseWait": "please wait.",
+    "friendlyLobby": "friendly matches lobby",
+    "log": "log",
+    "running": "running",
+    "done": "done",
+    "waiting": "waiting",
+    "rejected": "rejected",
+    "noLobbies": "not joined any lobbies yet!",
+    "teamNotFound": "team not found"
   },
   "staff": {
     "technicalTeam": "technical team",
