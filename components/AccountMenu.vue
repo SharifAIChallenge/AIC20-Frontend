@@ -14,8 +14,9 @@
         <span v-if="!mobile" class="px-5 pt-1">
           {{ user.firstname_fa }}
         </span>
-              <v-avatar :color="color" class="pt-1 text-uppercase">
-                {{ user.firstname_en[0] + user.lastname_en[0] }}
+              <v-avatar :color="color" class="text-uppercase">
+<!--                {{ user.firstname_en[0] + user.lastname_en[0] }}-->
+                <v-icon>mdi-account-circle</v-icon>
               </v-avatar>
             </div>
           </v-btn>
@@ -24,8 +25,9 @@
         <v-card>
           <v-list>
             <v-list-item>
-              <v-list-item-avatar :color="color" class="pt-1 text-uppercase justify-center">
-                {{ user.firstname_en[0] + user.lastname_en[0] }}
+              <v-list-item-avatar :color="color" class="text-uppercase justify-center">
+<!--                {{ user.firstname_en[0] + user.lastname_en[0] }}-->
+                <v-icon>mdi-account-circle</v-icon>
               </v-list-item-avatar>
               <v-list-item-content>
                 <v-list-item-title>{{ user.firstname_fa + " " + user.lastname_fa }}

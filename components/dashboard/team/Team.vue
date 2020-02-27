@@ -22,8 +22,9 @@
       <v-list-item v-for="item in team.participants" :key="item.user.email">
         <v-list-item-avatar
           :color="color(item)"
-          class="pt-1 text-uppercase justify-center">
-          {{ item.user.profile.firstname_en[0] + item.user.profile.lastname_en[0] }}
+          class="text-uppercase justify-center">
+<!--          {{ item.user.profile.firstname_en[0] + item.user.profile.lastname_en[0] }}-->
+          <v-icon>mdi-account-circle</v-icon>
         </v-list-item-avatar>
 
         <v-list-item-content>
