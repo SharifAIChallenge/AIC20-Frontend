@@ -77,8 +77,9 @@
         return this.$vuetify.breakpoint.smAndDown;
       }
     },
-    mounted() {
-      this.$store.dispatch("team/getTeam")
+    created() {
+      this.$store.dispatch("team/getTeam");
+      this.$store.dispatch("games/getChallenge");
     }
   };
 </script>
