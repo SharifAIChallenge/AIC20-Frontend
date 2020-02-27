@@ -3,7 +3,7 @@
     <v-col>
       <v-card>
         <v-card-title>
-          {{ $t("dashboard.friendlyGame") }}
+          {{ $t("dashboard.requestFriendlyMatch") }}
         </v-card-title>
         <v-divider/>
         <v-card-text>
@@ -12,8 +12,29 @@
       </v-card>
     </v-col>
     <v-col>
+      <v-card>
+        <v-card-title>
+          {{ $t("dashboard.friendlyLobby") }}
+          <v-btn icon class="ms-3" @click="$store.dispatch('games/getFriendlyLobbies')">
+            <v-icon>mdi-autorenew</v-icon>
+          </v-btn>
+        </v-card-title>
+        <v-divider/>
+        <v-card-text>
+          <match-lobby/>
+        </v-card-text>
+      </v-card>
+    </v-col>
+    <v-col>
       <v-card style="overflow: hidden">
-        <games-list :games="friendlyGames"/>
+        <v-card-title>
+          {{ $t("dashboard.games") }}
+          <v-btn icon class="ms-3" @click="$store.dispatch('games/getGames')">
+            <v-icon>mdi-autorenew</v-icon>
+          </v-btn>
+        </v-card-title>
+        <v-divider/>
+        <games-list :games="games"/>
       </v-card>
     </v-col>
   </dashboard-page>
@@ -25,17 +46,23 @@
   import DashboardPage from "../../components/dashboard/DashboardPage";
   import FriendlyMatch from "../../components/dashboard/games/FriendlyMatch";
   import { mapState } from "vuex";
+  import MatchLobby from "../../components/dashboard/games/MatchLobby";
 
   export default {
-    components: { FriendlyMatch, DashboardPage, GamesList },
+    components: { MatchLobby, FriendlyMatch, DashboardPage, GamesList },
     layout: "dashboard",
     mixins: [dashboardPageValidate("games")],
-    async fetch({ store }) {
-      store.dispatch("games/getFriendlyMatches");
+    fetch({ store }) {
+      return Promise.all(
+        [
+          store.dispatch("games/getGames"),
+          store.dispatch("games/getFriendlyLobbies")
+        ]
+      );
     },
     computed: {
       ...mapState({
-        friendlyGames: state => state.games.friendlyGames
+        games: state => state.games.games
       })
     }
   };
