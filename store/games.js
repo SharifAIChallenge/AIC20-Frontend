@@ -1,21 +1,44 @@
-import { VIEW_FRIENDLY_MATCHES } from "~/api";
+import { VIEW_MATCHES, VIEW_LOBBY, PRIMARY_CHALLENGE } from "~/api";
 import Vue from "vue";
 
 export const state = () => ({
-  friendlyGames: []
+  games: [],
+  friendlyLobbies: [],
+  challenge: {
+    friendly_game_delay: 0,
+    code_submit_delay: 0
+  }
 });
 
 export const actions = {
-  async getFriendlyMatches({ commit }) {
-    let data = await this.$axios.$get(VIEW_FRIENDLY_MATCHES.url);
-    commit("setFriendlyMatches", data);
+  async getGames({ commit }) {
+    let data = await this.$axios.$get(VIEW_MATCHES.url);
+    commit("setGames", data);
+  },
+  async getFriendlyLobbies({ commit }) {
+    let data = await this.$axios.$get(VIEW_LOBBY.url);
+    commit("setFriendlyLobbies", data);
+  },
+  async getChallenge({ commit }) {
+    let data = await this.$axios.$get(PRIMARY_CHALLENGE.url);
+    commit("setChallenge", data);
   }
 };
 
 export const mutations = {
-  setFriendlyMatches(state, { status_code, friendlies }) {
-    if (status_code === 20) {
-      Vue.set(state, "friendlyGames", friendlies);
+  setGames(state, { status_code, games }) {
+    if (status_code === 200) {
+      Vue.set(state, "games", games);
+    }
+  },
+  setChallenge(state, { status_code, challenge }) {
+    if (status_code === 200) {
+      Vue.set(state, "challenge", challenge);
+    }
+  },
+  setFriendlyLobbies(state, { status_code, lobbies }) {
+    if (status_code === 200) {
+      Vue.set(state, "friendlyLobbies", lobbies);
     }
   }
 };
