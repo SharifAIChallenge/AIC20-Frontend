@@ -1,7 +1,7 @@
 <template>
   <v-form ref="createTeam" v-model="valid" @submit="uploadCode" onSubmit="return false;">
-    <v-alert text icon="mdi-information" class="mb-6">
-      {{ $t("dashboard.codeSubmissionMessage") }}
+    <v-alert text icon="mdi-information" class="mb-6" transition="scale-transition" :value="!!codeSubmitDelay">
+      {{ $tc("dashboard.codeSubmissionMessage", codeSubmitDelay) }}
     </v-alert>
     <v-row>
       <v-col cols="12" sm="8">
@@ -42,6 +42,7 @@
   import { primaryButtonProps } from "../../../mixins/buttonProps";
   import { fieldProps } from "../../../mixins/fieldProps";
   import { SUBMIT_CODE } from "../../../api";
+  import { mapState } from "vuex";
 
   export default {
     mixins: [requiredRules, primaryButtonProps, fieldProps],
@@ -60,6 +61,11 @@
         fileRules: [v => !!v || ""],
         loading: false
       };
+    },
+    computed: {
+      ...mapState({
+        codeSubmitDelay: state => state.games.challenge.code_submit_delay
+      })
     },
     methods: {
       async uploadCode() {
