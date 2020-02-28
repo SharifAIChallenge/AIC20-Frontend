@@ -154,3 +154,9 @@ export const PRIMARY_CHALLENGE = {
   method: "get",
   url: "/challenge/challenges/1"
 };
+
+export const GAME_STATS = {
+  name: "GAME_STATS",
+  method: "get",
+  url: "/challenge/game/stats"
+};
