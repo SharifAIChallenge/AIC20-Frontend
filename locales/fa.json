@@ -85,6 +85,7 @@
     "performance": "عملکرد",
     "wins": "برد",
     "loss": "باخت‌",
+    "draws": "مساوی",
     "getContent": "دریافت محتوا",
     "createTeam": "تشکیل تیم",
     "myTeam": "تیم من",
@@ -143,7 +144,8 @@
     "waiting": "در انتظار",
     "rejected": "رد شده",
     "noLobbies": "در هیچ لابی نیستید.",
-    "teamNotFound": "تیم یافت نشد."
+    "teamNotFound": "تیم یافت نشد.",
+    "clientLog": "لاگ کلاینت"
   },
   "staff": {
     "technicalTeam": "تیم فنی",

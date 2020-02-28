@@ -85,6 +85,7 @@
     "performance": "",
     "wins": "win | wins",
     "loss": "loss",
+    "draws": "draw | draws",
     "getContent": "get content",
     "createTeam": "create team",
     "myTeam": "my team",
@@ -143,7 +144,8 @@
     "waiting": "waiting",
     "rejected": "rejected",
     "noLobbies": "not joined any lobbies yet!",
-    "teamNotFound": "team not found"
+    "teamNotFound": "team not found",
+    "clientLog": "client log"
   },
   "staff": {
     "technicalTeam": "technical team",
