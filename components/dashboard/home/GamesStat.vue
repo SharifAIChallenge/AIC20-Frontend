@@ -1,9 +1,17 @@
 <template>
   <div>
-    <v-progress-circular class="game-stat display-1" size="200" width="40" color="info" :rotate="rotate"
-                         :value="percent">
-      <span class="white--text">{{ `${percent}%` }}</span>
-    </v-progress-circular>
+    <div style="position: relative">
+      <div class="p-absolute" style="width: 100%; z-index: 1">
+        <v-progress-circular class="game-draw-stat display-1" size="200" width="40" color="warning"
+                             :rotate="drawRotate"
+                             :value="drawPercent"/>
+      </div>
+      <v-progress-circular class="game-stat display-1" size="200" width="40" color="info" :rotate="winRotate"
+                           :value="winPercent">
+        <span class="white--text">{{ `${winPercent}%` }}</span>
+      </v-progress-circular>
+    </div>
+
     <div class="mt-8">
       <v-chip pill class="mx-2">
         <v-avatar left color="info">
@@ -11,6 +19,13 @@
         </v-avatar>
         {{ wins }}
         {{ $tc("dashboard.wins", wins) }}
+      </v-chip>
+      <v-chip pill class="mx-2">
+        <v-avatar left color="warning">
+          <v-icon>mdi-emoticon-neutral</v-icon>
+        </v-avatar>
+        {{ draws }}
+        {{ $tc("dashboard.draws", draws) }}
       </v-chip>
       <v-chip pill class="mx-2">
         <v-avatar left color="error">
@@ -33,17 +48,33 @@
       loss: {
         default: 0,
         type: Number
+      },
+      draws: {
+        default: 0,
+        type: Number
       }
     },
     computed: {
-      value() {
-        return this.wins + this.loss ? this.wins / (this.wins + this.loss) : .5;
+      total() {
+        return this.wins + this.loss + this.draws;
       },
-      percent() {
-        return (this.value * 100).toFixed(0);
+      winValue() {
+        return this.total ? this.wins / this.total : .33;
       },
-      rotate() {
-        return 360 - this.value * 180;
+      drawValue() {
+        return this.total ? this.draws / this.total : .34;
+      },
+      winPercent() {
+        return (this.winValue * 100).toFixed(0);
+      },
+      drawPercent() {
+        return (this.drawValue * 100).toFixed(0);
+      },
+      winRotate() {
+        return -90;
+      },
+      drawRotate() {
+        return this.winValue * 360 - 90;
       }
     }
   };
@@ -52,5 +83,9 @@
 <style>
   .game-stat .v-progress-circular__underlay {
     stroke: var(--v-error-base) !important;
+  }
+
+  .game-draw-stat .v-progress-circular__underlay {
+    stroke: transparent !important;
   }
 </style>
