@@ -86,7 +86,7 @@
             this.$toast.success("فایل با موفقیت آپلود شد.");
           } else if (data.detail.non_field_errors) {
             if (data.detail.non_field_errors[0].includes("wait"))
-              this.$toast.error("باید بین هر ارسال حداقل یک دقیقه صبر کنید.");
+              this.$toast.error(this.$tc("dashboard.codeSubmissionMessage", this.codeSubmitDelay));
           } else {
             this.$toast.error("خطایی در آپلود فایل رخ داد.");
           }
