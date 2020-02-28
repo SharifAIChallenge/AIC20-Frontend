@@ -1,6 +1,6 @@
 <template>
   <v-row>
-    <v-col cols="12">
+    <v-col cols="12" md="6">
       <v-card>
         <v-card-title>
           {{ $t("dashboard.recentUpdates") }}
@@ -13,24 +13,24 @@
         </v-card-text>
       </v-card>
     </v-col>
-    <!--    <v-col cols="12" md="6">-->
-    <!--      <v-card>-->
-    <!--        <v-card-title>{{ $t("dashboard.gameStats") }}</v-card-title>-->
-    <!--        <v-divider/>-->
-    <!--        <v-card-text class="text-center">-->
-    <!--          <games-stat :wins="gameStat.wins" :loss="gameStat.loss"/>-->
-    <!--        </v-card-text>-->
-    <!--      </v-card>-->
-    <!--    </v-col>-->
-    <!--    <v-col cols="12" md="6">-->
-    <!--      <v-card>-->
-    <!--        <v-card-title>{{ $t("dashboard.performance") }}</v-card-title>-->
-    <!--        <v-divider/>-->
-    <!--        <v-card-text>-->
-    <!--          <performance/>-->
-    <!--        </v-card-text>-->
-    <!--      </v-card>-->
-    <!--    </v-col>-->
+    <v-col cols="12" md="6">
+      <v-card>
+        <v-card-title>{{ $t("dashboard.gameStats") }}</v-card-title>
+        <v-divider/>
+        <v-card-text class="text-center">
+          <games-stat :wins="gameStat.wins" :loss="gameStat.loss" :draws="gameStat.draws"/>
+        </v-card-text>
+      </v-card>
+    </v-col>
+<!--    <v-col cols="12" md="6">-->
+<!--      <v-card>-->
+<!--        <v-card-title>{{ $t("dashboard.performance") }}</v-card-title>-->
+<!--        <v-divider/>-->
+<!--        <v-card-text>-->
+<!--          <performance/>-->
+<!--        </v-card-text>-->
+<!--      </v-card>-->
+<!--    </v-col>-->
   </v-row>
 </template>
 
@@ -39,11 +39,22 @@
   import GamesStat from "../../components/dashboard/home/GamesStat";
   import Performance from "../../components/dashboard/home/Performance";
   import { mapState } from "vuex";
-  import { NOTIFICATIONS } from "../../api";
+  import { GAME_STATS, NOTIFICATIONS } from "../../api";
 
   export default {
     components: { Performance, GamesStat, Updates },
     layout: "dashboard",
+    async asyncData({ store, $axios }) {
+      let data = await $axios.$get(GAME_STATS.url);
+      if (data.status_code === 200)
+        return {
+          gameStat: {
+            wins: data.wins,
+            loss: data.loss,
+            draws: data.draws
+          }
+        };
+    },
     async fetch({ store, $axios }) {
       let data = await $axios.$get(NOTIFICATIONS.url);
       store.commit("notification/set", data);
@@ -51,8 +62,9 @@
     data() {
       return {
         gameStat: {
-          wins: 2,
-          loss: 1
+          wins: 0,
+          loss: 0,
+          draws: 0
         }
       };
     },
