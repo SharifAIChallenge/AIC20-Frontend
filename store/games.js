@@ -28,6 +28,13 @@ export const actions = {
 export const mutations = {
   setGames(state, { status_code, games }) {
     if (status_code === 200) {
+      games.forEach(x => {
+        let log = x.game_sides[0].game_teams[0].log ||
+          x.game_sides[1].game_teams[0].log ||
+          x.game_sides[0].game_teams[1].log ||
+          x.game_sides[1].game_teams[1].log;
+        x.client_log = log;
+      });
       Vue.set(state, "games", games);
     }
   },
