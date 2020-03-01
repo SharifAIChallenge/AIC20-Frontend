@@ -2,7 +2,7 @@
   <div>
     <poster/>
     <countdown/>
-<!--    <stats :teams="teams" :registers="registers"/>-->
+    <stats :teams="teams" :registers="registers" :games="games" :submissions="submissions"/>
     <div class="bg-dotted">
       <about :text="intro"/>
     </div>
@@ -40,6 +40,8 @@
         quotes: "",
         teams: 0,
         registers: 0,
+        submissions: 0,
+        games: 0,
         staffs: []
       };
     },
@@ -52,7 +54,9 @@
         teams: data.teams,
         registers: data.registers,
         timeline: data.timeline,
-        staffs: data.staffs
+        staffs: data.staffs,
+        submissions: data.submissions,
+        games: data.games
       };
     }
   };

@@ -1,5 +1,6 @@
 <template>
-  <v-container class="py-12">
+  <v-container class="pb-12">
+    <v-divider class="mb-12"/>
     <v-row>
       <v-col>
         <div class="d-flex flex-column align-center">
@@ -31,6 +32,36 @@
           </v-chip>
         </div>
       </v-col>
+      <v-col>
+        <div class="d-flex flex-column align-center">
+          <div>
+            <glow>
+              <span class="display-3 text-stroke-width-2 text-stroke-primary font-weight-black transparent--text">{{ submissions }}</span>
+            </glow>
+          </div>
+          <v-chip color="white" light pill class="my-5">
+            <v-avatar left color="primary">
+              <v-icon color="white">mdi-upload</v-icon>
+            </v-avatar>
+            ارسال کد
+          </v-chip>
+        </div>
+      </v-col>
+      <v-col>
+        <div class="d-flex flex-column align-center">
+          <div>
+            <glow>
+              <span class="display-3 text-stroke-width-2 text-stroke-primary font-weight-black transparent--text">{{ games }}</span>
+            </glow>
+          </div>
+          <v-chip color="white" light pill class="my-5">
+            <v-avatar left color="primary">
+              <v-icon color="white">mdi-gamepad-variant</v-icon>
+            </v-avatar>
+            بازی
+          </v-chip>
+        </div>
+      </v-col>
     </v-row>
   </v-container>
 </template>
@@ -39,14 +70,7 @@
   import Glow from "../Glow";
 
   export default {
-    props: {
-      teams: {
-        default: 0
-      },
-      registers: {
-        default: 0
-      }
-    },
+    props: ["teams", "games", "registers", "submissions"],
     components: { Glow }
   };
 </script>
