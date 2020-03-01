@@ -97,6 +97,7 @@
   export default {
     components: { DashboardPage },
     layout: "dashboard",
+    transition: "fade-transition",
     mixins: [dashboardPageValidate("resources")]
   };
 </script>

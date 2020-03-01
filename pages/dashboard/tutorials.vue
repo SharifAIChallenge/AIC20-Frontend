@@ -12,6 +12,7 @@
   export default {
     components: { ResourcePage, DashboardPage },
     layout: "dashboard",
+    transition: "fade-transition",
     mixins: [dashboardPageValidate("tutorials")],
     data() {
       return {

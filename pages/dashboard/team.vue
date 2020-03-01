@@ -73,6 +73,7 @@
     components: { SentInvitations, InviteMember, ReceivedInvitations, CreateTeam, DashboardPage, Team, LeaveTeam },
     layout: "dashboard",
     mixins: [dashboardPageValidate("team")],
+    transition: "fade-transition",
     async fetch({ store }) {
       await store.dispatch("team/getTeam")
     },

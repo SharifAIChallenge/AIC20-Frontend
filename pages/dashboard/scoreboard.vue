@@ -23,6 +23,7 @@
     components: { DashboardPage, Scoreboard },
     layout: "dashboard",
     mixins: [dashboardPageValidate("scoreboard")],
+    transition: "fade-transition",
     async fetch({ store }) {
       await store.dispatch("scoreboard/get");
     },

@@ -7,6 +7,7 @@
 
   export default {
     layout: "dashboard",
+    transition: "fade-transition",
     mixins: [dashboardPageValidate("tournaments")]
   };
 </script>

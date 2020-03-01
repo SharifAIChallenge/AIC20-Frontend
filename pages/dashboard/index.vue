@@ -44,6 +44,7 @@
   export default {
     components: { Performance, GamesStat, Updates },
     layout: "dashboard",
+    transition: "fade-transition",
     async asyncData({ store, $axios }) {
       let data = await $axios.$get(GAME_STATS.url);
       if (data.status_code === 200)

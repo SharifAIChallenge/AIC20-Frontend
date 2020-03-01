@@ -21,6 +21,7 @@
     layout: "dashboard",
     components: { DashboardPage, Updates },
     mixins: [dashboardPageValidate("updates")],
+    transition: "fade-transition",
     async fetch({ store, $axios }) {
       let data = await $axios.$get(NOTIFICATIONS.url);
       store.commit("notification/set", data);

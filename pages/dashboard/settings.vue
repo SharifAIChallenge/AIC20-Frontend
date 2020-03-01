@@ -38,6 +38,7 @@
   export default {
     components: { DashboardPage, ChangePassword, EditProfile },
     layout: "dashboard",
+    transition: "fade-transition",
     data() {
       return {
         tabs: null

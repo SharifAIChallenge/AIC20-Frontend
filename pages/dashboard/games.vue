@@ -51,6 +51,7 @@
   export default {
     components: { MatchLobby, FriendlyMatch, DashboardPage, GamesList },
     layout: "dashboard",
+    transition: "fade-transition",
     mixins: [dashboardPageValidate("games")],
     fetch({ store }) {
       return Promise.all(

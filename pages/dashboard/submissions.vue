@@ -32,6 +32,7 @@
     components: { CodeSubmission, DashboardPage, SubmissionsList },
     layout: "dashboard",
     mixins: [dashboardPageValidate("submissions")],
+    transition: "fade-transition",
     async fetch({ store }) {
       await store.dispatch("team/getSubmissions")
     },
