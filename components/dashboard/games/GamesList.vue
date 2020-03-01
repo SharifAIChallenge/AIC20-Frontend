@@ -32,8 +32,13 @@
         {{ $t(`dashboard.${item.status}`) }}
       </template>
       <template v-slot:item.log="{ item }">
-        <v-btn v-if="item.log !== null" icon :href="item.log" target="_blank">
-          <v-icon>mdi-download</v-icon>
+        <v-btn v-if="item.log !== null" rounded small text block color="info" class="my-1" :href="item.log" target="_blank">
+          <v-icon left small>mdi-download</v-icon>
+          {{ $t("dashboard.graphic") }}
+        </v-btn>
+        <v-btn v-if="item.client_log !== null" rounded small text block color="amber" class="my-1" :href="item.client_log">
+          <v-icon left small>mdi-download</v-icon>
+          {{ $t("dashboard.client") }}
         </v-btn>
       </template>
     </v-data-table>
@@ -58,7 +63,7 @@
       headers() {
         return [
           // { text: this.$t("dashboard.tournament"), sortable: false, value: "tournament" },
-          { text: this.$t("dashboard.time"), sortable: true, value: "time", align: "right", width: 200 },
+          { text: this.$t("dashboard.time"), sortable: true, value: "time", align: "right" },
           { text: this.$t("dashboard.teams"), sortable: false, value: "teams", align: "center" },
           { text: this.$t("dashboard.status"), sortable: false, value: "status", align: "center" },
           { text: this.$t("dashboard.log"), sortable: false, value: "log", align: "center", width: 70 },
