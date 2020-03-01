@@ -31,7 +31,7 @@
             <v-badge
               bordered
               offset-y="26"
-              :color="gameSides[0].has_won ? 'success' : 'error'"
+              :color="gameSides[1].has_won ? 'success' : 'error'"
               :content="team.score"
               :value="team.score !== null"
             >
