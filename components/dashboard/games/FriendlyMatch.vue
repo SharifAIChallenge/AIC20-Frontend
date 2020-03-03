@@ -3,7 +3,7 @@
     <v-alert text icon="mdi-information" class="mb-6" transition="scale-transition" :value="!!friendlyGameDelay">
       {{ $tc("dashboard.friendlyMatchMessage", friendlyGameDelay) }}
     </v-alert>
-    <v-switch color="info" v-model="allowMultiFriendly" inset :loading="loading.toggle"
+    <v-switch color="info" :value="allowMultiFriendly" inset :loading="loading.toggle" readonly @click.native="toggleFriendly"
               :label="$t('dashboard.acceptFriendlyMatches')"/>
     <v-form ref="friendlyMatch" v-model="valid" @submit="requestFriendlyMatch" onSubmit="return false;">
       <v-expand-transition>
@@ -67,16 +67,7 @@
       ...mapState({
         allowMultiFriendly: state => state.team.team ? state.team.team.allow_multi_friendly : false,
         friendlyGameDelay: state => state.games.challenge.friendly_game_delay
-      }),
-      allowMultiFriendly: {
-        set() {
-          this.toggleFriendly();
-          this.teamName = "";
-        },
-        get() {
-          return this.$store.state.team.team ? this.$store.state.team.team.allow_multi_friendly : false;
-        }
-      }
+      })
     },
     methods: {
       async requestFriendlyMatch() {
