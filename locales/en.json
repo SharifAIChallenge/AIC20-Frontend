@@ -147,7 +147,8 @@
     "teamNotFound": "team not found",
     "clientLog": "client log",
     "client": "client",
-    "graphic": "graphic"
+    "graphic": "graphic",
+    "winRatio": "win ratio"
   },
   "staff": {
     "technicalTeam": "technical team",

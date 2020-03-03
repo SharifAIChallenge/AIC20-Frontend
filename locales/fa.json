@@ -147,7 +147,8 @@
     "teamNotFound": "تیم یافت نشد.",
     "clientLog": "لاگ کلاینت",
     "client": "client",
-    "graphic": "graphic"
+    "graphic": "graphic",
+    "winRatio": "درصد برد"
   },
   "staff": {
     "technicalTeam": "تیم فنی",
