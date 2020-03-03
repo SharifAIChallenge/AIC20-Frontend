@@ -29,7 +29,11 @@
         />
       </v-col>
     </v-row>
-
+    <div class="mb-6">
+      با ارسال کد
+    <nuxt-link to="/dashboard/terms">این قوانین</nuxt-link>
+      را می‌پذیرید.
+    </div>
     <v-btn :disabled="!valid" :loading="loading" type="submit" v-bind="primaryButtonProps">
       <v-icon left>mdi-upload</v-icon>
       {{ $t("form.upload") }}

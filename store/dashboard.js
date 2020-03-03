@@ -9,6 +9,12 @@ export const state = () => ({
       link: "/dashboard",
       disabled: false
     },
+    terms: {
+      title: "dashboard.termsAndConditions",
+      icon: "mdi-alert-circle-outline",
+      link: "/dashboard/terms",
+      disabled: false
+    },
     updates: {
       title: "dashboard.updates",
       icon: "mdi-bell-outline",
