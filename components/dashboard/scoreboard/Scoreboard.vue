@@ -34,6 +34,9 @@
               {{ item.team.name }}
               </span>
         </template>
+        <template v-slot:item.score="{ item }">
+          {{ item.score.toFixed() }}
+        </template>
         <template v-slot:expanded-item="{ headers, item }">
           <td :colspan="headers.length" class="px-0">
             <team-loader :key="item.team.name" :name="item.team.name"/>
