@@ -133,7 +133,7 @@ export const REQUEST_FRIENDLY_MATCH = {
 export const VIEW_MATCHES = {
   name: "VIEW_MATCHES",
   method: "get",
-  url: "/challenge/games"
+  url: "/challenge/game/friendly"
 };
 
 export const VIEW_LOBBY = {
@@ -146,7 +146,7 @@ export const VIEW_LOBBY = {
 export const GET_SCOREBOARD = {
   name: "GET_SCOREBOARD",
   method: "get",
-  url: "/scoreboard/challenge"
+  url: "/scoreboard/friendly"
 };
 
 export const PRIMARY_CHALLENGE = {

@@ -63,6 +63,7 @@
           { text: this.$t("dashboard.rank"), sortable: true, value: "rank" },
           { text: this.$t("dashboard.score"), sortable: true, value: "score" },
           { text: this.$t("dashboard.wins"), sortable: true, value: "wins" },
+          { text: this.$t("dashboard.draws"), sortable: true, value: "draws" },
           { text: this.$t("dashboard.loss"), sortable: true, value: "loss" }
         ];
       }

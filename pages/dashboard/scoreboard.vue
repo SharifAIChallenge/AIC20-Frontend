@@ -1,10 +1,10 @@
 <template>
   <dashboard-page title="dashboard.scoreboard">
-    <v-col>
-      <v-alert text type="info" class="my-0">
-        {{ $t("dashboard.codeScoreboardMessage") }}
-      </v-alert>
-    </v-col>
+<!--    <v-col>-->
+<!--      <v-alert text type="info" class="my-0">-->
+<!--        {{ $t("dashboard.codeScoreboardMessage") }}-->
+<!--      </v-alert>-->
+<!--    </v-col>-->
     <v-col>
       <v-card>
         <scoreboard :teams="teams"/>

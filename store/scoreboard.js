@@ -15,7 +15,9 @@ export const actions = {
 export const mutations = {
   set(state, { scoreboard, status_code }) {
     if (status_code === 200) {
-      Vue.set(state, "scoreboard", scoreboard.rows.reverse());
+      let i = 1;
+      scoreboard.forEach(x => x.rank = i++);
+      Vue.set(state, "scoreboard", scoreboard);
     } else {
       Vue.set(state, "scoreboard", []);
     }
