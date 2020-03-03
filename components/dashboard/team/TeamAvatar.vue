@@ -1,7 +1,9 @@
 <template>
   <v-avatar :left="left" :right="right" :size="size" :color="colors[team.name.length % colors.length]">
-    <v-img v-if="team.image" :src="team.image"/>
-    <span v-else class="text-uppercase font-weight-bold" :class="customClass">{{ team.name[0] }}</span>
+    <client-only>
+      <v-img v-if="team.image" :src="team.image"/>
+      <span v-else class="text-uppercase font-weight-bold" :class="customClass">{{ team.name[0] }}</span>
+    </client-only>
   </v-avatar>
 </template>
 
@@ -32,7 +34,7 @@
       ...mapState({
         colors: state => state.dashboard.colors
       })
-    },
+    }
   };
 </script>
 
