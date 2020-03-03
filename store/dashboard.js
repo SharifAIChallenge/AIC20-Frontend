@@ -45,7 +45,7 @@ export const state = () => ({
       title: "dashboard.scoreboard",
       icon: "mdi-scoreboard-outline",
       link: "/dashboard/scoreboard",
-      disabled: false,
+      disabled: true,
       divider: true
     },
     team: {
