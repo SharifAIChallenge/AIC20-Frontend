@@ -6,7 +6,8 @@
       :type="`list-item@${count}`"
     >
     </v-skeleton-loader>
-    <v-list v-else-if="team">
+    <v-expand-transition>
+    <v-list v-if="!loading && team">
       <div v-if="avatar" class="text-center">
         <team-avatar :team="team" :size="64"/>
       </div>
@@ -15,6 +16,7 @@
         </v-list-item-content>
       </v-list-item>
     </v-list>
+    </v-expand-transition>
   </div>
 </template>
 
@@ -34,7 +36,7 @@
       },
       count : {
         type: Number,
-        default: 2
+        default: 1
       }
     },
     data() {
