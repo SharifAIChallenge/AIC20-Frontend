@@ -35,7 +35,7 @@
               </span>
         </template>
         <template v-slot:item.ratio="{ item }">
-          {{ `${(item.wins/(item.wins+item.loss+item.draws)*100).toFixed(2)}%` }}
+          {{ `${item.ratio.toFixed(2)}%` }}
         </template>
         <template v-slot:item.score="{ item }">
           <span dir="ltr">{{ item.score.toFixed() }}</span>
