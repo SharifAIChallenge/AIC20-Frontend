@@ -35,7 +35,7 @@
               </span>
         </template>
         <template v-slot:item.score="{ item }">
-          {{ item.score.toFixed() }}
+          <span dir="ltr">{{ item.score.toFixed() }}</span>
         </template>
         <template v-slot:expanded-item="{ headers, item }">
           <td :colspan="headers.length" class="px-0">
