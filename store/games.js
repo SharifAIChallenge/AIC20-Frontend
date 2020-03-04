@@ -11,9 +11,13 @@ export const state = () => ({
 });
 
 export const actions = {
-  async getGames({ commit }) {
+  async getGames({ commit, rootState, dispatch }) {
     let data = await this.$axios.$get(VIEW_MATCHES.url);
-    commit("setGames", data);
+    if (rootState.team.team === null) {
+      await dispatch("team/getTeam", null, { root: true });
+    }
+    let team = rootState.team.team.name;
+    commit("setGames", { ...data, team });
   },
   async getFriendlyLobbies({ commit }) {
     let data = await this.$axios.$get(VIEW_LOBBY.url);
@@ -26,14 +30,18 @@ export const actions = {
 };
 
 export const mutations = {
-  setGames(state, { status_code, games }) {
+  setGames(state, { status_code, games, team }) {
     if (status_code === 200) {
       games.forEach(x => {
         let log = null;
-          if (x.game_sides[0].game_teams[0]) log = x.game_sides[0].game_teams[0].log;
-          if (x.game_sides[0].game_teams[1]) log = x.game_sides[0].game_teams[1].log;
-          if (x.game_sides[1].game_teams[0]) log = x.game_sides[1].game_teams[0].log;
-          if (x.game_sides[1].game_teams[1]) log = x.game_sides[1].game_teams[1].log;
+        let ss = [0, 0, 1, 1];
+        let ts = [0, 1, 0, 1];
+        ss.forEach(i => {
+          ts.forEach(j => {
+            let side = x.game_sides[i].game_teams[j];
+            if (side && side.team.name === team) log = side.log;
+          });
+        });
         x.client_log = log;
       });
       Vue.set(state, "games", games);
