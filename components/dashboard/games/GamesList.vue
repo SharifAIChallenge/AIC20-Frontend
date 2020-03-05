@@ -11,7 +11,7 @@
       sort-by="time"
       sort-desc
       locale="fa"
-      :mobile-breakpoint="900"
+      :mobile-breakpoint="1100"
     >
 <!--      <template v-slot:expanded-item="{ headers, item }">-->
 <!--        <td :colspan="headers.length" class="px-0">-->

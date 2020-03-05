@@ -1,10 +1,10 @@
 <template>
   <div>
-    <v-row justify="center">
+    <v-row justify="center" class="mx-0 px-2">
       <v-col>
-        <v-row>
-          <v-col v-for="team in gameSides[0].game_teams" :key="team.team.name" cols="12" lg="6"
-                 class="d-flex justify-center px-0">
+        <v-row class="mx-0">
+          <v-col v-for="team in gameSides[0].game_teams" :key="team.team.name" cols="12"
+                 class="d-flex justify-start px-0">
             <v-badge
               left
               bordered
@@ -15,7 +15,10 @@
             >
               <v-chip pill>
                 <team-avatar left :team="team.team"/>
+                <span class="d-inline-block text-truncate"
+                      style="max-width: 100px;">
                 {{ team.team.name }}
+                </span>
               </v-chip>
             </v-badge>
           </v-col>
@@ -25,9 +28,9 @@
         <v-icon>mdi-sword-cross</v-icon>
       </v-col>
       <v-col>
-        <v-row>
-          <v-col v-for="team in gameSides[1].game_teams" :key="team.team.name" cols="12" lg="6"
-                 class="d-flex justify-center px-0">
+        <v-row class="mx-0">
+          <v-col v-for="team in gameSides[1].game_teams" :key="team.team.name" cols="12"
+                 class="d-flex justify-end px-0">
             <v-badge
               bordered
               offset-y="26"
@@ -36,7 +39,10 @@
               :value="team.score !== null"
             >
               <v-chip pill>
+                <span class="d-inline-block text-truncate"
+                      style="max-width: 100px;">
                 {{ team.team.name }}
+                </span>
                 <team-avatar right :team="team.team"/>
               </v-chip>
             </v-badge>
