@@ -14,7 +14,7 @@
       sort-desc
     >
       <template v-slot:item.is_final="{ item }">
-        <v-btn @click="changeFinal(item)" icon>
+        <v-btn @click="changeFinal(item)" icon :disabled="!canChangeSubmission">
           <v-icon>{{ item.is_final ? "mdi-checkbox-marked" : "mdi-checkbox-blank-outline" }}</v-icon>
         </v-btn>
       </template>
@@ -56,7 +56,8 @@
     },
     computed: {
       ...mapState({
-        selected: state => state.team.finalSubmission
+        selected: state => state.team.finalSubmission,
+        canChangeSubmission: state => state.games.challenge.can_change_submission
       }),
       headers() {
         return [

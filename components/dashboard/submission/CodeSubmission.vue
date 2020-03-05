@@ -1,7 +1,15 @@
 <template>
   <v-form ref="createTeam" v-model="valid" @submit="uploadCode" onSubmit="return false;">
     <v-alert text icon="mdi-information" class="mb-6" transition="scale-transition" :value="!!codeSubmitDelay">
-      {{ $tc("dashboard.codeSubmissionMessage", codeSubmitDelay) }}
+      <p>{{ $tc("dashboard.codeSubmissionMessage", codeSubmitDelay) }}</p>
+      <v-chip>
+        <v-icon left :color="statusIcon(canSubmit).c">{{ statusIcon(canSubmit).i }}</v-icon>
+        {{ $t("dashboard.submissions") }}
+      </v-chip>
+      <v-chip>
+        <v-icon left :color="statusIcon(canChangeSubmission).c">{{ statusIcon(canChangeSubmission).i }}</v-icon>
+        {{ $t("dashboard.changeFinalSubmission") }}
+      </v-chip>
     </v-alert>
     <v-row>
       <v-col cols="12" sm="8">
@@ -31,10 +39,10 @@
     </v-row>
     <div class="mb-6">
       با ارسال کد
-    <nuxt-link to="/dashboard/terms">این قوانین</nuxt-link>
+      <nuxt-link to="/dashboard/terms">این قوانین</nuxt-link>
       را می‌پذیرید.
     </div>
-    <v-btn :disabled="!valid" :loading="loading" type="submit" v-bind="primaryButtonProps">
+    <v-btn :disabled="!valid || !canSubmit" :loading="loading" type="submit" v-bind="primaryButtonProps">
       <v-icon left>mdi-upload</v-icon>
       {{ $t("form.upload") }}
     </v-btn>
@@ -68,7 +76,9 @@
     },
     computed: {
       ...mapState({
-        codeSubmitDelay: state => state.games.challenge.code_submit_delay
+        codeSubmitDelay: state => state.games.challenge.code_submit_delay,
+        canSubmit: state => state.games.challenge.can_submit,
+        canChangeSubmission: state => state.games.challenge.can_change_submission
       })
     },
     methods: {
@@ -95,6 +105,12 @@
             this.$toast.error("خطایی در آپلود فایل رخ داد.");
           }
         }
+      },
+      statusIcon(val) {
+        return val ? { c: "success", i: "mdi-checkbox-marked-circle-outline" } : {
+          c: "error",
+          i: "mdi-close-circle-outline"
+        };
       }
     }
   };

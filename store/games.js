@@ -6,7 +6,9 @@ export const state = () => ({
   friendlyLobbies: [],
   challenge: {
     friendly_game_delay: 0,
-    code_submit_delay: 0
+    code_submit_delay: 0,
+    can_submit: true,
+    can_change_submission: true
   }
 });
 
