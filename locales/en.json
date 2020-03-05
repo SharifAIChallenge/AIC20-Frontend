@@ -149,7 +149,10 @@
     "client": "client",
     "graphic": "graphic",
     "winRatio": "win ratio",
-    "termsAndConditions": "terms and conditions"
+    "termsAndConditions": "terms and conditions",
+    "friendly": "friendly",
+    "seeding": "seeding",
+    "seedingTest": "seeding test"
   },
   "staff": {
     "technicalTeam": "technical team",

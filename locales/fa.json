@@ -149,7 +149,10 @@
     "client": "client",
     "graphic": "graphic",
     "winRatio": "درصد برد",
-    "termsAndConditions": "قوانین"
+    "termsAndConditions": "قوانین",
+    "friendly": "دوستانه",
+    "seeding": "سیدبندی",
+    "seedingTest": "سیدبندی آزمایشی"
   },
   "staff": {
     "technicalTeam": "تیم فنی",

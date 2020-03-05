@@ -21,6 +21,9 @@
 <!--          </v-list>-->
 <!--        </td>-->
 <!--      </template>-->
+<!--      <template v-slot:group.header="{ group, groupBy }">-->
+<!--        <div>{{ group }} {{ groupBy }}</div>-->
+<!--      </template>-->
       <template v-slot:item.teams="{ item }">
         <div>
           <match-result :game-sides="item.game_sides" />
@@ -31,6 +34,9 @@
       </template>
       <template v-slot:item.status="{ item }">
         {{ $t(`dashboard.${item.status}`) }}
+      </template>
+      <template v-slot:item.tournament="{ item }">
+        {{ $t(`dashboard.${item.tournament}`) }}
       </template>
       <template v-slot:item.log="{ item }">
         <v-btn v-if="item.log !== null" rounded small text block color="info" class="my-1" :href="item.log" target="_blank">
@@ -63,7 +69,7 @@
     computed: {
       headers() {
         return [
-          // { text: this.$t("dashboard.tournament"), sortable: false, value: "tournament" },
+          { text: this.$t("dashboard.tournament"), sortable: true, value: "tournament" },
           { text: this.$t("dashboard.time"), sortable: true, value: "time", align: "right" },
           { text: this.$t("dashboard.teams"), sortable: false, value: "teams", align: "center" },
           { text: this.$t("dashboard.status"), sortable: false, value: "status", align: "center" },
@@ -75,7 +81,7 @@
       return {
         page: 1,
         pageCount: 0,
-        itemsPerPage: 5
+        itemsPerPage: 8
         // games: [
         //   {
         //     id: 1,
