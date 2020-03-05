@@ -30,7 +30,7 @@
       >
         <template v-slot:item.team="{ item }">
           <team-avatar :team="{name: item.team.name, image: item.team.image}" :size="36" custom-class="pt-1"/>
-          <span class="ps-3">
+          <span class="ps-3" :style="teamColor(item.rank, teams.length)">
               {{ item.team.name }}
               </span>
         </template>
@@ -89,6 +89,28 @@
         return value != null &&
           search != null &&
           !!value.name && value.name.toLowerCase().indexOf(search.toLowerCase()) !== -1;
+      },
+      teamColor(rank, total) {
+        return { color: this.percentToColor(rank / total) };
+      },
+      percentToColor(val) {
+        let colors = [
+          { r: 76, g: 175, b: 80 },
+          { r: 255, g: 235, b: 59 },
+          { r: 255, g: 87, b: 34 },
+          { r: 233, g: 30, b: 99 },
+          { r: 159, g: 39, b: 176 }
+        ];
+        let i = Math.floor((colors.length - 1) * val);
+        let color = { ...colors[colors.length - 1] };
+        if (i !== colors.length - 1) {
+          let percent = (val - i / (colors.length - 1) ) * (colors.length - 1);
+          color.r = Math.round(colors[i].r + percent * (colors[i + 1].r - colors[i].r));
+          color.g = Math.round(colors[i].g + percent * (colors[i + 1].g - colors[i].g));
+          color.b = Math.round(colors[i].b + percent * (colors[i + 1].b - colors[i].b));
+        }
+        let h = color.r * 0x10000 + color.g * 0x100 + color.b * 0x1;
+        return "#" + ("000000" + h.toString(16)).slice(-6);
       }
     }
   };
