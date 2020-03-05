@@ -15,9 +15,7 @@
         <v-divider/>
         <v-tabs-items v-model="tab" class="mt-4">
           <v-tab-item v-for="tab in tabs" :key="tab.name+'item'">
-            <v-card-text>
-              <scoreboard :teams="tab.teams"/>
-            </v-card-text>
+            <scoreboard :teams="tab.teams"/>
           </v-tab-item>
         </v-tabs-items>
       </v-card>
