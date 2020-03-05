@@ -21,6 +21,7 @@ export const mutations = {
       scoreboard.forEach(x => {
         x.rank = i++;
         if (x.wins + x.loss + x.draws) x.ratio = x.wins / (x.wins + x.loss + x.draws) * 100;
+        else x.ratio = 0
       });
       Vue.set(state, `${tab}Scoreboard`, scoreboard);
     } else {

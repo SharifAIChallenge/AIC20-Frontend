@@ -1,7 +1,7 @@
 <template>
   <v-avatar :left="left" :right="right" :size="size" :color="colors[team.name.length % colors.length]">
     <client-only>
-      <v-img v-if="team.image" :src="team.image"/>
+      <v-img v-if="teamImage" :src="teamImage"/>
       <span v-else class="text-uppercase font-weight-bold" :class="customClass">{{ team.name[0] }}</span>
     </client-only>
   </v-avatar>
@@ -33,7 +33,10 @@
     computed: {
       ...mapState({
         colors: state => state.dashboard.colors
-      })
+      }),
+      teamImage() {
+        return this.team.image ? this.team.image.replace("http://", "https://") : null
+      }
     }
   };
 </script>
