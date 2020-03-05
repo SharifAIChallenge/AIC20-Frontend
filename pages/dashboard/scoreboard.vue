@@ -5,21 +5,23 @@
     <!--        {{ $t("dashboard.codeScoreboardMessage") }}-->
     <!--      </v-alert>-->
     <!--    </v-col>-->
-    <v-card class="overflow-hidden">
-      <v-tabs grow v-model="tab">
-        <v-tab v-for="tab in tabs" :key="tab.name">
-          {{ $t(`dashboard.${tab.name}`) }}
-        </v-tab>
-      </v-tabs>
-      <v-divider/>
-      <v-tabs-items v-model="tab" class="mt-4">
-        <v-tab-item v-for="tab in tabs" :key="tab.name+'item'">
-          <v-card-text>
-            <scoreboard :teams="tab.teams"/>
-          </v-card-text>
-        </v-tab-item>
-      </v-tabs-items>
-    </v-card>
+    <v-col>
+      <v-card class="overflow-hidden">
+        <v-tabs grow v-model="tab">
+          <v-tab v-for="tab in tabs" :key="tab.name">
+            {{ $t(`dashboard.${tab.name}`) }}
+          </v-tab>
+        </v-tabs>
+        <v-divider/>
+        <v-tabs-items v-model="tab" class="mt-4">
+          <v-tab-item v-for="tab in tabs" :key="tab.name+'item'">
+            <v-card-text>
+              <scoreboard :teams="tab.teams"/>
+            </v-card-text>
+          </v-tab-item>
+        </v-tabs-items>
+      </v-card>
+    </v-col>
   </dashboard-page>
 </template>
 
