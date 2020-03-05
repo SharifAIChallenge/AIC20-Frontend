@@ -33,12 +33,15 @@
     layout: "dashboard",
     mixins: [dashboardPageValidate("submissions")],
     transition: "fade-transition",
-    async fetch({ store }) {
-      await store.dispatch("team/getSubmissions")
+    fetch({ store }) {
+      return Promise.all([
+        store.dispatch("team/getSubmissions"),
+        store.dispatch("games/getChallenge")
+      ]);
     },
     computed: {
       ...mapState({
-        submissions: state => state.team.submissions,
+        submissions: state => state.team.submissions
       })
     }
   };
