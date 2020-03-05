@@ -91,7 +91,7 @@ export const ANSWER_INVITATION = {
 export const TOGGLE_MULTI_FRIENDLY = {
   name: "TOGGLE_MULTI_FRIENDLY",
   method: "post",
-  url: "/participation/team/multi-friendly",
+  url: "/participation/team/multi-friendly"
 };
 
 //notifications
@@ -144,9 +144,16 @@ export const VIEW_LOBBY = {
 
 // scoreboard
 export const GET_SCOREBOARD = {
-  name: "GET_SCOREBOARD",
-  method: "get",
-  url: "/scoreboard/friendly"
+  friendly: {
+    name: "GET_FRIENDLY_SCOREBOARD",
+    method: "get",
+    url: "/scoreboard/friendly"
+  },
+  seeding: {
+    name: "GET_CHALLENGE_SCOREBOARD",
+    method: "get",
+    url: "/scoreboard/challenge"
+  }
 };
 
 export const PRIMARY_CHALLENGE = {

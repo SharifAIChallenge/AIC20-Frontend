@@ -1,15 +1,25 @@
 <template>
   <dashboard-page title="dashboard.scoreboard">
-<!--    <v-col>-->
-<!--      <v-alert text type="info" class="my-0">-->
-<!--        {{ $t("dashboard.codeScoreboardMessage") }}-->
-<!--      </v-alert>-->
-<!--    </v-col>-->
-    <v-col>
-      <v-card>
-        <scoreboard :teams="teams"/>
-      </v-card>
-    </v-col>
+    <!--    <v-col>-->
+    <!--      <v-alert text type="info" class="my-0">-->
+    <!--        {{ $t("dashboard.codeScoreboardMessage") }}-->
+    <!--      </v-alert>-->
+    <!--    </v-col>-->
+    <v-card class="overflow-hidden">
+      <v-tabs grow v-model="tab">
+        <v-tab v-for="tab in tabs" :key="tab.name">
+          {{ $t(`dashboard.${tab.name}`) }}
+        </v-tab>
+      </v-tabs>
+      <v-divider/>
+      <v-tabs-items v-model="tab" class="mt-4">
+        <v-tab-item v-for="tab in tabs" :key="tab.name+'item'">
+          <v-card-text>
+            <scoreboard :teams="tab.teams"/>
+          </v-card-text>
+        </v-tab-item>
+      </v-tabs-items>
+    </v-card>
   </dashboard-page>
 </template>
 
@@ -25,12 +35,29 @@
     mixins: [dashboardPageValidate("scoreboard")],
     transition: "fade-transition",
     async fetch({ store }) {
-      await store.dispatch("scoreboard/get");
+      await store.dispatch("scoreboard/get", { tab: store.state.scoreboard.tab ? "seeding" : "friendly" });
     },
     computed: {
       ...mapState({
-        teams: state => state.scoreboard.scoreboard
-      })
+        friendlyTeams: state => state.scoreboard.friendlyScoreboard,
+        seedingTeams: state => state.scoreboard.seedingScoreboard,
+        scoreboardTab: state => state.scoreboard.tab
+      }),
+      tab: {
+        set(val) {
+          this.$store.commit("scoreboard/setTab", val);
+          this.$store.dispatch("scoreboard/get", { tab: this.tabs[val].name });
+        },
+        get() {
+          return this.scoreboardTab;
+        }
+      },
+      tabs() {
+        return [
+          { name: "friendly", teams: this.friendlyTeams },
+          { name: "seeding", teams: this.seedingTeams }
+        ];
+      }
     }
   };
 </script>
