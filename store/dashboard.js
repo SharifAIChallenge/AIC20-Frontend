@@ -45,7 +45,7 @@ export const state = () => ({
       title: "dashboard.tournaments",
       icon: "mdi-tournament",
       link: "/dashboard/tournaments",
-      disabled: true
+      disabled: false
     },
     scoreboard: {
       title: "dashboard.scoreboard",

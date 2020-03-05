@@ -152,7 +152,9 @@
     "termsAndConditions": "terms and conditions",
     "friendly": "friendly",
     "seeding": "seeding",
-    "seedingTest": "seeding test"
+    "seedingTest": "seeding test",
+    "submissionDeadline": "submission deadline",
+    "changeFinalDeadline": "finalization deadline"
   },
   "staff": {
     "technicalTeam": "technical team",

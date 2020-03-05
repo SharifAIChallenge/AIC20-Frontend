@@ -1,14 +1,61 @@
 <template>
-
+  <dashboard-page title="dashboard.tournaments">
+    <v-col>
+      <v-card class="overflow-hidden">
+        <v-data-table
+          :headers="headers"
+          :items="tournaments"
+          hide-default-footer
+          @page-count="pageCount = $event"
+          item-key="id"
+          locale="fa"
+          sort-by="submit_time"
+          sort-desc
+        >
+          <template v-slot:item.name="{ item }">
+            {{ $t(`dashboard.${item.name}`) }}
+          </template>
+          <template v-slot:item.start_time="{ item }">
+            <date-time-formatter :date="item.start_time"/>
+          </template>
+          <template v-slot:item.end_time="{ item }">
+            <date-time-formatter :date="item.end_time"/>
+          </template>
+        </v-data-table>
+      </v-card>
+    </v-col>
+  </dashboard-page>
 </template>
 
 <script>
   import dashboardPageValidate from "../../mixins/dashboardPageValidate";
+  import DashboardPage from "../../components/dashboard/DashboardPage";
+  import { PRIMARY_CHALLENGE } from "../../api";
+  import DateTimeFormatter from "../../components/DateTimeFormatter";
 
   export default {
+    components: { DateTimeFormatter, DashboardPage },
     layout: "dashboard",
     transition: "fade-transition",
-    mixins: [dashboardPageValidate("tournaments")]
+    mixins: [dashboardPageValidate("tournaments")],
+    data() {
+      return {
+        tournaments: []
+      };
+    },
+    async asyncData({ $axios }) {
+      let { challenge } = await $axios.$get(PRIMARY_CHALLENGE.url);
+      return { tournaments: challenge.tournaments };
+    },
+    computed: {
+      headers() {
+        return [
+          { text: this.$t("dashboard.tournament"), sortable: false, value: "name" },
+          { text: this.$t("dashboard.submissionDeadline"), sortable: true, value: "start_time" },
+          { text: this.$t("dashboard.changeFinalDeadline"), sortable: true, value: "end_time" }
+        ];
+      }
+    }
   };
 </script>
 

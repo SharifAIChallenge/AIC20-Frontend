@@ -152,7 +152,9 @@
     "termsAndConditions": "قوانین",
     "friendly": "دوستانه",
     "seeding": "سیدبندی",
-    "seedingTest": "سیدبندی آزمایشی"
+    "seedingTest": "سیدبندی آزمایشی",
+    "submissionDeadline": "مهلت ارسال کد",
+    "changeFinalDeadline": "مهلت تغییر ارسال نهایی"
   },
   "staff": {
     "technicalTeam": "تیم فنی",
