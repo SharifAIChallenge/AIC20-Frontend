@@ -7,11 +7,13 @@
     <!--    </v-col>-->
     <v-col>
       <v-card class="overflow-hidden">
-        <v-tabs grow v-model="tab">
-          <v-tab v-for="tab in tabs" :key="tab.name">
-            {{ $t(`dashboard.${tab.name}`) }}
-          </v-tab>
-        </v-tabs>
+        <client-only>
+          <v-tabs grow v-model="tab">
+            <v-tab v-for="tab in tabs" :key="tab.name">
+              {{ $t(`dashboard.${tab.name}`) }}
+            </v-tab>
+          </v-tabs>
+        </client-only>
         <v-divider/>
         <v-tabs-items v-model="tab" class="mt-4">
           <v-tab-item v-for="tab in tabs" :key="tab.name+'item'">

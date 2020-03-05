@@ -2,16 +2,18 @@
   <dashboard-page title="dashboard.settings" permanent>
     <v-col>
       <v-card class="overflow-hidden">
-        <v-tabs icons-and-text grow v-model="tabs">
-          <v-tab>
-            {{ $t("dashboard.editProfile") }}
-            <v-icon>mdi-account-edit</v-icon>
-          </v-tab>
-          <v-tab>
-            {{ $t("form.changePassword") }}
-            <v-icon>mdi-shield-edit</v-icon>
-          </v-tab>
-        </v-tabs>
+        <client-only>
+          <v-tabs icons-and-text grow v-model="tabs">
+            <v-tab>
+              {{ $t("dashboard.editProfile") }}
+              <v-icon>mdi-account-edit</v-icon>
+            </v-tab>
+            <v-tab>
+              {{ $t("form.changePassword") }}
+              <v-icon>mdi-shield-edit</v-icon>
+            </v-tab>
+          </v-tabs>
+        </client-only>
         <v-divider/>
         <v-tabs-items v-model="tabs" class="mt-4">
           <v-tab-item>
