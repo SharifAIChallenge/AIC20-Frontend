@@ -113,7 +113,7 @@ export const SUBMIT_LARGE_CODE = {
   name: "SUBMIT_LARGE_CODE",
   method: "post",
   payload: "data",
-  url: "http://194.5.206.64:8000/api/storage/file/"
+  url: "https://analysaur.ir/api/storage/file/"
 };
 
 export const VIEW_SUBMISSIONS = {
