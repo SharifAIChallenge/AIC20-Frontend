@@ -5,8 +5,6 @@
         <v-data-table
           :headers="headers"
           :items="tournaments"
-          hide-default-footer
-          @page-count="pageCount = $event"
           item-key="id"
           locale="fa"
           sort-by="submit_time"
