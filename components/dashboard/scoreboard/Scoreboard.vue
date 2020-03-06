@@ -95,11 +95,11 @@
       },
       percentToColor(val) {
         let colors = [
-          { r: 76, g: 175, b: 80 },
-          { r: 255, g: 235, b: 59 },
-          { r: 255, g: 87, b: 34 },
           { r: 233, g: 30, b: 99 },
-          { r: 159, g: 39, b: 176 }
+          { r: 255, g: 87, b: 34 },
+          { r: 255, g: 235, b: 59 },
+          { r: 76, g: 175, b: 80 },
+          { r: 0, g: 150, b: 136 },
         ];
         let i = Math.floor((colors.length - 1) * val);
         let color = { ...colors[colors.length - 1] };
