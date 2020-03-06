@@ -53,7 +53,7 @@
   import { requiredRules } from "../../../mixins/formValidations";
   import { primaryButtonProps } from "../../../mixins/buttonProps";
   import { fieldProps } from "../../../mixins/fieldProps";
-  import { SUBMIT_CODE } from "../../../api";
+  import { SUBMIT_CODE, SUBMIT_LARGE_CODE } from "../../../api";
   import { mapState } from "vuex";
 
   export default {
@@ -83,16 +83,23 @@
     },
     methods: {
       async uploadCode() {
+        let api = SUBMIT_LARGE_CODE;
+        const inst = this.$axios.create({
+          headers: {
+            Authorization: false
+          }
+        });
         const formData = new FormData();
+        formData.append("user_token", this.$auth.$storage.getCookie("_token.local").split(" ")[1]);
         formData.append("file", this.file);
         formData.append("language", this.language);
         const config = {
-          url: SUBMIT_CODE.url,
-          method: SUBMIT_CODE.method,
-          [SUBMIT_CODE.payload]: formData
+          url: api.url,
+          method: api.method,
+          [api.payload]: formData
         };
         this.loading = true;
-        let { data } = await this.$axios(config);
+        let { data } = await inst(config);
         this.loading = false;
         this.$store.dispatch("team/getSubmissions");
         if (data.status_code) {

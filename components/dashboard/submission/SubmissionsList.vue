@@ -31,7 +31,7 @@
         <date-time-formatter :date="item.submit_time"/>
       </template>
       <template v-slot:item.file="{ item }">
-        <v-btn icon :href="item.file">
+        <v-btn v-if="item.file || item.download_link" icon :href="item.file || item.download_link">
           <v-icon>mdi-download</v-icon>
         </v-btn>
       </template>

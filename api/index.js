@@ -109,6 +109,13 @@ export const SUBMIT_CODE = {
   url: "/challenge/submission/submit"
 };
 
+export const SUBMIT_LARGE_CODE = {
+  name: "SUBMIT_LARGE_CODE",
+  method: "post",
+  payload: "data",
+  url: "http://194.5.206.64:8000/api/storage/file/"
+};
+
 export const VIEW_SUBMISSIONS = {
   name: "VIEW_SUBMISSIONS",
   method: "get",
