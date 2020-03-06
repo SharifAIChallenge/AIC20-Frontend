@@ -1,10 +1,10 @@
 <template>
-  <v-avatar :left="left" :right="right" :size="size" :color="colors[team.name.length % colors.length]">
-    <client-only>
+  <client-only>
+    <v-avatar :left="left" :right="right" :size="size" :color="colors[team.name.length % colors.length]">
       <v-img v-if="teamImage" :src="teamImage"/>
       <span v-else class="text-uppercase font-weight-bold" :class="customClass">{{ team.name[0] }}</span>
-    </client-only>
-  </v-avatar>
+    </v-avatar>
+  </client-only>
 </template>
 
 <script>
@@ -35,7 +35,7 @@
         colors: state => state.dashboard.colors
       }),
       teamImage() {
-        return this.team.image ? this.team.image.replace("http://", "https://") : null
+        return this.team.image ? this.team.image.replace("http://", "https://") : null;
       }
     }
   };
