@@ -12,12 +12,26 @@
             <v-tab v-for="tab in tabs" :key="tab.name">
               {{ $t(`dashboard.${tab.name}`) }}
             </v-tab>
+            <v-tab>
+              {{ $t(`dashboard.groups`) }}
+            </v-tab>
           </v-tabs>
         </client-only>
         <v-divider/>
         <v-tabs-items v-model="tab" class="mt-4">
           <v-tab-item v-for="tab in tabs" :key="tab.name+'item'">
             <scoreboard :teams="tab.teams"/>
+          </v-tab-item>
+          <v-tab-item>
+            <scoreboard
+              v-for="scoreboard in groupScoreboards"
+              :teams="scoreboard.rows"
+              :key="scoreboard.group_name"
+              :title="`گروه ${scoreboard.group_name}`"
+              hide-search
+              hide-pagination
+              class="mb-12"
+            />
           </v-tab-item>
         </v-tabs-items>
       </v-card>
@@ -37,18 +51,24 @@
     mixins: [dashboardPageValidate("scoreboard")],
     transition: "fade-transition",
     async fetch({ store }) {
-      await store.dispatch("scoreboard/get", { tab: store.state.scoreboard.tab ? "seeding" : "friendly" });
+      await store.dispatch("scoreboard/get", { tab: store.state.scoreboard.tab === 1 ? "seeding" : store.state.scoreboard.tab === 0 ? "friendly" : "groups" });
+    },
+    data() {
+      return {
+        tabNames: ["friendly", "seeding", "groups"]
+      }
     },
     computed: {
       ...mapState({
         friendlyTeams: state => state.scoreboard.friendlyScoreboard,
         seedingTeams: state => state.scoreboard.seedingScoreboard,
+        groupScoreboards: state => state.scoreboard.groupScoreboards,
         scoreboardTab: state => state.scoreboard.tab
       }),
       tab: {
         set(val) {
           this.$store.commit("scoreboard/setTab", val);
-          this.$store.dispatch("scoreboard/get", { tab: this.tabs[val].name });
+          this.$store.dispatch("scoreboard/get", { tab: this.tabNames[val] });
         },
         get() {
           return this.scoreboardTab;

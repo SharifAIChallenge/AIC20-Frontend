@@ -1,7 +1,9 @@
 <template>
   <div>
     <v-card-title>
+      {{ title }}
       <v-text-field
+        v-if="!hideSearch"
         v-model="search"
         append-icon="mdi-magnify"
         :label="$t('dashboard.search')"
@@ -46,7 +48,7 @@
           </td>
         </template>
       </v-data-table>
-      <v-pagination v-model="page" :length="pageCount" :total-visible="5" circle class="my-3"/>
+      <v-pagination v-if="!hidePagination" v-model="page" :length="pageCount" :total-visible="5" circle class="my-3"/>
     </div>
   </div>
 </template>
@@ -59,7 +61,17 @@
     components: { TeamLoader, TeamAvatar },
     props: {
       teams: {
-        type: Array
+        type: Array,
+      },
+      hidePagination: {
+        type: Boolean
+      },
+      hideSearch: {
+        type: Boolean
+      },
+      title: {
+        type: String,
+        default: ""
       }
     },
     computed: {

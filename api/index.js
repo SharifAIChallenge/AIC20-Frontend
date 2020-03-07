@@ -160,6 +160,11 @@ export const GET_SCOREBOARD = {
     name: "GET_CHALLENGE_SCOREBOARD",
     method: "get",
     url: "/scoreboard/challenge"
+  },
+  groups: {
+    name: "GET_GROUPS_SCOREBOARD",
+    method: "get",
+    url: "/scoreboard/league"
   }
 };
 

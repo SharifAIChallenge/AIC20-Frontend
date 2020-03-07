@@ -154,7 +154,8 @@
     "seeding": "seeding",
     "seedingTest": "seeding test",
     "submissionDeadline": "submission deadline",
-    "changeFinalDeadline": "finalization deadline"
+    "changeFinalDeadline": "finalization deadline",
+    "groups": "qualification"
   },
   "staff": {
     "technicalTeam": "technical team",

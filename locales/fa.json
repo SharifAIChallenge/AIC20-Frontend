@@ -154,7 +154,8 @@
     "seeding": "سیدبندی",
     "seedingTest": "سیدبندی آزمایشی",
     "submissionDeadline": "مهلت ارسال کد",
-    "changeFinalDeadline": "مهلت تغییر ارسال نهایی"
+    "changeFinalDeadline": "مهلت تغییر ارسال نهایی",
+    "groups": "انتخابی"
   },
   "staff": {
     "technicalTeam": "تیم فنی",
