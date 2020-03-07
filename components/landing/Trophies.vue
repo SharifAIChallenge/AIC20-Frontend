@@ -46,22 +46,22 @@
       return {
         trophies: [
           {
-            title: "تیم قهرمان",
-            amount: "۱۰",
+            title: "تیم اول",
+            amount: "۳",
             color: "secondary",
             icon: "mdi-trophy-outline",
             unit: "میلیون تومان"
           },
           {
             title: "تیم دوم",
-            amount: "۷",
+            amount: "۲",
             color: "primary",
             icon: "mdi-trophy-variant-outline",
             unit: "میلیون تومان"
           },
           {
             title: "تیم سوم",
-            amount: "۳",
+            amount: "۱",
             color: "primary",
             icon: "mdi-trophy-variant-outline",
             unit: "میلیون تومان"
