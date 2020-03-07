@@ -23,7 +23,9 @@
             <scoreboard :teams="tab.teams"/>
           </v-tab-item>
           <v-tab-item>
+            <v-skeleton-loader v-if="!groupScoreboards.length" type="list-item@7"/>
             <scoreboard
+              v-else
               v-for="scoreboard in groupScoreboards"
               :teams="scoreboard.rows"
               :key="scoreboard.group_name"

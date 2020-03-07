@@ -28,7 +28,7 @@
           </v-col>
         </v-row>
       </v-expand-transition>
-      <v-btn type="submit" :disabled="!valid" :loading="loading.request" v-bind="primaryButtonProps">
+      <v-btn type="submit" :disabled="true" :loading="loading.request" v-bind="primaryButtonProps">
         <v-icon left>mdi-gamepad-variant</v-icon>
         {{ $t("dashboard.requestFriendlyMatch") }}
       </v-btn>
