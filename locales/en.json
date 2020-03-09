@@ -137,6 +137,7 @@
     "provideTeamName": "provide a team name.",
     "gameRun": "game run.",
     "pleaseWait": "please wait.",
+    "notSameChallenge": "invited team is not in this phase.",
     "friendlyLobby": "friendly matches lobby",
     "log": "log",
     "running": "running",
@@ -155,7 +156,9 @@
     "seedingTest": "seeding test",
     "submissionDeadline": "submission deadline",
     "changeFinalDeadline": "finalization deadline",
-    "groups": "qualification"
+    "groups": "qualification",
+    "final": "final",
+    "primary": "primary"
   },
   "staff": {
     "technicalTeam": "technical team",

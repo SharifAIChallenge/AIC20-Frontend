@@ -137,6 +137,7 @@
     "provideTeamName": "نام یک تیم را وارد کنید.",
     "gameRun": "بازی شروع شد.",
     "pleaseWait": "لطفا صبر کنید.",
+    "notSameChallenge": "تیم مورد نظر در ایم مرحله حضور ندارد.",
     "friendlyLobby": "لابی بازی دوستانه",
     "log": "لاگ",
     "running": "در حال اجرا",
@@ -155,7 +156,9 @@
     "seedingTest": "سیدبندی آزمایشی",
     "submissionDeadline": "مهلت ارسال کد",
     "changeFinalDeadline": "مهلت تغییر ارسال نهایی",
-    "groups": "انتخابی"
+    "groups": "انتخابی",
+    "final": "مرحله نهایی",
+    "primary": "مرحله مقدماتی"
   },
   "staff": {
     "technicalTeam": "تیم فنی",
