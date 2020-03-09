@@ -1,8 +1,9 @@
-import { VIEW_MATCHES, VIEW_LOBBY, PRIMARY_CHALLENGE } from "~/api";
+import { VIEW_MATCHES, VIEW_LOBBY, GET_CHALLENGE } from "~/api";
 import Vue from "vue";
 
 export const state = () => ({
   games: [],
+  gamesCount: 0,
   friendlyLobbies: [],
   challenge: {
     friendly_game_delay: 0,
@@ -13,8 +14,8 @@ export const state = () => ({
 });
 
 export const actions = {
-  async getGames({ commit, rootState, dispatch }) {
-    let data = await this.$axios.$get(VIEW_MATCHES.url);
+  async getGames({ commit, rootState, dispatch }, { count=50, offset=0 }) {
+    let data = await this.$axios.$get(VIEW_MATCHES.url, { params: { count, offset }});
     if (rootState.team.team === null) {
       await dispatch("team/getTeam", null, { root: true });
     }
@@ -25,14 +26,18 @@ export const actions = {
     let data = await this.$axios.$get(VIEW_LOBBY.url);
     commit("setFriendlyLobbies", data);
   },
-  async getChallenge({ commit }) {
-    let data = await this.$axios.$get(PRIMARY_CHALLENGE.url);
+  async getChallenge({ commit, rootState, dispatch }) {
+    if (rootState.team.team === null) {
+      await dispatch("team/getTeam", null, { root: true });
+    }
+    let challenge = rootState.team.team.challenge;
+    let data = await this.$axios.$get(GET_CHALLENGE.url + "/" + challenge);
     commit("setChallenge", data);
   }
 };
 
 export const mutations = {
-  setGames(state, { status_code, games, team }) {
+  setGames(state, { status_code, games, team, count }) {
     if (status_code === 200) {
       games.forEach(x => {
         let log = null;
@@ -47,6 +52,7 @@ export const mutations = {
         x.client_log = log;
       });
       Vue.set(state, "games", games);
+      Vue.set(state, "gamesCount", count);
     }
   },
   setChallenge(state, { status_code, challenge }) {
