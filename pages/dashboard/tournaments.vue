@@ -28,24 +28,21 @@
 <script>
   import dashboardPageValidate from "../../mixins/dashboardPageValidate";
   import DashboardPage from "../../components/dashboard/DashboardPage";
-  import { PRIMARY_CHALLENGE } from "../../api";
   import DateTimeFormatter from "../../components/DateTimeFormatter";
+  import { mapState } from "vuex";
 
   export default {
     components: { DateTimeFormatter, DashboardPage },
     layout: "dashboard",
     transition: "fade-transition",
     mixins: [dashboardPageValidate("tournaments")],
-    data() {
-      return {
-        tournaments: []
-      };
-    },
-    async asyncData({ $axios }) {
-      let { challenge } = await $axios.$get(PRIMARY_CHALLENGE.url);
-      return { tournaments: challenge.tournaments };
+    fetch({ store }) {
+      return store.dispatch("games/getChallenge");
     },
     computed: {
+      ...mapState({
+        tournaments: state => state.games.challenge.tournaments
+      }),
       headers() {
         return [
           { text: this.$t("dashboard.tournament"), sortable: false, value: "name" },
