@@ -24,7 +24,7 @@
               >
                 <v-expansion-panel-header class="title">{{ $t(`dashboard.${scoreboard.challenge_type}`) }}</v-expansion-panel-header>
                 <v-expansion-panel-content class="px-0">
-                  <scoreboard :teams="scoreboard.rows" class="mx-n6"/>
+                  <scoreboard :teams="scoreboard.rows" :items-per-page="48" class="mx-n6"/>
                 </v-expansion-panel-content>
               </v-expansion-panel>
             </v-expansion-panels>

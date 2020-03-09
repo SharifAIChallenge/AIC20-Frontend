@@ -71,6 +71,10 @@
       title: {
         type: String,
         default: ""
+      },
+      itemsPerPage: {
+        type: Number,
+        default: 40
       }
     },
     computed: {
@@ -91,7 +95,6 @@
         search: "",
         page: 1,
         pageCount: 0,
-        itemsPerPage: 40,
         expanded: []
       };
     },

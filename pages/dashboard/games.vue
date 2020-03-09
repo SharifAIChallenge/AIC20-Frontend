@@ -4,6 +4,8 @@
       <v-card>
         <v-card-title>
           {{ $t("dashboard.requestFriendlyMatch") }}
+          <v-spacer/>
+          <v-chip color="secondary">{{ $t(`dashboard.${challenge}`) }}</v-chip>
         </v-card-title>
         <v-divider/>
         <v-card-text>
@@ -63,7 +65,8 @@
     },
     computed: {
       ...mapState({
-        games: state => state.games.games
+        games: state => state.games.games,
+        challenge: state => state.games.challenge.type
       })
     }
   };
