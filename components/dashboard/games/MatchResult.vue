@@ -3,7 +3,7 @@
     <v-row justify="center" class="mx-0 px-2">
       <v-col>
         <v-row class="mx-0">
-          <v-col v-for="team in gameSides[0].game_teams" :key="team.team.name" cols="12"
+          <v-col v-for="(team, i) in gameSides[0].game_teams" :key="team.team.name+i" cols="12"
                  class="d-flex justify-start px-0">
             <v-badge
               left
@@ -29,7 +29,7 @@
       </v-col>
       <v-col>
         <v-row class="mx-0">
-          <v-col v-for="team in gameSides[1].game_teams" :key="team.team.name" cols="12"
+          <v-col v-for="(team, i) in gameSides[1].game_teams" :key="team.team.name+i" cols="12"
                  class="d-flex justify-end px-0">
             <v-badge
               bordered
