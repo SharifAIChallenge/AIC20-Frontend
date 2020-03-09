@@ -63,7 +63,7 @@
       ...mapState({
         allowMultiFriendly: state => state.team.team ? state.team.team.allow_multi_friendly : false,
         friendlyGameDelay: state => state.games.challenge.friendly_game_delay,
-        challenge: state => state.team.team.challenge
+        challenge: state => state.team.team ? state.team.team.challenge : 1
       }),
       multiTypeOptions() {
        return this.challenge === 1 ? [
