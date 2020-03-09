@@ -36,7 +36,9 @@
           </v-btn>
         </v-card-title>
         <v-divider/>
-        <games-list :games="games"/>
+        <client-only>
+          <games-list :games="games"/>
+        </client-only>
       </v-card>
     </v-col>
   </dashboard-page>
