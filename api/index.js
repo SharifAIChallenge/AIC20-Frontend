@@ -140,7 +140,8 @@ export const REQUEST_FRIENDLY_MATCH = {
 export const VIEW_MATCHES = {
   name: "VIEW_MATCHES",
   method: "get",
-  url: "/challenge/games"
+  url: "/challenge/games",
+  params: ["offset", "count"]
 };
 
 export const VIEW_LOBBY = {
@@ -168,10 +169,11 @@ export const GET_SCOREBOARD = {
   }
 };
 
-export const PRIMARY_CHALLENGE = {
+export const GET_CHALLENGE = {
   name: "PRIMARY_CHALLENGE",
   method: "get",
-  url: "/challenge/challenges/1"
+  url: "/challenge/challenges",
+  slug: "id"
 };
 
 export const GAME_STATS = {
