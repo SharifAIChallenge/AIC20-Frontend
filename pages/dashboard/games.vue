@@ -29,7 +29,7 @@
       <v-card style="overflow: hidden">
         <v-card-title>
           {{ $t("dashboard.games") }}
-          <v-btn icon class="ms-3" @click="$store.dispatch('games/getGames')">
+          <v-btn icon class="ms-3" @click="$store.dispatch('games/getGames', {})">
             <v-icon>mdi-autorenew</v-icon>
           </v-btn>
         </v-card-title>
@@ -56,7 +56,7 @@
     fetch({ store }) {
       return Promise.all(
         [
-          store.dispatch("games/getGames"),
+          store.dispatch("games/getGames", {}),
           store.dispatch("games/getFriendlyLobbies")
         ]
       );
