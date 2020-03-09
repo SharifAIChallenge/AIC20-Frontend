@@ -9,31 +9,47 @@
       <v-card class="overflow-hidden">
         <client-only>
           <v-tabs grow v-model="tab">
-            <v-tab v-for="tab in tabs" :key="tab.name">
-              {{ $t(`dashboard.${tab.name}`) }}
-            </v-tab>
-            <v-tab>
-              {{ $t(`dashboard.groups`) }}
+            <v-tab v-for="tab in tabNames" :key="tab">
+              {{ $t(`dashboard.${tab}`) }}
             </v-tab>
           </v-tabs>
         </client-only>
         <v-divider/>
         <v-tabs-items v-model="tab" class="mt-4">
-          <v-tab-item v-for="tab in tabs" :key="tab.name+'item'">
-            <scoreboard :teams="tab.teams"/>
+          <v-tab-item>
+            <v-expansion-panels accordion mandatory>
+              <v-expansion-panel
+                v-for="scoreboard in [...seedingScoreboards].reverse()"
+                :key="scoreboard.challenge_type"
+              >
+                <v-expansion-panel-header class="title">{{ $t(`dashboard.${scoreboard.challenge_type}`) }}</v-expansion-panel-header>
+                <v-expansion-panel-content class="px-0">
+                  <scoreboard :teams="scoreboard.rows" class="mx-n6"/>
+                </v-expansion-panel-content>
+              </v-expansion-panel>
+            </v-expansion-panels>
           </v-tab-item>
           <v-tab-item>
-            <v-skeleton-loader v-if="!groupScoreboards.length" type="list-item@7"/>
-            <scoreboard
-              v-else
-              v-for="scoreboard in groupScoreboards"
-              :teams="scoreboard.rows"
-              :key="scoreboard.group_name"
-              :title="`گروه ${scoreboard.group_name}`"
-              hide-search
-              hide-pagination
-              class="mb-12"
-            />
+            <scoreboard :teams="friendlyTeams"/>
+          </v-tab-item>
+          <v-tab-item>
+            <v-skeleton-loader v-if="!groupsScoreboards.length" type="list-item@7"/>
+            <v-expansion-panels v-else accordion mandatory multiple>
+              <v-expansion-panel
+                v-for="scoreboard in groupsScoreboards"
+                :key="scoreboard.group_name"
+              >
+                <v-expansion-panel-header class="title">{{ `گروه ${scoreboard.group_name}` }}</v-expansion-panel-header>
+                <v-expansion-panel-content class="px-0">
+                  <scoreboard
+                    :teams="scoreboard.rows"
+                    hide-search
+                    hide-pagination
+                    class="mx-n6 mb-6"
+                  />
+                </v-expansion-panel-content>
+              </v-expansion-panel>
+            </v-expansion-panels>
           </v-tab-item>
         </v-tabs-items>
       </v-card>
@@ -53,18 +69,18 @@
     mixins: [dashboardPageValidate("scoreboard")],
     transition: "fade-transition",
     async fetch({ store }) {
-      await store.dispatch("scoreboard/get", { tab: store.state.scoreboard.tab === 1 ? "seeding" : store.state.scoreboard.tab === 0 ? "friendly" : "groups" });
+      await store.dispatch("scoreboard/get", { tab: store.state.scoreboard.tab === 0 ? "seeding" : store.state.scoreboard.tab === 1 ? "friendly" : "groups" });
     },
     data() {
       return {
-        tabNames: ["friendly", "seeding", "groups"]
-      }
+        tabNames: ["seeding", "friendly", "groups"]
+      };
     },
     computed: {
       ...mapState({
         friendlyTeams: state => state.scoreboard.friendlyScoreboard,
-        seedingTeams: state => state.scoreboard.seedingScoreboard,
-        groupScoreboards: state => state.scoreboard.groupScoreboards,
+        seedingScoreboards: state => state.scoreboard.seedingScoreboards,
+        groupsScoreboards: state => state.scoreboard.groupsScoreboards,
         scoreboardTab: state => state.scoreboard.tab
       }),
       tab: {
@@ -75,12 +91,6 @@
         get() {
           return this.scoreboardTab;
         }
-      },
-      tabs() {
-        return [
-          { name: "friendly", teams: this.friendlyTeams },
-          { name: "seeding", teams: this.seedingTeams }
-        ];
       }
     }
   };
