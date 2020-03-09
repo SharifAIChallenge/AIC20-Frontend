@@ -12,15 +12,15 @@ function setRanks(scoreboard) {
 
 export const state = () => ({
   friendlyScoreboard: [],
-  seedingScoreboard: [],
-  groupScoreboards: [],
+  seedingScoreboards: [],
+  groupsScoreboards: [],
   tab: 0
 });
 
 export const actions = {
   async get({ commit }, { tab }) {
     let data = await this.$axios.$get(GET_SCOREBOARD[tab].url);
-    if (tab === "groups") commit("setScoreboards", data);
+    if (tab === "groups" || tab === "seeding") commit("setScoreboards", { ...data, tab });
     else commit("set", { ...data, tab });
   }
 };
@@ -34,12 +34,12 @@ export const mutations = {
       Vue.set(state, `${tab}Scoreboard`, []);
     }
   },
-  setScoreboards(state, { scoreboards, status_code }) {
+  setScoreboards(state, { scoreboards, status_code, tab }) {
     if (status_code === 200) {
       scoreboards.forEach(x => setRanks(x.rows));
-      Vue.set(state, "groupScoreboards", scoreboards);
+      Vue.set(state, `${tab}Scoreboards`, scoreboards);
     } else {
-      Vue.set(state, "groupScoreboards", []);
+      Vue.set(state, `${tab}Scoreboards`, []);
     }
   },
   setTab(state, tab) {
