@@ -78,8 +78,7 @@
       }
     },
     created() {
-      this.$store.dispatch("team/getTeam");
-      this.$store.dispatch("games/getChallenge");
+      return this.$store.dispatch("games/getChallenge");
     }
   };
 </script>
