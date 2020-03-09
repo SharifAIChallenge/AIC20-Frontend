@@ -1,9 +1,8 @@
 <template>
   <div>
-    <v-card-title>
-      {{ title }}
+    <v-card-title v-if="!hideSearch">
+      <div>{{ title }}</div>
       <v-text-field
-        v-if="!hideSearch"
         v-model="search"
         append-icon="mdi-magnify"
         :label="$t('dashboard.search')"
