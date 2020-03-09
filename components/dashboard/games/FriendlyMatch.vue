@@ -3,7 +3,7 @@
     <v-alert text icon="mdi-information" class="mb-6" transition="scale-transition" :value="!!friendlyGameDelay">
       {{ $tc("dashboard.friendlyMatchMessage", friendlyGameDelay) }}
     </v-alert>
-    <v-switch color="info" :value="allowMultiFriendly" inset :loading="loading.toggle" readonly @click.native="toggleFriendly"
+    <v-switch color="info" v-model="allowMultiFriendly" inset :loading="loading.toggle" readonly @click.native="toggleFriendly"
               :label="$t('dashboard.acceptFriendlyMatches')"/>
     <v-form ref="friendlyMatch" v-model="valid" @submit="requestFriendlyMatch" onSubmit="return false;">
       <v-expand-transition>
@@ -28,7 +28,7 @@
           </v-col>
         </v-row>
       </v-expand-transition>
-      <v-btn type="submit" :disabled="true" :loading="loading.request" v-bind="primaryButtonProps">
+      <v-btn type="submit" :disabled="!valid" :loading="loading.request" v-bind="primaryButtonProps">
         <v-icon left>mdi-gamepad-variant</v-icon>
         {{ $t("dashboard.requestFriendlyMatch") }}
       </v-btn>
@@ -50,11 +50,7 @@
       return {
         valid: false,
         teamName: "",
-        multiType: "friend",
-        multiTypeOptions: [
-          { text: "دوست", value: "friend" },
-          { text: "رقیب", value: "enemy" }
-        ],
+        multiType: "enemy",
         lobbies: [],
         loading: {
           request: false,
@@ -66,8 +62,17 @@
     computed: {
       ...mapState({
         allowMultiFriendly: state => state.team.team ? state.team.team.allow_multi_friendly : false,
-        friendlyGameDelay: state => state.games.challenge.friendly_game_delay
-      })
+        friendlyGameDelay: state => state.games.challenge.friendly_game_delay,
+        challenge: state => state.team.team.challenge
+      }),
+      multiTypeOptions() {
+       return this.challenge === 1 ? [
+          { text: "دوست", value: "friend" },
+          { text: "رقیب", value: "enemy" }
+        ] : [
+          { text: "رقیب", value: "enemy" }
+       ]
+      }
     },
     methods: {
       async requestFriendlyMatch() {
@@ -90,7 +95,7 @@
         else if (data.errors && data.errors.length) this.$toast.error(this.$t(`dashboard.${data.errors[0]}`));
         else if (data.status_code === 404) this.$toast.error(this.$t(`dashboard.teamNotFound`));
         this.$store.dispatch("games/getFriendlyLobbies");
-        this.$store.dispatch("games/getGames");
+        this.$store.dispatch("games/getGames", {});
       },
       async toggleFriendly() {
         this.loading.toggle = true;
