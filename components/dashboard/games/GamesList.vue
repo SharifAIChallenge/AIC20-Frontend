@@ -39,11 +39,17 @@
         {{ $t(`dashboard.${item.tournament}`) }}
       </template>
       <template v-slot:item.log="{ item }">
-        <v-btn v-if="item.log !== null" rounded small text block color="info" class="my-1" :href="item.log" target="_blank">
+        <v-btn
+          v-if="item.log !== null"
+          rounded small text block color="info"
+          class="my-1" :href="item.log.replace('http://172.17.0.1:8000/media/', 'https://aichallenge.sharif.edu/media/')" target="_blank">
           <v-icon left small>mdi-download</v-icon>
           {{ $t("dashboard.graphic") }}
         </v-btn>
-        <v-btn v-if="item.client_log !== null" rounded small text block color="amber" class="my-1" :href="item.client_log">
+        <v-btn
+          v-if="item.client_log !== null"
+          rounded small text block color="amber"
+          class="my-1" :href="item.client_log.replace('http://172.17.0.1:8000/media/', 'https://aichallenge.sharif.edu/media/')">
           <v-icon left small>mdi-download</v-icon>
           {{ $t("dashboard.client") }}
         </v-btn>

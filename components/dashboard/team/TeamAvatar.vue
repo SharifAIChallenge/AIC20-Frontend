@@ -35,7 +35,10 @@
         colors: state => state.dashboard.colors
       }),
       teamImage() {
-        return this.team.image ? this.team.image.replace("http://", "https://") : null;
+        return this.team.image ?
+          this.team.image
+            .replace("http://", "https://")
+            .replace("http://172.17.0.1:8000/media/", "http://aichallenge.sharif.edu/media/") : null;
       }
     }
   };
