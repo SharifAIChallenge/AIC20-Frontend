@@ -14,8 +14,8 @@ export const state = () => ({
 });
 
 export const actions = {
-  async getGames({ commit, rootState, dispatch }, { count=50, offset=0 }) {
-    let data = await this.$axios.$get(VIEW_MATCHES.url, { params: { count, offset }});
+  async getGames({ commit, rootState, dispatch }, { count = 50, offset = 0 }) {
+    let data = await this.$axios.$get(VIEW_MATCHES.url, { params: { count, offset } });
     if (rootState.team.team === null) {
       await dispatch("team/getTeam", null, { root: true });
     }
@@ -40,16 +40,14 @@ export const mutations = {
   setGames(state, { status_code, games, team, count }) {
     if (status_code === 200) {
       games.forEach(x => {
-        let log = null;
+        let log = [];
         let ss = [0, 0, 1, 1];
         let ts = [0, 1, 0, 1];
-        ss.forEach(i => {
-          ts.forEach(j => {
-            let side = x.game_sides[i].game_teams[j];
-            if (side && side.team.name === team) log = side.log;
-          });
-        });
-        x.client_log = log;
+        for (let i = 0; i < 4; i++) {
+          let side = x.game_sides[ss[i]].game_teams[ts[i]];
+          if (side && side.team.name === team) log.push(side.log);
+        }
+        x.client_log = [...log];
       });
       Vue.set(state, "games", games);
       Vue.set(state, "gamesCount", count);

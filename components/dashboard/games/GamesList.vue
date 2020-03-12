@@ -47,9 +47,11 @@
           {{ $t("dashboard.graphic") }}
         </v-btn>
         <v-btn
-          v-if="item.client_log !== null"
+          v-if="item.client_log && item.client_log.length"
+          v-for="log in item.client_log"
+          :key="log"
           rounded small text block color="amber"
-          class="my-1" :href="item.client_log.replace('http://172.17.0.1:8000/media/', 'https://aichallenge.sharif.edu/media/')">
+          class="my-1" :href="log.replace('http://172.17.0.1:8000/media/', 'https://aichallenge.sharif.edu/media/')">
           <v-icon left small>mdi-download</v-icon>
           {{ $t("dashboard.client") }}
         </v-btn>
