@@ -57,7 +57,7 @@
           </v-tab-item>
           <v-tab-item>
             <div>
-              <iframe src="https://challonge.com/aic_2020_final/module" width="100%" height="500" frameborder="0"
+              <iframe src="https://challonge.com/aic_2020_final/module" width="100%" height="2000" frameborder="0"
                       scrolling="auto" allowtransparency="true"
                       class="final_bracket"
               ></iframe>
