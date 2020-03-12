@@ -13,20 +13,20 @@
       locale="fa"
       :mobile-breakpoint="1100"
     >
-<!--      <template v-slot:expanded-item="{ headers, item }">-->
-<!--        <td :colspan="headers.length" class="px-0">-->
-<!--          <v-list>-->
-<!--            <match-result/>-->
-<!--            <match-result/>-->
-<!--          </v-list>-->
-<!--        </td>-->
-<!--      </template>-->
-<!--      <template v-slot:group.header="{ group, groupBy }">-->
-<!--        <div>{{ group }} {{ groupBy }}</div>-->
-<!--      </template>-->
+      <!--      <template v-slot:expanded-item="{ headers, item }">-->
+      <!--        <td :colspan="headers.length" class="px-0">-->
+      <!--          <v-list>-->
+      <!--            <match-result/>-->
+      <!--            <match-result/>-->
+      <!--          </v-list>-->
+      <!--        </td>-->
+      <!--      </template>-->
+      <!--      <template v-slot:group.header="{ group, groupBy }">-->
+      <!--        <div>{{ group }} {{ groupBy }}</div>-->
+      <!--      </template>-->
       <template v-slot:item.teams="{ item }">
         <div>
-          <match-result :game-sides="item.game_sides" />
+          <match-result :game-sides="item.game_sides"/>
         </div>
       </template>
       <template v-slot:item.time="{ item }">
@@ -42,19 +42,25 @@
         <v-btn
           v-if="item.log !== null"
           rounded small text block color="info"
-          class="my-1" :href="item.log.replace('http://172.17.0.1:8000/media/', 'https://aichallenge.sharif.edu/media/')" target="_blank">
+          class="my-1"
+          :href="item.log.replace('http://172.17.0.1:8000/media/', 'https://aichallenge.sharif.edu/media/')"
+          target="_blank">
           <v-icon left small>mdi-download</v-icon>
           {{ $t("dashboard.graphic") }}
         </v-btn>
-        <v-btn
+        <template
           v-if="item.client_log && item.client_log.length"
           v-for="log in item.client_log"
-          :key="log"
-          rounded small text block color="amber"
-          class="my-1" :href="log.replace('http://172.17.0.1:8000/media/', 'https://aichallenge.sharif.edu/media/')">
-          <v-icon left small>mdi-download</v-icon>
-          {{ $t("dashboard.client") }}
-        </v-btn>
+        >
+          <v-btn
+            v-if="log"
+            :key="log"
+            rounded small text block color="amber"
+            class="my-1" :href="log.replace('http://172.17.0.1:8000/media/', 'https://aichallenge.sharif.edu/media/')">
+            <v-icon left small>mdi-download</v-icon>
+            {{ $t("dashboard.client") }}
+          </v-btn>
+        </template>
       </template>
     </v-data-table>
     <v-pagination v-model="page" :length="pageCount" :total-visible="5" circle class="my-3"/>
@@ -81,7 +87,7 @@
           { text: this.$t("dashboard.time"), sortable: true, value: "time", align: "right" },
           { text: this.$t("dashboard.teams"), sortable: false, value: "teams", align: "center" },
           { text: this.$t("dashboard.status"), sortable: false, value: "status", align: "center" },
-          { text: this.$t("dashboard.log"), sortable: false, value: "log", align: "center", width: 70 },
+          { text: this.$t("dashboard.log"), sortable: false, value: "log", align: "center", width: 70 }
         ];
       }
     },
