@@ -12,6 +12,9 @@
             <v-tab v-for="tab in tabNames" :key="tab">
               {{ $t(`dashboard.${tab}`) }}
             </v-tab>
+            <v-tab>
+              {{ $t(`dashboard.final`) }}
+            </v-tab>
           </v-tabs>
         </client-only>
         <v-divider/>
@@ -22,7 +25,8 @@
                 v-for="scoreboard in [...seedingScoreboards].reverse()"
                 :key="scoreboard.challenge_type"
               >
-                <v-expansion-panel-header class="title">{{ $t(`dashboard.${scoreboard.challenge_type}`) }}</v-expansion-panel-header>
+                <v-expansion-panel-header class="title">{{ $t(`dashboard.${scoreboard.challenge_type}`) }}
+                </v-expansion-panel-header>
                 <v-expansion-panel-content class="px-0">
                   <scoreboard :teams="scoreboard.rows" :items-per-page="48" class="mx-n6"/>
                 </v-expansion-panel-content>
@@ -51,6 +55,14 @@
               </v-expansion-panel>
             </v-expansion-panels>
           </v-tab-item>
+          <v-tab-item>
+            <div>
+              <iframe src="https://challonge.com/aic_2020_final/module" width="100%" height="500" frameborder="0"
+                      scrolling="auto" allowtransparency="true"
+                      class="final_bracket"
+              ></iframe>
+            </div>
+          </v-tab-item>
         </v-tabs-items>
       </v-card>
     </v-col>
@@ -69,6 +81,7 @@
     mixins: [dashboardPageValidate("scoreboard")],
     transition: "fade-transition",
     async fetch({ store }) {
+      if (store.state.scoreboard.tab === 3) return;
       await store.dispatch("scoreboard/get", { tab: store.state.scoreboard.tab === 0 ? "seeding" : store.state.scoreboard.tab === 1 ? "friendly" : "groups" });
     },
     data() {
