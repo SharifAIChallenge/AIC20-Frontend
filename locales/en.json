@@ -159,7 +159,8 @@
     "changeFinalDeadline": "finalization deadline",
     "groups": "qualification",
     "final": "final",
-    "primary": "primary"
+    "primary": "primary",
+    "closing": "closing"
   },
   "staff": {
     "technicalTeam": "technical team",
