@@ -1,7 +1,7 @@
 <template>
   <v-container class="pb-12">
-    <v-divider class="mb-12"/>
-    <v-row>
+<!--    <v-divider class="mb-12"/>-->
+    <v-row class="mt-12">
       <v-col>
         <div class="d-flex flex-column align-center">
           <div>

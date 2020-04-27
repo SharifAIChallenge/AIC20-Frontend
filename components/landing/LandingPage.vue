@@ -1,7 +1,7 @@
 <template>
   <div>
     <poster/>
-    <countdown/>
+<!--    <countdown/>-->
     <stats :teams="teams" :registers="registers" :games="games" :submissions="submissions"/>
     <div class="bg-dotted">
       <about :text="intro"/>
