@@ -57,8 +57,8 @@ export default {
    */
   axios: {
     browserBaseURL: "https://aichallenge.sharif.edu/api",
-    // baseURL: "https://aichallenge.sharif.edu/api",
-    baseURL: "http://172.17.0.1:8000/api"
+    baseURL: "https://aichallenge.sharif.edu/api",
+    // baseURL: "http://172.17.0.1:8000/api"
   },
   /*
    ** vuetify module configuration
