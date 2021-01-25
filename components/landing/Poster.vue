@@ -23,7 +23,7 @@
           </div>
           <div
             class="display-2 display-xs-4 font-family-chopsic text-stroke-width-2 text-stroke-primary transparent--text">
-            2020
+            2021
           </div>
         </v-col>
       </glow>
